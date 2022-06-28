@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <!--
 /**
@@ -14,3 +15,21 @@
         </arguments>
     </type>
 </config>
+=======
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\SomeModule\Some\Class">
+        <arguments>
+            <argument name="argument1" xsi:type="object">someVirtualType1</argument>
+            <argument name="argument2" xsi:type="object">someVirtualType2</argument>
+            <argument name="argument3" xsi:type="object">someNotExistsType</argument>
+        </arguments>
+    </type>
+</config>
+>>>>>>> c37c31213a83d1dcdc315837cb6875c1b4f2e093
