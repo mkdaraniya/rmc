@@ -222,4 +222,3 @@ class AttributesSearch extends Template
     }
 
 }
-?>
