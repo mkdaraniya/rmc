@@ -7,7 +7,6 @@
  */
 
 use Magento\Framework\App\Bootstrap;
-
 try {
     require __DIR__ . '/../app/bootstrap.php';
 } catch (\Exception $e) {
@@ -20,6 +19,7 @@ try {
     <p>{$e->getMessage()}</p>
 </div>
 HTML;
+    http_response_code(500);
     exit(1);
 }
 
