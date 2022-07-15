@@ -23,9 +23,21 @@ $customerData = $callPriceHelper->getCurrentCustomerData();
             <div class="product-item-actions">
                 <div class="actions-primary">
                     <?php if ($callforPrice == 0 || $callPriceHelper->isEnable() == 0): ?>
-                        <button type="button" data-role="tocart" data-post='<?= /* @noEscape */ $block->getItemAddToCartParams($item) ?>' title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" data-item-id="<?= $block->escapeHtmlAttr($item->getId()) ?>" class="action tocart primary">
+                        <!--<button type="button" data-role="tocart" data-post='<?= /* @noEscape */ $block->getItemAddToCartParams($item) ?>' title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" data-item-id="<?= $block->escapeHtmlAttr($item->getId()) ?>" class="action tocart primary">
                             <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
-                        </button>
+                        </button>-->
+						<?php if ($_product->isSaleable()): ?>
+                                        <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                        <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+                                            <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                                            <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                            <?php echo $block->getBlockHtml('formkey')?>
+                                            <button type="submit"
+                                                    title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                    class="action tocart primary">
+                                                <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+                                            </button>
+                                        </form>
                     <?php else: ?>
                     <?php
                     $buttonTitle = $callPriceHelper->getButtonTitle();
