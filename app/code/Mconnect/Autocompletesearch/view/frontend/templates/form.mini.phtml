@@ -1,0 +1,83 @@
+<?php
+
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper('Magento\Search\Helper\Data');
+
+?>
+<style>
+
+.search-loadin-image {
+    background: rgba(0, 0, 0, 0) url("<?php echo $block->getViewFileUrl('Mconnect_Autocompletesearch/images/ajax-loader-search.gif') ?>") no-repeat scroll 0 0 / 100% auto !important;	
+    height:22px !important;
+    margin-top: 5px !important;    
+    width:20px;
+}
+
+</style>
+
+<div class="block block-search">
+    <div class="block block-title"><strong><?php /* @escapeNotVerified */ echo __('Search'); ?></strong></div>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>" method="get">
+            <div class="field search">
+                <label class="label" for="search" data-role="minisearch-label">
+                    <span><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+                </label>
+                <div class="control">
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?php /* @escapeNotVerified */ echo $block->getUrl('search/ajax/suggest'); ?>",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="<?php /* @escapeNotVerified */ echo $helper->getQueryParamName() ?>"
+                           value="<?php /* @escapeNotVerified */ echo $helper->getEscapedQueryText() ?>"
+                           placeholder="<?php /* @escapeNotVerified */ echo __('Search entire store here...'); ?>"
+                           class="input-text"
+                           maxlength="<?php /* @escapeNotVerified */ echo $helper->getMaxQueryLength();?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                  <!--  <div id="search_autocomplete" class="search-autocomplete"></div>-->
+                    <?php echo $block->getChildHtml() ?>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="<?php echo $block->escapeHtml(__('Search')) ?>"
+                        class="action search">
+                    <span><?php /* @escapeNotVerified */ echo __('Search'); ?></span>
+                </button>
+            </div>
+        </form>
+		<div id="custom_search_autocomplete" class="custom-search-autocomplete"></div>
+    </div>
+</div>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$Ablock = $objectManager->create('Mconnect\Autocompletesearch\Block\Autocomplete');
+?>
+<script>
+require(['jquery','autocompletesearch'],function($){
+	
+	
+ jQuery(document).ready(function(){
+	 
+	 /*-------------------------*/
+	 
+	   MCS.AutoCompleteSearch.ajaxurl = '<?php echo $Ablock->getSearchUrl()?>';
+	   MCS.AutoCompleteSearch.chLen ='<?php echo $Ablock->getProductMinLatterNumber()?>';
+	   MCS.AutoCompleteSearch.getViewAllLinkStatus='<?php echo $Ablock->getViewAllLinkStatus()?>';
+	   MCS.AutoCompleteSearch.getViewAllLinkText='<?php echo $Ablock->getViewAllLinkText()?>';
+	   MCS.AutoCompleteSearch.getCountSearchResults='<?php echo $Ablock->getCountSearchResults()?>';	   
+       MCS.AutoCompleteSearch.init();         
+               
+	 
+	 /*---------------------------*/
+  	
+ });
+});	
+</script>

@@ -28017,5 +28017,9 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
+<<<<<<< HEAD
     "plugin-api-version": "2.3.0"
+=======
+    "plugin-api-version": "2.1.0"
+>>>>>>> 3c61a2dc02984bda649a5009c2abe35bae85d21b
 }
