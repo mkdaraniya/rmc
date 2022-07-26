@@ -222,4 +222,7 @@ class AttributesSearch extends Template
     }
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1b7987f205dde34445d62602ac09e27e4ee36575

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42594bedb0ff53ffef51356deb94e11d",
+    "content-hash": "bdf9b61be2154c53e72eacff66203daf",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17578,6 +17578,93 @@
                 "source": "https://github.com/magento/zf1/tree/1.14.5"
             },
             "time": "2020-12-02T21:12:59+00:00"
+        },
+        {
+            "name": "mageplaza/module-core",
+            "version": "1.4.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/module-core.git",
+                "reference": "85d1074fdee1259d438618c977ba6e21b76c4f39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/85d1074fdee1259d438618c977ba6e21b76c4f39",
+                "reference": "85d1074fdee1259d438618c977ba6e21b76c4f39",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Mageplaza Core for Magento 2",
+            "support": {
+                "issues": "https://github.com/mageplaza/module-core/issues",
+                "source": "https://github.com/mageplaza/module-core/tree/v1.4.12"
+            },
+            "time": "2022-05-30T03:41:05+00:00"
+        },
+        {
+            "name": "mageplaza/module-gdpr",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-gdpr.git",
+                "reference": "d23c066d2a5ee248705ef0e6d263c2093d2e86f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-gdpr/zipball/d23c066d2a5ee248705ef0e6d263c2093d2e86f6",
+                "reference": "d23c066d2a5ee248705ef0e6d263c2093d2e86f6",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.5"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Gdpr\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 GDPR Extensions",
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-gdpr/issues",
+                "source": "https://github.com/mageplaza/magento-2-gdpr/tree/v4.2.0"
+            },
+            "time": "2022-04-07T03:44:08+00:00"
         },
         {
             "name": "monolog/monolog",
