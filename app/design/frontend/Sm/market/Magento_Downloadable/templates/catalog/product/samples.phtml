@@ -1,0 +1,41 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Downloadable product links
+ *
+ * @var $block \Magento\Downloadable\Block\Catalog\Product\Samples
+ */
+?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Block\Account\AuthorizationLink');
+if ($customerSession->isLoggedIn() == true) {
+//echo "Customer Login Successfully !...";
+
+}
+else
+{
+	echo "Login Field !...".$block->getSampleUrl($_sample);
+}	
+?>
+
+<?php if ($block->hasSamples()) : ?>
+    <dl class="items samples">
+        <dt class="item-title samples-item-title"><?= $block->escapeHtml($block->getSamplesTitle()) ?></dt>
+        <?php $_samples = $block->getSamples() ?>
+        <?php foreach ($_samples as $_sample) : ?>
+            <dd class="item samples-item">
+                <a href="<?= $block->escapeHtml($block->getSampleUrl($_sample)) ?>" <?= $block->getIsOpenInNewWindow() ? 'onclick="this.target=\'_blank\'"' : '' ?>
+                   class="item-link samples-item-link">
+                    <?= $block->escapeHtml($_sample->getTitle()) ?>
+                </a>
+            </dd>
+        <?php endforeach; ?>
+    </dl>
+<?php endif; ?>
+
+
