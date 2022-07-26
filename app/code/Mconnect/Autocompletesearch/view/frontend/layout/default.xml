@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	
+	<head>
+        <title>Autocompletesearch</title>		
+		<css src="Mconnect_Autocompletesearch::css/autocompletesearch.css"/>
+		
+    </head>
+
+    <body>		
+		<referenceContainer name="header-wrapper">			
+			<referenceBlock name="top.search" > 			
+				<action method='setTemplate' ifconfig="mconnect_autocompletesearch/general/active">
+					<argument name="template" xsi:type="string">Mconnect_Autocompletesearch::form.mini.phtml</argument>
+				</action>			
+		  </referenceBlock>
+        </referenceContainer>        
+    </body>    
+</page>

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+       <tab id="mconnect" translate="label" sortOrder="300">
+            <label>M-Connect Media</label>
+        </tab>
+		<section id="mconnect_autocompletesearch" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+		
+			<label>Auto Complete Search</label>
+            <tab>mconnect</tab>            
+            <resource>Mconnect_Autocompletesearch::config_autocompletesearch</resource>
+			
+			<group id="active" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Licence Key Activation</label>
+				<field id="licence_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Licence Key</label>					
+				</field>
+				<field id="serial_key" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Serial Key</label>					
+				</field>
+			</group>
+			
+			<group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+			 
+				<label>General Setting (Auto Complete Search)</label>			
+				
+				<field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>                
+				</field>
+				
+				
+				<field id="product_result_number" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Number of Searched Product</label>
+					 <comment>This input will be visible Number of Product</comment>               
+				</field>
+				
+				<field id="min_latter_number" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Minimum Characters Needed For Search</label>
+					 <comment>Magento default and minimum limit is 3</comment>               
+				</field>
+				
+				<field id="view_all_link" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Enable View all Link</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>                
+				</field>
+				
+				<field id="view_all_link_text" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>View all Link Text</label>
+					<depends>
+						<field id="view_all_link">1</field>
+					</depends>					               
+				</field>
+				
+				
+				<field id="count_search_results" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Display Search Results Count</label>
+					<depends>
+						<field id="view_all_link">1</field>
+					</depends>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>                
+				</field>
+				
+				
+				<field id="product_result_fields" translate="label" type="multiselect" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Product Data</label>
+                    <source_model>Mconnect\Autocompletesearch\Model\Source\ProductFields</source_model>
+                </field>
+				
+				
+				<field id="pages_search" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Avoid Pages in search results</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>                
+				</field>
+				
+				<field id="pages_unique_identifier" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Pages Unique Identifier</label>
+					<comment>Use page url with comma separated, e.g. : no-route,enable-cookies,about-us</comment>  
+					<depends>
+						<field id="pages_search">1</field>
+					</depends>					               
+				</field>
+								
+				<field id="category_search" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Category Search Enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>                
+				</field>
+				
+				<field id="with_parent_category" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">			
+					<label>Enable With Parent Category</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model> 
+					<depends>
+						<field id="category_search">1</field>
+					</depends>
+				</field>
+				
+			</group>		
+		</section>		
+    </system>
+</config>
