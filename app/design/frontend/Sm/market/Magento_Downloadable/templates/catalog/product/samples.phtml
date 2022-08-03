@@ -19,23 +19,33 @@ if ($customerSession->isLoggedIn() == true) {
 }
 else
 {
-	echo "Login Field !...".$block->getSampleUrl($_sample);
+	//echo "Login Field !...".$block->getSampleUrl($_sample);
+	//echo "Login Field";
 }	
 ?>
 
 <?php if ($block->hasSamples()) : ?>
     <dl class="items samples">
         <dt class="item-title samples-item-title"><?= $block->escapeHtml($block->getSamplesTitle()) ?></dt>
-        <?php $_samples = $block->getSamples() ?>
+        <?php $_samples = $block->getSamples() ?> 
         <?php foreach ($_samples as $_sample) : ?>
             <dd class="item samples-item">
-                <a href="<?= $block->escapeHtml($block->getSampleUrl($_sample)) ?>" <?= $block->getIsOpenInNewWindow() ? 'onclick="this.target=\'_blank\'"' : '' ?>
+			<?php 
+			if($customerSession->isLoggedIn() == true) {
+			?>
+				<a href="<?= ($customerSession->isLoggedIn() == true) ? $block->escapeHtml($block->getSampleUrl($_sample)) : "" ?>" <?= $block->getIsOpenInNewWindow() ? 'onclick="this.target=\'_blank\'"' : '' ?>
                    class="item-link samples-item-link">
                     <?= $block->escapeHtml($_sample->getTitle()) ?>
                 </a>
+			<?php 
+			} else {
+			echo "Downlod now";
+			?>
+			<?php 
+			}
+			?>
+                
             </dd>
         <?php endforeach; ?>
     </dl>
 <?php endif; ?>
-
-
