@@ -42,7 +42,7 @@ class Submit extends \Magento\Framework\App\Action\Action
             try {
                 $model->save();
                 /* email code for admin */
-                $customerName = $post['customer_name'];
+                /*$customerName = $post['customer_name'];
                 $customerEmail = $post['customer_email'];
                 $customerTelephone = $post['customer_telephone'];
                 $requestDetail = $post['request_detail'];
@@ -55,13 +55,16 @@ class Submit extends \Magento\Framework\App\Action\Action
                     'request_detail' => $requestDetail,
                     'product_name' => $productName
                 ];
-                $this->sendAdminEmail($postObject, $dataAdmin, $admin);                
+                $this->sendAdminEmail($postObject, $dataAdmin, $admin);  
+                */              
                 /* email code for admin end */
                 /* email code for customer */
+                /*
                 $dataCustomer = [
                     'customer_name' => $customerName
                 ];
                 $this->sendCustomerEmail($postObject, $dataCustomer, $customerEmail);
+                */
                 /* email code for customer */
                 $resultarray['status'] = "success";
                 $resultarray['message'] = "Your request has been received we will contact you.";
