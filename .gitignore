@@ -60,6 +60,7 @@ atlassian*
 /pub/media/captcha/*
 /pub/media/sitemap/*
 !/pub/media/sitemap/.htaccess
+/pub/media/sebwite/*
 /pub/static/*
 !/pub/static/.htaccess
 
