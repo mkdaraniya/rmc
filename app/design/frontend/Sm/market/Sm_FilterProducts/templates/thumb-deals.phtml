@@ -29,7 +29,7 @@ $_config            = $this->helper('Sm\Themecore\Helper\Data');
     $showDescription = false;
     $templateType    = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
     $showWishlist    = true;
-    $showCompare     = true;
+    $showCompare     = false;
     $showCart        = true;
     /**
      * Position for actions regarding image size changing in vde if needed
@@ -170,15 +170,6 @@ if ($block->getPositioned()) {
                                     </a>
                                 <?php endif; ?>
 
-                                <?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare'); ?>
-                                <a href="#" class="action tocompare"
-                                   title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-                                   aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-                                   data-post='<?php /* @escapeNotVerified */
-                                   echo $compareHelper->getPostDataParams($_product); ?>' role="button">
-										<span><?php /* @escapeNotVerified */
-                                            echo __('Add to Compare') ?></span>
-                                </a>
                             </div>
 
                             <?php
