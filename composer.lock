@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5c83a4a8fe5f800c599d34f4aebe0f0",
+    "content-hash": "bdf9b61be2154c53e72eacff66203daf",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19286,44 +19286,6 @@
                 }
             ],
             "time": "2022-02-11T10:27:51+00:00"
-        },
-        {
-            "name": "sebwite/magento2-product-downloads",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Sebwite/Magento2-Product-Downloads.git",
-                "reference": "7b8932ea21bff47a026c42249d6c0b24d01448fa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Sebwite/Magento2-Product-Downloads/zipball/7b8932ea21bff47a026c42249d6c0b24d01448fa",
-                "reference": "7b8932ea21bff47a026c42249d6c0b24d01448fa",
-                "shasum": ""
-            },
-            "require": {
-                "magento/magento-composer-installer": "*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Sebwite\\ProductDownloads\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "Magento 2.0 product download module",
-            "support": {
-                "issues": "https://github.com/Sebwite/Magento2-Product-Downloads/issues",
-                "source": "https://github.com/Sebwite/Magento2-Product-Downloads/tree/1.1.1"
-            },
-            "time": "2021-07-06T19:41:57+00:00"
         },
         {
             "name": "seld/jsonlint",
