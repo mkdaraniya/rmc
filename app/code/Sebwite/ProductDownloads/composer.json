@@ -1,0 +1,20 @@
+{
+  "name": "sebwite/magento2-product-downloads",
+  "description": "Magento 2.0 product download module",
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "require": {
+    "magento/magento-composer-installer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sebwite\\ProductDownloads\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}
