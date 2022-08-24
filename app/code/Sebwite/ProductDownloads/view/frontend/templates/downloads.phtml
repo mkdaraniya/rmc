@@ -1,14 +1,27 @@
 <?php /** @var \Sebwite\ProductDownloads\Block\Product\Downloads $block */ ?>
 <?php $downloads = $block->getDownloads(); ?>
+<h1> test-data </h1>
+
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+if($customerSession->isLoggedIn()) {
+?>
 <?php if( count($downloads) > 0 ) : ?>
     <div class="product-downloads s-wysiwyg">
         <ul>
             <?php foreach($downloads as $download) : ?>
                 <li>
-                    <a href="<?php echo $block->getDownloadUrl($download); ?>" target="_blank"><?php echo $download['download_file']; ?></a>
+                    <a href="<?php echo $block->getDownloadUrl($download); ?>" target="_blank">
+                        <?php //echo $download['download_file']; ?>
+                        <?php echo __('Download Document'); ?>
+                    </a>
                 </li>
             <?php endforeach; ?>
         </ul>
     </div>
     <!-- .product-downloads -->
-<?php endif; ?>
+<?php endif; 
+}
+?>
+
