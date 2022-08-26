@@ -20,6 +20,7 @@ class DisabledPgByCustomergroup implements ObserverInterface
         $method_instance = $observer->getEvent()->getMethodInstance();
         $quote           = $observer->getEvent()->getQuote();
         $this->_logger->info($method_instance->getCode());
+
         /* If Cusomer  group is match then work */
         if (null !== $quote && $quote->getCustomerGroupId() != 1) {
             /* Disable All payment gateway  exclude Your payment Gateway*/
