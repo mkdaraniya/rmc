@@ -1,0 +1,57 @@
+.firecheckout {
+    .tippy-box {
+        max-width: @fc-tooltip__max-width !important;
+        box-shadow: @fc-tooltip__box-shadow;
+
+        .tippy-content {
+            font-size: 13px;
+        }
+
+        &[data-theme=error] {
+            background-color: @fc-tooltip__error__background;
+        }
+        &[data-theme=warning] {
+            background-color: @fc-tooltip__warning__background;
+        }
+        &[data-theme=content] {
+            text-align: initial;
+            color: #333;
+            background-color: @fc-tooltip__content__background;
+        }
+    }
+
+    .tippy-box[data-placement^=top] {
+        &[data-theme=error] {
+            .tippy-arrow {
+                color: @fc-tooltip__error__background;
+            }
+        }
+        &[data-theme=warning] {
+            .tippy-arrow {
+                color: @fc-tooltip__warning__background;
+            }
+        }
+        &[data-theme=content] {
+            .tippy-arrow {
+                color: @fc-tooltip__content__background;
+            }
+        }
+    }
+    .tippy-box[data-placement^=bottom] {
+        &[data-theme=error] {
+            .tippy-arrow {
+                color: @fc-tooltip__error__background;
+            }
+        }
+        &[data-theme=warning] {
+            .tippy-arrow {
+                color: @fc-tooltip__warning__background;
+            }
+        }
+        &[data-theme=content] {
+            .tippy-arrow {
+                color: @fc-tooltip__content__background;
+            }
+        }
+    }
+}

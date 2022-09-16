@@ -1,0 +1,86 @@
+@import 'checkout-success/_container.less';
+@import 'checkout-success/_block.less';
+
+/* Reset some inherited styles - START */
+.account {
+    &.checkout-onepage-success .page-main {
+        padding-top: 0;
+    }
+
+    .column.main .checkout-success .block .block-title {
+        border-width: 0;
+        margin-bottom: 10px;
+    }
+}
+/* Reset some inherited styles - END */
+
+.order-date, .delivery-date {
+    margin: 20px 0;
+}
+
+.thank-you-note .check-mark {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto 40px;
+    display: block;
+
+    .circle,
+    .check {
+        stroke: #34a46c;
+        stroke-width: 4px;
+    }
+}
+
+.create-account #registration > {
+    br {
+        display: none;
+    }
+
+    .messages {
+        margin: 0;
+    }
+}
+
+.checkout-onepage-success .column.main .block.block-order-details-view {
+    .block-content:not(.widget) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+
+        .box {
+            float: none;
+            width: 50%;
+        }
+    }
+}
+
+.table-order-items .col.name {
+    > :not(style):not(script) {
+        @media (min-width: 640px) {
+            margin: 0 0 0 80px;
+            display: block;
+        }
+    }
+
+    > .product-image-photo,
+    .product-image-container {
+        float: left;
+        margin: 0;
+        max-width: 76px;
+    }
+}
+
+/* configure initial image size in third-party theme */
+
+span.product-image-container {
+    min-width: initial;
+}
+
+
+@media only screen and (max-width: 639px) {
+    .table-order-items .col.name {
+        &::before {
+            display: none;
+        }
+    }
+}

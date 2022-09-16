@@ -1,0 +1,28 @@
+"Delivery Date",Bezorgdatum
+"Delivery Time","Tijd om te bezorgen"
+"Delivery Date &amp; Time","Bezorgdatum & amp; Tijd"
+Main,Hoofd
+"Show for all shipping methods","Weergeven voor alle verzendmethoden"
+"Date Field Settings",Datumveldinstellingen
+"Field Label","veld Label"
+"Show Field","Toon veld"
+"Use first avilable date as default value","Gebruik de eerste beschikbare datum als standaardwaarde"
+"Date format",Datumnotatie
+"Leave empty to use active locale format.","Laat leeg om het actieve locale-formaat te gebruiken."
+"<strong>l, j F, Y - Sunday, 4 October, 2018</strong><br/>l - A full textual representation of the day of the week<br/>j - Day of the month without leading zeros<br/>F - A full textual representation of a month, such as January or March<br/>Y - A full numeric representation of a year, 4 digits<br/><br/><strong>m/d/Y - 10/04/2018</strong><br/>m - Numeric representation of a month, with leading zeros<br/>d - Day of the month, 2 digits with leading zeros<br/>Y - A full numeric representation of a year, 4 digits","<strong> l, j F, Y - zondag 4 oktober 2018 </strong> <br/> l - Een volledige tekstuele weergave van de dag van de week <br/> j - Dag van de maand zonder voorloopnullen < br /> F - Een volledige tekstuele weergave van een maand, zoals januari of maart <br/> Y - Een volledige numerieke weergave van een jaar, 4 cijfers <br/> <br/> <strong> m / d / Y - 10/04/2018 </strong> <br/> m - Numerieke weergave van een maand, met voorloopnullen <br/> d - Dag van de maand, 2 cijfers met voorloopnullen <br/> Y - Een volledig numeriek weergave van een jaar, 4 cijfers"
+"Time Field Settings",Tijdveldinstellingen
+"Time Options","Tijd opties"
+"Add Time Entry","Tijdinvoer toevoegen"
+"First available delivery date rules","Eerste beschikbare bezorgdatumregels"
+"Delivery processing day ends at","De afleveringsdag eindigt om"
+"Delivery will be available since first available day (order date) plus this value","Levering is beschikbaar vanaf de eerste beschikbare dag (besteldatum) plus deze waarde"
+"Last available delivery date rules","Laatste beschikbare bezorgdatum regels"
+"Period in days, while delivery will be available, since first available day","Periode in dagen, terwijl levering beschikbaar is, sinds de eerste beschikbare dag"
+"Exclude delivery date rules","Leveringsdatumregels uitsluiten"
+"Exclude days of week from delivery","Dagen van de week uitsluiten van levering"
+Holidays,Vakantie
+Offset,compenseren
+"Add Holiday","Vakantie toevoegen"
+"Delivery Time is required","Levertijd is vereist"
+"Delivery Date is required","Bezorgdatum is verplicht"
+"Invalid Delivery Time value","Ongeldige levertijdwaarde"

@@ -1,0 +1,100 @@
+.firecheckout {
+    #checkout-shipping-method-load {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    #onepage-checkout-shipping-method-additional-load {
+        margin: 0;
+        > div {
+            margin: 10px 0 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .checkout-shipping-method {
+        .checkout-shipping-method {
+            margin: 0;
+            position: static;
+        }
+        .form.methods-shipping {
+            display: flex;
+            flex-direction: column;
+            > .message {
+                order: -1;
+            }
+        }
+    }
+    .table-checkout-shipping-method {
+        thead {
+            th {
+                display: none;
+            }
+        }
+        tbody {
+            tr {
+                padding: 0;
+                flex-direction: row;
+                &:first-child {
+                    td {
+                        border: 0;
+                    }
+                }
+            }
+            td {
+                border: 0;
+                padding: 10px;
+                text-align: left;
+            }
+        }
+    }
+
+    &:not(.firecheckout-col1-set) {
+        .table-checkout-shipping-method {
+            tbody {
+                td {
+                    &:first-child {
+                        padding-left: 0;
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &.fc-hide-shipping-methods {
+        &.fc-single-shipping-method {
+            .checkout-shipping-method {
+                display: none;
+            }
+        }
+    }
+
+    .shipping-policy-block {
+        position: absolute;
+        top: @fc-shipping-policy__top;
+        .right(@fc-section__padding + 4px);
+        cursor: pointer;
+
+        .field-tooltip-action {
+            &:before {
+                display: inline-block !important;
+                vertical-align: top;
+                content: '';
+                width: @fc-form-field-icon__width;
+                height: @fc-form-field-icon__height;
+                -webkit-mask: none;
+                background-image: url(@fc-icon__info);
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                background-color: transparent !important;
+                background-size: contain;
+                border: 0;
+            }
+            span {
+                display: none;
+            }
+        }
+    }
+}

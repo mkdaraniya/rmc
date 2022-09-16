@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="swissup_checkoutfields_field" resource="default" engine="innodb" comment="Swissup Checkout Fields Field Table">
+    <column xsi:type="int" name="field_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Field Id"/>
+    <column xsi:type="varchar" name="attribute_code" nullable="true" length="255" comment="Attribute Code"/>
+    <column xsi:type="varchar" name="frontend_input" nullable="true" length="50" comment="Frontend Input"/>
+    <column xsi:type="varchar" name="frontend_label" nullable="false" length="255" comment="Frontend Label"/>
+    <column xsi:type="smallint" name="is_required" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Defines Is Required"/>
+    <column xsi:type="smallint" name="sort_order" padding="6" unsigned="false" nullable="false" identity="false" default="1" comment="Sort Order"/>
+    <column xsi:type="smallint" name="is_active" padding="5" unsigned="true" nullable="false" identity="false" default="1" comment="Defines Is Entity Active"/>
+    <column xsi:type="text" name="default_value" nullable="true" comment="Default Value"/>
+    <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+    <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+    <column xsi:type="smallint" name="is_used_in_grid" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Is Used in Grid"/>
+    <column xsi:type="text" name="notice" nullable="true" comment="Field Notice"/>
+    <column xsi:type="varchar" name="tooltip" nullable="true" length="255" comment="Field Tooltip"/>
+    <column xsi:type="varchar" name="placeholder" nullable="true" length="255" comment="Field Placeholder"/>
+    <column xsi:type="varchar" name="display_type" nullable="true" length="50" comment="Display Type"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="field_id"/>
+    </constraint>
+    <constraint xsi:type="unique" referenceId="SWISSUP_CHECKOUTFIELDS_FIELD_ATTRIBUTE_CODE">
+      <column name="attribute_code"/>
+    </constraint>
+  </table>
+  <table name="swissup_checkoutfields_store" resource="default" engine="innodb" comment="Swissup Checkout Field To Store Linkage Table">
+    <column xsi:type="int" name="field_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Field Id"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store Id"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="field_id"/>
+      <column name="store_id"/>
+      <column name="field_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_C42CB795A66DBCC88D33F8065919AF4D" table="swissup_checkoutfields_store" column="field_id" referenceTable="swissup_checkoutfields_field" referenceColumn="field_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_CHECKOUTFIELDS_STORE_STORE_ID_STORE_STORE_ID" table="swissup_checkoutfields_store" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_STORE_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+  </table>
+  <table name="swissup_checkoutfields_field_label" resource="default" engine="innodb" comment="Checkout Field Label">
+    <column xsi:type="int" name="field_label_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Field Label Id"/>
+    <column xsi:type="int" name="field_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Field Id"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store Id"/>
+    <column xsi:type="varchar" name="value" nullable="true" length="255" comment="Value"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="field_label_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_E7E171B8B0F681A0E777CE1693A59492" table="swissup_checkoutfields_field_label" column="field_id" referenceTable="swissup_checkoutfields_field" referenceColumn="field_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_CHECKOUTFIELDS_FIELD_LABEL_STORE_ID_STORE_STORE_ID" table="swissup_checkoutfields_field_label" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_FIELD_LABEL_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_FIELD_LABEL_FIELD_ID_STORE_ID" indexType="btree">
+      <column name="field_id"/>
+      <column name="store_id"/>
+    </index>
+  </table>
+  <table name="swissup_checkoutfields_field_option" resource="default" engine="innodb" comment="Checkout Field Option">
+    <column xsi:type="int" name="option_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Option Id"/>
+    <column xsi:type="int" name="field_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Field Id"/>
+    <column xsi:type="smallint" name="sort_order" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Sort Order"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="option_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_5CC2AAA284556C26E7C1BFDAD477C6E0" table="swissup_checkoutfields_field_option" column="field_id" referenceTable="swissup_checkoutfields_field" referenceColumn="field_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_FIELD_OPTION_FIELD_ID" indexType="btree">
+      <column name="field_id"/>
+    </index>
+  </table>
+  <table name="swissup_checkoutfields_field_option_value" resource="default" engine="innodb" comment="Checkout Field Option Value">
+    <column xsi:type="int" name="value_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Value Id"/>
+    <column xsi:type="int" name="option_id" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Option Id"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store Id"/>
+    <column xsi:type="varchar" name="value" nullable="true" length="255" comment="Value"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="value_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="FK_6E757EBCD992B3552EEC096808D8D80D" table="swissup_checkoutfields_field_option_value" column="option_id" referenceTable="swissup_checkoutfields_field_option" referenceColumn="option_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_CHKTFIELDS_FIELD_OPT_VAL_STORE_ID_STORE_STORE_ID" table="swissup_checkoutfields_field_option_value" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_FIELD_OPTION_VALUE_OPTION_ID" indexType="btree">
+      <column name="option_id"/>
+    </index>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_FIELD_OPTION_VALUE_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+  </table>
+  <table name="swissup_checkoutfields_values" resource="default" engine="innodb" comment="Checkout Field Values">
+    <column xsi:type="int" name="value_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Value Id"/>
+    <column xsi:type="int" name="field_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Field Id"/>
+    <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" default="0" comment="Store Id"/>
+    <column xsi:type="int" name="quote_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Quote Id"/>
+    <column xsi:type="int" name="order_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Order Id"/>
+    <column xsi:type="text" name="value" nullable="true" comment="Field Value"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="value_id"/>
+    </constraint>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_CHECKOUTFIELDS_VALUES_QUOTE_ID_QUOTE_ENTITY_ID" table="swissup_checkoutfields_values" column="quote_id" referenceTable="quote" referenceColumn="entity_id" onDelete="SET NULL"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_CHECKOUTFIELDS_VALUES_ORDER_ID_SALES_ORDER_ENTITY_ID" table="swissup_checkoutfields_values" column="order_id" referenceTable="sales_order" referenceColumn="entity_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="FK_F2C48477B1630B9075AE632B0B78A1CC" table="swissup_checkoutfields_values" column="field_id" referenceTable="swissup_checkoutfields_field" referenceColumn="field_id" onDelete="CASCADE"/>
+    <constraint xsi:type="foreign" referenceId="SWISSUP_CHECKOUTFIELDS_VALUES_STORE_ID_STORE_STORE_ID" table="swissup_checkoutfields_values" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="SET NULL"/>
+    <constraint xsi:type="unique" referenceId="SWISSUP_CHECKOUTFIELDS_VALUES_QUOTE_ID_FIELD_ID_STORE_ID">
+      <column name="quote_id"/>
+      <column name="field_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <constraint xsi:type="unique" referenceId="SWISSUP_CHECKOUTFIELDS_VALUES_ORDER_ID_FIELD_ID_STORE_ID">
+      <column name="order_id"/>
+      <column name="field_id"/>
+      <column name="store_id"/>
+    </constraint>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_VALUES_STORE_ID" indexType="btree">
+      <column name="store_id"/>
+    </index>
+    <index referenceId="SWISSUP_CHECKOUTFIELDS_VALUES_FIELD_ID" indexType="btree">
+      <column name="field_id"/>
+    </index>
+  </table>
+</schema>

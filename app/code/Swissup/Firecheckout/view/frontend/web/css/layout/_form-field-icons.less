@@ -1,0 +1,164 @@
+.firecheckout {
+    @{fc-container__selector},
+    .modal-custom,
+    .modal-popup {
+        .field {
+            // dropdown icon
+            select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+
+                &:not([multiple]) {
+                    background-image: url(@fc-icon__caret);
+                    background-repeat: no-repeat;
+                    background-size: auto auto;
+                    .padding-right(@fc-form-field-caret__width);
+                    .background-position(100% 45%, 0 45%);
+                }
+
+                // fix for IE10+
+                &::-ms-expand {
+                    display: none;
+                }
+            }
+            ._with-tooltip {
+                select:not([multiple]) {
+                    .background-position(~"calc(100% - 20px) 45%", 20px 45%);
+                    .padding-right(@fc-form-field-caret__width + 20px);
+                }
+            }
+
+            .field-tooltip {
+                margin: 0 !important;
+                top: 6px !important;
+                .right(@fc-form-field-icon__right);
+                .left(auto);
+                .field-tooltip-action {
+                    &:before {
+                        font-size: 21px;
+                    }
+                }
+            }
+
+            .fc-form-tooltips& {
+                position: relative;
+
+                // dropdown icon
+                &._error,
+                &._warn,
+                ._with-tooltip {
+                    select:not([multiple]) {
+                        .background-position(~"calc(100% - 20px) 45%", 20px 45%);
+                        .padding-right(@fc-form-field-caret__width + @fc-form-field-icon__width + 3px);
+                    }
+                }
+                select.mage-error {
+                    .background-position(~"calc(100% - 20px) 45%", 20px 45%);
+                    .padding-right(@fc-form-field-caret__width + @fc-form-field-icon__width + 3px);
+                }
+                &._error,
+                &._warn {
+                    ._with-tooltip {
+                        select:not([multiple]) {
+                            .background-position(~"calc(100% - 38px) 45%", 38px 45%);
+                            .padding-right(@fc-form-field-caret__width + @fc-form-field-icon__width * 2 + 3px);
+                        }
+                    }
+                }
+
+                // info icon
+                .field-tooltip {
+                    margin: 0 !important;
+                    top: @fc-form-field-icon__top !important;
+                    .right(@fc-form-field-icon__right);
+                    .field-tooltip-action {
+                        &:before {
+                            vertical-align: top;
+                            content: '';
+                            width: @fc-form-field-icon__width;
+                            height: @fc-form-field-icon__height;
+                            background-image: url(@fc-icon__info);
+                            background-repeat: no-repeat;
+                            background-position: 50% 50%;
+                            background-size: contain;
+                        }
+                    }
+                }
+                &.choice {
+                    .field-tooltip {
+                        position: relative;
+                        top: 3px !important;
+                        right: 3px;
+                    }
+                }
+                ._with-tooltip {
+                    input {
+                        .padding-right(@fc-form-field-icon__second__right);
+                    }
+                }
+
+                // warning and error icons
+                div.warning,
+                div.mage-error,
+                div.field-error {
+                    .lib-fc-form-field-icon(@fc-icon__error);
+                }
+                &.choice {
+                    div.warning,
+                    div.mage-error,
+                    div.field-error {
+                        top: max(0, @fc-form-field-icon__top - floor(@fc-form-field-icon__height / 2));
+                    }
+                }
+                div.warning {
+                    &::before {
+                        background-image: url(@fc-icon__warning);
+                    }
+                }
+
+                &._error._warn {
+                    div.warning {
+                        // hide warning when error is visible
+                        display: none;
+                    }
+                }
+
+                // input indentations
+                ._with-tooltip {
+                    div.warning,
+                    div.mage-error,
+                    div.field-error {
+                        .right(@fc-form-field-icon__second__right);
+                        .left(auto);
+                    }
+                }
+                ._has-datepicker {
+                    ~ .ui-datepicker-trigger ~ div.warning,
+                    ~ .ui-datepicker-trigger ~ div.mage-error,
+                    ~ .ui-datepicker-trigger ~ div.field-error {
+                        .right(@fc-form-field-icon__second__right + 5);
+                        .left(auto);
+                    }
+                }
+                &._error,
+                &._warn {
+                    input {
+                        .padding-right(@fc-form-field-icon__second__right);
+                    }
+                }
+                &._error,
+                &._warn {
+                    ._with-tooltip {
+                        input {
+                            .padding-right(@fc-form-field-icon__third__right);
+                        }
+                    }
+                    input._has-datepicker {
+                        .padding-right(@fc-form-field-icon__third__right);
+                    }
+                }
+            }
+        }
+    }
+}

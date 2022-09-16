@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Ui\Component\Listing\Columns">
+        <plugin name="swissup-checkout-fields" type="Swissup\CheckoutFields\Plugin\Ui\Component\OrderListingColumns" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\Form\Account">
+        <plugin name="swissup-checkout-fields" type="Swissup\CheckoutFields\Plugin\Block\Adminhtml\Order\CreateAccountForm" />
+    </type>
+    <type name="Magento\Sales\Model\AdminOrder\Create">
+        <plugin name="swissup-checkout-fields" type="Swissup\CheckoutFields\Plugin\Model\AdminOrderCreate" />
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Grid\Collection">
+        <plugin name="swissup-checkout-fields" type="Swissup\CheckoutFields\Plugin\Model\OrderGridCollection" />
+    </type>
+</config>

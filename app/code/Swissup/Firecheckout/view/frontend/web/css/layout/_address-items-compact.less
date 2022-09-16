@@ -1,0 +1,50 @@
+.firecheckout {
+    @{fc-wrapper__selector} {
+        .fc-compact-address-button {
+            display: none;
+        }
+        .fc-compact-address-button.fc-active {
+            display: block;
+            margin: 5px 0 15px;
+            ~ .addresses {
+                .shipping-address-items {
+                    display: flex;
+                    flex-direction: row;
+                    .selected-item {
+                        order: -1;
+                    }
+                }
+                .shipping-address-item {
+                    display: none;
+                    &.selected-item {
+                        display: block;
+                        padding-bottom: 22px;
+                    }
+                }
+                @media @fc-screen__base__media {
+                    .control {
+                        .shipping-address-items {
+                            max-height: 500px;
+                            .firecheckout-col1-set& {
+                                max-height: none;
+                            }
+                        }
+                    }
+                }
+            }
+            ~ .action-show-popup {
+                display: none;
+            }
+            &.fc-expanded {
+                ~ .addresses {
+                    .shipping-address-item {
+                        display: block;
+                    }
+                }
+                ~ .action-show-popup {
+                    display: block;
+                }
+            }
+        }
+    }
+}

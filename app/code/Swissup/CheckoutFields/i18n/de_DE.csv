@@ -1,0 +1,21 @@
+"Add New Field","Neues Feld hinzufügen"
+"Save Field","Feld speichern"
+"Delete Field","Feld löschen"
+"Edit Field '%1'","Feld '%1' bearbeiten"
+"New Field","Neues Feld"
+"Advanced Field Properties","Erweiterte Feldeigenschaften"
+"Use values greater than 1","Verwenden Sie Werte größer als 1"
+"Field Properties",Feldeigenschaften
+"Field Information",Feldinformationen
+"Checkout field was deleted.","Das Checkout-Feld wurde gelöscht."
+"Can't find a field to delete.","Es kann kein zu löschendes Feld gefunden werden."
+"Edit Field","Feld bearbeiten"
+"This field no longer exists.","Dieses Feld existiert nicht mehr."
+"Manage Fields","Felder verwalten"
+"You saved the checkout field.","Sie haben das Checkout-Feld gespeichert."
+"An field with this code already exists.","Ein Feld mit diesem Code ist bereits vorhanden."
+"An field with the same code (%1) already exists.","Ein Feld mit demselben Code (%1) ist bereits vorhanden."
+"Please fill all required fields before placing the order.","Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie die Bestellung aufgeben."
+"Additional Information","Zusätzliche Informationen"
+"No additional information found.","Keine zusätzlichen Informationen gefunden."
+"Field Code",Feldcode

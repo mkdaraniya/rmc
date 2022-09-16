@@ -1,0 +1,73 @@
+.firecheckout {
+    @{fc-wrapper__selector} {
+        .shipping-address-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 0 15px;
+        }
+        @media @fc-screen__base__media {
+            .checkout-shipping-address {
+                .addresses {
+                    .control {
+                        .shipping-address-items {
+                            .margin-right(-6px);
+                            .padding-right(15px);
+                            max-height: 600px;
+                            overflow: auto;
+                            .lib-fc-scrollbar();
+                            .firecheckout-col1-set& {
+                                max-height: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .shipping-address-item {
+            .border-radius(@fc-address-item__border-radius);
+            &.selected-item {
+                .lib-fc-css(border-color, @fc-address-item__border-color);
+                &:after {
+                    .lib-fc-css(background, @fc-address-item__border-color);
+                    .border-radius(0 5px 0 @fc-address-item__border-radius);
+                    .right(0);
+                    .left(auto);
+                }
+            }
+            &:not(.selected-item) {
+                border-color: transparent;
+                &:hover {
+                    .lib-fc-css(background, @fc-address-item__hover__background);
+                }
+            }
+            &:before {
+                display: none; // remove luma's border
+            }
+            button,
+            button + button {
+                margin: 10px 0 0;
+            }
+        }
+
+        .fc-size-l,
+        .fc-size-m {
+            .shipping-address-item {
+                width: ~"calc(50% - 5px)";
+                padding: 15px;
+            }
+        }
+        .fc-size-s,
+        .fc-size-xs {
+            .shipping-address-item {
+                width: 100%;
+            }
+        }
+
+        .selected-item {
+            .action-select-shipping-item {
+                display: none;
+            }
+        }
+    }
+}

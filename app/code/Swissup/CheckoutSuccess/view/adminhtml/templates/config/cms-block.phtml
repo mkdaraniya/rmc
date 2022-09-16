@@ -1,0 +1,28 @@
+<?php
+    use Magento\Cms\Model\ResourceModel\Block\Collection;
+?>
+<?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $blockCollection = $objectManager->create(Collection::class)->load();
+    $uniqId = uniqid('cmsblock-');
+?>
+<div class="admin__fieldset">
+    <div class="admin__field">
+        <div class="admin__field-label">
+            <label for="<?= $uniqId ?>-value"><?= __('Select CMS block') ?></label>
+        </div>
+
+        <div class="admin__field-control">
+            <select id="<?= $uniqId ?>-value" class="admin__control-select" name="block_id">
+                <option value="">
+                    <?= __('No') ?>
+                </option>
+            <?php foreach ($blockCollection->toOptionArray() as $item) :?>
+                <option value="<?= $block->escapeHtmlAttr($item['value']) ?>">
+                    <?= $block->escapeHtml($item['label']) ?>
+                </option>
+            <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+</div>

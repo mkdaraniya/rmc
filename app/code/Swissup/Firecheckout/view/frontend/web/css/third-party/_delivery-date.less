@@ -1,0 +1,27 @@
+.firecheckout {
+    @{fc-container__selector} {
+        .swissup-delivery-date {
+            max-width: none;
+            margin-left: -@fc-form-field__gap;
+            margin-right: -@fc-form-field__gap;
+
+            div.field {
+                .lib-fc-form-field-general();
+            }
+
+            .ui-datepicker-trigger {
+                .margin-left(@fc-delivery-date-icon__margin-left);
+                &:before {
+                    .lib-fc-css(color, @fc-delivery-date-icon__color);
+                }
+            }
+        }
+
+        .fc-size-xs .swissup-delivery-date {
+            flex-wrap: wrap;
+            > .field {
+                width: 100%;
+            }
+        }
+    }
+}

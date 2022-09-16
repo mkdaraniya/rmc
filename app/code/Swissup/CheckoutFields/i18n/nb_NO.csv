@@ -1,0 +1,21 @@
+"Add New Field","Legg til nytt felt"
+"Save Field","Lagre felt"
+"Delete Field","Slett felt"
+"Edit Field '%1'","Rediger felt '%1'"
+"New Field","Nytt felt"
+"Advanced Field Properties","Avanserte feltegenskaper"
+"Use values greater than 1","Bruk verdier større enn 1"
+"Field Properties",Feltegenskaper
+"Field Information",Feltinformasjon
+"Checkout field was deleted.","Kassen ble slettet."
+"Can't find a field to delete.","Finner ikke et felt å slette."
+"Edit Field","Rediger felt"
+"This field no longer exists.","Dette feltet eksisterer ikke lenger."
+"Manage Fields","Administrer felt"
+"You saved the checkout field.","Du lagret kassa-feltet."
+"An field with this code already exists.","Et felt med denne koden eksisterer allerede."
+"An field with the same code (%1) already exists.","Et felt med samme kode (%1) eksisterer allerede."
+"Please fill all required fields before placing the order.","Fyll ut alle obligatoriske felt før du bestiller."
+"Additional Information",Tilleggsinformasjon
+"No additional information found.","Ingen tilleggsinformasjon funnet."
+"Field Code",Feltkode

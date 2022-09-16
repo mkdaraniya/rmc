@@ -1,0 +1,64 @@
+.firecheckout #maincontent {
+    .block-authentication .block[class] + .block {
+        .lib-fc-css(border-color, @fc-modal__divider-background);
+        &:before {
+            .lib-fc-css(color, @fc-modal__divider-color);
+            .lib-fc-css(border-color, @fc-modal__divider-background);
+            & when not (@fc-modal__divider-background = false) {
+                .lib-fc-css(background, lighten(@fc-modal__divider-background, 5%));
+            }
+        }
+    }
+    .page-title-wrapper {
+        .authentication-wrapper {
+            margin: 0;
+        }
+    }
+    .authentication-wrapper {
+        position: static !important;
+        z-index: auto;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        float: none;
+        margin: 0 0 15px;
+        width: auto;
+        max-width: none;
+        .text-align(right);
+
+        & when (@fc-button-auth__enabled = true) {
+            .action-auth-toggle {
+                .lib-fc-button-auth();
+            }
+        }
+
+        aside.authentication-dropdown {
+            overflow: auto;
+            .modal-inner-wrap {
+                max-width: 450px;
+                max-height: none;
+            }
+        }
+        .dropdown-overlay {
+            background: @fc-modal__overlay-background;
+            transition: opacity 0.2s;
+            opacity: 0;
+        }
+        ._show ~ .dropdown-overlay {
+            opacity: 1;
+        }
+    }
+
+    &,
+    .checkout-container {
+        .authentication-wrapper {
+            [data-role="modal"] {
+                z-index: 10000 !important;
+                ~ .dropdown-overlay {
+                    z-index: 9999 !important;
+                }
+            }
+        }
+    }
+}

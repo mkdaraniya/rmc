@@ -1,0 +1,28 @@
+"Invalid Request Params","طلب غير صحيح Params"
+"Can't find a attachment to delete.","لا يمكن العثور على مرفق لحذفه."
+"Invalid Hash Params","Parms Hash غير صالح"
+OrderAttachment,OrderAttachment
+Attachments,مرفقات
+"Can't find a attachment to update.","لا يمكن العثور على مرفق للتحديث."
+"Remove Item","إزالة بند"
+"Invalid File Type","نوع الملف غير صالح"
+"Write comment here","اكتب تعليق هنا"
+"Size of the file is greather than allowed","حجم الملف هو greather مما هو مسموح به"
+"You have reached the limit of files","لقد وصلت إلى الحد الأقصى للملفات"
+Download,تحميل
+"Drag or Select your files here","اسحب أو حدد ملفاتك هنا"
+File,ملف
+Comment,تعليق
+Action,عمل
+"Download Item","تحميل البند"
+Swissup,Swissup
+General,"جنرال لواء"
+"Allow file upload during checkout","السماح بتحميل الملف أثناء الخروج"
+"Allow file upload on order view page","السماح بتحميل الملف على صفحة عرض الطلب"
+"File restrictions","قيود الملف"
+Limit,حد
+"Size, Kilobytes","الحجم ، كيلو بايت"
+"Allowed extensions","ملحقات المسموح بها"
+"File Type","نوع الملف"
+Updated,محدث
+Modified,"تم التعديل"

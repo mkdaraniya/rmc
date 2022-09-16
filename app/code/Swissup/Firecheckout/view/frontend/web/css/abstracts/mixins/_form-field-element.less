@@ -1,0 +1,39 @@
+.lib-fc-form-input() {
+    height: auto;
+    width: 100%;
+    max-width: none;
+    line-height: normal;
+    padding-top: @fc-form-field__padding-top;
+    padding-bottom: @fc-form-field__padding-bottom;
+    .padding-left(@fc-form-field__padding-left);
+    .padding-right(@fc-form-field__padding-right);
+    border-style: solid;
+    .border-width(@fc-form-field__border-width);
+    .border-color(@fc-form-field__border-color);
+    background-color: @fc-form-field__background-color;
+    .lib-fc-css(height, @fc-form-field__height);
+    .lib-fc-css(color, @fc-form-field__color);
+    .lib-fc-css(border-radius, @fc-form-field__border-radius);
+    &:focus {
+        box-shadow: none;
+        .border-color(@fc-form-field__focus__border-color);
+        background-color: @fc-form-field__focus__background-color;
+    }
+    &.mage-error {
+        .lib-fc-css(border-color, @fc-form-field__error__border-color);
+    }
+    .lib-fc-form-input-autofill();
+    .lib-fc-form-input-placeholder();
+}
+.lib-fc-form-select() {
+    option {
+        .lib-fc-css(color, @fc-form-field__color);
+        .lib-fc-css(background, @fc-form-field-option__background);
+    }
+}
+.lib-fc-form-textarea() {
+    height: auto;
+    & when (@fc-form-field__border-radius > 20) {
+        .lib-fc-css(border-radius, 20px);
+    }
+}

@@ -1,0 +1,72 @@
+.firecheckout {
+    .modal-popup.fc-intro-modal {
+        + .modals-overlay {
+            background: @fc-intro-popup__overlay-background;
+        }
+        .modal-inner-wrap {
+            margin-top: 7rem;
+        }
+    }
+}
+
+.fc-intro {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .section-title {
+        margin: 10px 0 25px;
+        text-align: center;
+        font-size: 1.9em;
+        font-weight: bold;
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+
+    section {
+        clear: both;
+        margin: 0 0 35px;
+        padding: 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .block {
+        box-shadow: none;
+        padding: 0;
+        margin: 0 0 35px;
+
+        > .block-title {
+            margin: 0 0 13px;
+            .lib-fc-css(color, @fc__text-secondary-color);
+            font-size: 1em;
+            text-transform: uppercase;
+            background: none;
+        }
+        > .actions-toolbar {
+            margin-top: 15px;
+        }
+    }
+
+    .block.crosssell {
+        width: auto;
+        float: none;
+        padding: 0;
+        .block-title {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: @fc-screen__small__max-width) {
+    .fc-intro {
+        .block {
+            padding: 25px 28px;
+            + .block {
+                padding-top: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Swissup_CheckoutSuccess::css/builder.css" media="screen, print"/>
+    </head>
+    <body>
+        <referenceContainer name="header.container" remove="true" />
+        <referenceContainer name="page.top" remove="true" />
+        <referenceContainer name="footer-container" remove="true" />
+        <referenceContainer name="before.body.end" remove="true" />
+
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="builder.allowedBlocks" template="Swissup_CheckoutSuccess::builder/allowed-blocks.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="builder.icons" template="Swissup_CheckoutSuccess::builder/icons.phtml" />
+        </referenceContainer>
+    </body>
+</page>

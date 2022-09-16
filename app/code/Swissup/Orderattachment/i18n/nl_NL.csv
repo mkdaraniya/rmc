@@ -1,0 +1,28 @@
+"Invalid Request Params","Ongeldige verzoekparams"
+"Can't find a attachment to delete.","Kan geen bijlage vinden om te verwijderen."
+"Invalid Hash Params","Ongeldige hashparams"
+OrderAttachment,OrderAttachment
+Attachments,Bijlagen
+"Can't find a attachment to update.","Kan geen bijlage vinden om bij te werken."
+"Remove Item","Verwijder voorwerp"
+"Invalid File Type","Ongeldig bestandstype"
+"Write comment here","Schrijf hier een opmerking"
+"Size of the file is greather than allowed","De grootte van het bestand is groter dan toegestaan"
+"You have reached the limit of files","U heeft de limiet van bestanden bereikt"
+Download,Download
+"Drag or Select your files here","Sleep of selecteer uw bestanden hiernaartoe"
+File,"het dossier"
+Comment,Commentaar
+Action,Actie
+"Download Item","Item downloaden"
+Swissup,Swissup
+General,Algemeen
+"Allow file upload during checkout","Sta bestandsupload toe tijdens het afrekenen"
+"Allow file upload on order view page","Sta bestandsupload toe op de pagina met weergave van bestellingen"
+"File restrictions",Bestandsbeperkingen
+Limit,Limiet
+"Size, Kilobytes","Grootte, kilobytes"
+"Allowed extensions","Toegestane extensies"
+"File Type",Bestandstype
+Updated,bijgewerkt
+Modified,gewijzigde

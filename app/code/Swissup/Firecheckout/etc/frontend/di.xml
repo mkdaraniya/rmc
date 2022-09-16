@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="firecheckout" xsi:type="array">
+                    <item name="class" xsi:type="string">Swissup\Firecheckout\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">19</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="swissup_firecheckout_config_provider" xsi:type="object">Swissup\Firecheckout\Model\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Move email and its children blocks to separate step -->
+    <type name="Magento\Checkout\Block\Onepage">
+        <plugin name="swissup_firecheckout" type="Swissup\Firecheckout\Plugin\Block\Onepage" sortOrder="1000"/>
+    </type>
+
+    <!-- Enable GoogleAnalytics on checkout page -->
+    <type name="Magento\GoogleAnalytics\Helper\Data">
+        <plugin name="swissup_firecheckout" type="Swissup\Firecheckout\Plugin\Helper\GoogleAnalyticsData" />
+    </type>
+
+    <!-- Replace checkout url with firecheckout in all methods -->
+    <type name="Magento\Checkout\Model\DefaultConfigProvider">
+        <plugin name="Firecheckout" type="Swissup\Firecheckout\Plugin\Model\FirecheckoutConfigProvider" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Block\Link">
+        <plugin name="Firecheckout" type="Swissup\Firecheckout\Plugin\Block\Link" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Block\Onepage\Link">
+        <plugin name="Firecheckout" type="Swissup\Firecheckout\Plugin\Block\OnepageLink" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Block\Cart">
+        <plugin name="Firecheckout" type="Swissup\Firecheckout\Plugin\Block\Cart" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="Firecheckout" type="Swissup\Firecheckout\Plugin\Block\CartSidebar" sortOrder="1" />
+    </type>
+    <type name="Magento\Checkout\Helper\Data">
+        <plugin name="Firecheckout" type="Swissup\Firecheckout\Plugin\Helper\CheckoutData" sortOrder="1" />
+    </type>
+</config>

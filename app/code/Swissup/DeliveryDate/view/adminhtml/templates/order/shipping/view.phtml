@@ -1,0 +1,74 @@
+<style>
+    #delivery-date-container .admin__field{
+        display: inline-block;
+    }
+</style>
+<?php
+    $date = (string) $block->getDeliveryDate();
+    $time = (string) $block->getDeliveryTime();
+?>
+
+<div id="delivery-date-container">
+    <div id="delivery-date-view">
+        <?php if ($date && $time) : ?>
+            <strong><?php echo $block->escapeHtml(__('Delivery Date &amp; Time')) ?></strong>
+        <?php elseif ($time) : ?>
+            <strong><?php echo $block->escapeHtml(__('Delivery Time')) ?></strong>
+        <?php else : ?>
+            <strong><?php echo $block->escapeHtml(__('Delivery Date')) ?></strong>
+        <?php endif ?>
+        <span><?php echo $block->escapeHtml($date . ' ' . $time) ?></span>
+
+        <a href="javascript:void(0);"><?php echo $block->escapeHtml(__('Edit')) ?></a>
+    </div>
+    <div id="delivery-date-edit" style="display:none">
+        <?= $block->getChildHtml('edit_block') ?>
+        <?= $block->getChildHtml('submit_button') ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require(
+        ['jquery'],
+        function ($) {
+            'use strict';
+
+            var element = $('#delivery-date-container').detach();
+
+            $('.order-shipping-method').append(element);
+
+            $('#delivery-date-view a').on('click', function () {
+                $('#delivery-date-view').hide();
+                $('#delivery-date-edit').show();
+            });
+
+            $('#delivery-date-edit button.action-save').on('click', function () {
+                var data, url;
+
+                data = $('#delivery-date-edit :input').serialize();
+                url = '<?= $block->getAjaxSaveSubmitUrl() ?>';
+                url += url.match(new RegExp('\\?')) ? '&isAjax=true' : '?isAjax=true';
+                url += '&' + data;
+
+                new Ajax.Request(url, {
+
+                    /**
+                     *
+                     * @param  {Object} transport
+                     */
+                    onSuccess: function (transport) {
+                        var deliverydate;
+
+                        deliverydate = transport.responseJSON;
+
+                        $('#delivery-date-view').show();
+                        $('#delivery-date-edit').hide();
+                        $('#delivery-date-view span').html(
+                            deliverydate.formatted_date
+                        );
+                    }
+                });
+            });
+        }
+    );
+</script>

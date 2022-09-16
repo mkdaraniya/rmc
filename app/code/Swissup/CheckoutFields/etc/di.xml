@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Swissup\CheckoutFields\Api\Data\FieldInterface" type="Swissup\CheckoutFields\Model\Field" />
+    <preference for="Swissup\CheckoutFields\Api\Data\FieldDataInterface" type="Swissup\CheckoutFields\Model\FieldData"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="checkoutfields_field_listing_data_source" xsi:type="string">Swissup\CheckoutFields\Model\ResourceModel\Field\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Swissup\CheckoutFields\Model\ResourceModel\Field\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">swissup_checkoutfields_field</argument>
+            <argument name="eventPrefix" xsi:type="string">checkoutfields_field_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">checkoutfields_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Swissup\CheckoutFields\Model\ResourceModel\Field</argument>
+        </arguments>
+    </type>
+    <type name="Swissup\CheckoutSuccess\Model\Config\Source\AvailableBlocks">
+        <arguments>
+            <argument name="options" xsi:type="array">
+                <item name="order.checkout.fields" xsi:type="string" translate="true">Checkout Fields</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="CheckoutFieldsGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CheckoutFieldsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Swissup\CheckoutFields\Model\ResourceModel\Field\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">CheckoutFieldsGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Checkout\Api\PaymentInformationManagementInterface">
+        <plugin name="swissup-checkout-fields-payment-information-management" type="Swissup\CheckoutFields\Plugin\Model\PaymentInformationManagementPlugin"/>
+    </type>
+    <type name="Magento\Checkout\Api\GuestPaymentInformationManagementInterface">
+        <plugin name="swissup-checkout-fields-guest-payment-information-management" type="Swissup\CheckoutFields\Plugin\Model\GuestPaymentInformationManagementPlugin"/>
+    </type>
+</config>

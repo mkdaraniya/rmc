@@ -1,0 +1,15 @@
+@import 'abstracts/_variables.less';
+
+.firecheckout {
+    --base-color: @fc__text-color;
+    --base-bg: #4c4177;
+
+    @{fc-container__selector} {
+        .form-discount .actions-toolbar .primary .action {
+            background: #a3a3a370;
+        }
+        .opc-sidebar.modal-custom .minicart-items-wrapper::after {
+            display: none;
+        }
+    }
+}

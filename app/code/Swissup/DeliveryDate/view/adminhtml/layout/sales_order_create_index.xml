@@ -1,0 +1,7 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="shipping_method">
+            <block class="Swissup\DeliveryDate\Block\Adminhtml\DateField" template="Swissup_DeliveryDate::date_field.phtml" name="delivery_date" ifconfig="delivery_date/main/enabled"/>
+        </referenceBlock>
+    </body>
+</page>

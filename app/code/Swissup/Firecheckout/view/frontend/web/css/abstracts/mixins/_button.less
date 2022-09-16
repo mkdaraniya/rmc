@@ -1,0 +1,246 @@
+.lib-fc-button(
+    @color: @fc-button__color,
+    @font-weight: @fc-button__font-weight,
+    @text-shadow: @fc-button__text-shadow,
+    @text-decoration: @fc-button__text-decoration,
+    @border-width: @fc-button__border-width,
+    @border-radius: @fc-button__border-radius,
+    @border-color: @fc-button__border-color,
+    @box-shadow: @fc-button__box-shadow,
+    @background: @fc-button__background,
+    @padding: @fc-button__padding,
+    @transition: @fc-button__transition,
+
+    @color-hover: @fc-button__hover__color,
+    @text-shadow-hover: @fc-button__hover__text-shadow,
+    @text-decoration-hover: @fc-button__hover__text-decoration,
+    @border-width-hover: @fc-button__hover__border-width,
+    @border-radius-hover: @fc-button__hover__border-radius,
+    @border-color-hover: @fc-button__hover__border-color,
+    @box-shadow-hover: @fc-button__hover__box-shadow,
+    @background-hover: @fc-button__hover__background,
+    @padding-hover: @fc-button__hover__padding
+) {
+    border-style: solid;
+
+    .lib-fc-css(color, @color);
+    .lib-fc-css(font-weight, @font-weight);
+    .lib-fc-css(text-shadow, @text-shadow);
+    .lib-fc-css(text-decoration, @text-decoration);
+    .lib-fc-css(border-width, @border-width);
+    .lib-fc-css(border-radius, @border-radius);
+    .lib-fc-css(border-color, @border-color);
+    .lib-fc-css(box-shadow, @box-shadow);
+    .lib-fc-css(background, @background);
+    .lib-fc-css(padding, @padding);
+    .lib-fc-css(transition, @transition);
+
+    &:before,
+    &:after {
+        .lib-fc-css(color, @color);
+    }
+
+    &:hover,
+    &:focus {
+        border-style: solid;
+
+        .lib-fc-css(color, @color-hover);
+        .lib-fc-css(text-shadow, @text-shadow-hover);
+        .lib-fc-css(text-decoration, @text-decoration-hover);
+        .lib-fc-css(border-width, @border-width-hover);
+        .lib-fc-css(border-radius, @border-radius-hover);
+        .lib-fc-css(border-color, @border-color-hover);
+        .lib-fc-css(box-shadow, @box-shadow-hover);
+        .lib-fc-css(background, @background-hover);
+        .lib-fc-css(padding, @padding-hover);
+
+        &:before,
+        &:after {
+            .lib-fc-css(color, @color-hover);
+        }
+    }
+}
+
+.lib-fc-button-secondary(
+    @color: @fc-button-secondary__color,
+    @text-shadow: @fc-button-secondary__text-shadow,
+    @text-decoration: @fc-button-secondary__text-decoration,
+    @border-width: @fc-button-secondary__border-width,
+    @border-radius: @fc-button-secondary__border-radius,
+    @border-color: @fc-button-secondary__border-color,
+    @box-shadow: @fc-button-secondary__box-shadow,
+    @background: @fc-button-secondary__background,
+    @padding: @fc-button-secondary__padding,
+    @transition: @fc-button-secondary__transition,
+
+    @color-hover: @fc-button-secondary__hover__color,
+    @text-shadow-hover: @fc-button-secondary__hover__text-shadow,
+    @text-decoration-hover: @fc-button-secondary__hover__text-decoration,
+    @border-width-hover: @fc-button-secondary__hover__border-width,
+    @border-radius-hover: @fc-button-secondary__hover__border-radius,
+    @border-color-hover: @fc-button-secondary__hover__border-color,
+    @box-shadow-hover: @fc-button-secondary__hover__box-shadow,
+    @background-hover: @fc-button-secondary__hover__background,
+    @padding-hover: @fc-button-secondary__hover__padding
+) {
+    .lib-fc-button(
+        @color: @color,
+        @text-shadow: @text-shadow,
+        @text-decoration: @text-decoration,
+        @border-width: @border-width,
+        @border-radius: @border-radius,
+        @border-color: @border-color,
+        @box-shadow: @box-shadow,
+        @background: @background,
+        @padding: @padding,
+        @transition: @transition,
+        @color-hover: @color-hover,
+        @text-shadow-hover: @text-shadow-hover,
+        @text-decoration-hover: @text-decoration-hover,
+        @border-width-hover: @border-width-hover,
+        @border-radius-hover: @border-radius-hover,
+        @border-color-hover: @border-color-hover,
+        @box-shadow-hover: @box-shadow-hover,
+        @background-hover: @background-hover,
+        @padding-hover: @padding-hover
+    );
+}
+
+.lib-fc-button-primary(
+    @color: @fc-button-primary__color,
+    @font-weight: @fc-button-primary__font-weight,
+    @text-shadow: @fc-button-primary__text-shadow,
+    @text-decoration: @fc-button-primary__text-decoration,
+    @border-width: @fc-button-primary__border-width,
+    @border-radius: @fc-button-primary__border-radius,
+    @border-color: @fc-button-primary__border-color,
+    @box-shadow: @fc-button-primary__box-shadow,
+    @background: @fc-button-primary__background,
+    @padding: @fc-button-primary__padding,
+    @transition: @fc-button-primary__transition,
+
+    @color-hover: @fc-button-primary__hover__color,
+    @text-shadow-hover: @fc-button-primary__hover__text-shadow,
+    @text-decoration-hover: @fc-button-primary__hover__text-decoration,
+    @border-width-hover: @fc-button-primary__hover__border-width,
+    @border-radius-hover: @fc-button-primary__hover__border-radius,
+    @border-color-hover: @fc-button-primary__hover__border-color,
+    @box-shadow-hover: @fc-button-primary__hover__box-shadow,
+    @background-hover: @fc-button-primary__hover__background,
+    @padding-hover: @fc-button-primary__hover__padding
+) {
+    .lib-fc-button(
+        @color: @color,
+        @font-weight: @font-weight,
+        @text-shadow: @text-shadow,
+        @text-decoration: @text-decoration,
+        @border-width: @border-width,
+        @border-radius: @border-radius,
+        @border-color: @border-color,
+        @box-shadow: @box-shadow,
+        @background: @background,
+        @padding: @padding,
+        @transition: @transition,
+        @color-hover: @color-hover,
+        @text-shadow-hover: @text-shadow-hover,
+        @text-decoration-hover: @text-decoration-hover,
+        @border-width-hover: @border-width-hover,
+        @border-radius-hover: @border-radius-hover,
+        @border-color-hover: @border-color-hover,
+        @box-shadow-hover: @box-shadow-hover,
+        @background-hover: @background-hover,
+        @padding-hover: @padding-hover
+    );
+}
+
+.lib-fc-button-order(
+    @color: @fc-button-order__color,
+    @font-weight: @fc-button-primary__font-weight,
+    @text-shadow: @fc-button-order__text-shadow,
+    @text-decoration: @fc-button-order__text-decoration,
+    @border-width: @fc-button-order__border-width,
+    @border-radius: @fc-button-order__border-radius,
+    @border-color: @fc-button-order__border-color,
+    @box-shadow: @fc-button-order__box-shadow,
+    @background: @fc-button-order__background,
+    @padding: @fc-button-order__padding,
+    @transition: @fc-button-order__transition,
+
+    @color-hover: @fc-button-order__hover__color,
+    @text-shadow-hover: @fc-button-order__hover__text-shadow,
+    @text-decoration-hover: @fc-button-order__hover__text-decoration,
+    @border-width-hover: @fc-button-order__hover__border-width,
+    @border-radius-hover: @fc-button-order__hover__border-radius,
+    @border-color-hover: @fc-button-order__hover__border-color,
+    @box-shadow-hover: @fc-button-order__hover__box-shadow,
+    @background-hover: @fc-button-order__hover__background,
+    @padding-hover: @fc-button-order__hover__padding
+) {
+    .lib-fc-button(
+        @color: @color,
+        @font-weight: @font-weight,
+        @text-shadow: @text-shadow,
+        @text-decoration: @text-decoration,
+        @border-width: @border-width,
+        @border-radius: @border-radius,
+        @border-color: @border-color,
+        @box-shadow: @box-shadow,
+        @background: @background,
+        @padding: @padding,
+        @transition: @transition,
+        @color-hover: @color-hover,
+        @text-shadow-hover: @text-shadow-hover,
+        @text-decoration-hover: @text-decoration-hover,
+        @border-width-hover: @border-width-hover,
+        @border-radius-hover: @border-radius-hover,
+        @border-color-hover: @border-color-hover,
+        @box-shadow-hover: @box-shadow-hover,
+        @background-hover: @background-hover,
+        @padding-hover: @padding-hover
+    );
+}
+
+.lib-fc-button-auth(
+    @color: @fc-button-auth__color,
+    @text-shadow: @fc-button-auth__text-shadow,
+    @text-decoration: @fc-button-auth__text-decoration,
+    @border-width: @fc-button-auth__border-width,
+    @border-radius: @fc-button-auth__border-radius,
+    @border-color: @fc-button-auth__border-color,
+    @box-shadow: @fc-button-auth__box-shadow,
+    @background: @fc-button-auth__background,
+    @padding: @fc-button-auth__padding,
+    @transition: @fc-button-auth__transition,
+
+    @color-hover: @fc-button-auth__hover__color,
+    @text-shadow-hover: @fc-button-auth__hover__text-shadow,
+    @text-decoration-hover: @fc-button-auth__hover__text-decoration,
+    @border-width-hover: @fc-button-auth__hover__border-width,
+    @border-radius-hover: @fc-button-auth__hover__border-radius,
+    @border-color-hover: @fc-button-auth__hover__border-color,
+    @box-shadow-hover: @fc-button-auth__hover__box-shadow,
+    @background-hover: @fc-button-auth__hover__background,
+    @padding-hover: @fc-button-auth__hover__padding
+) {
+    .lib-fc-button(
+        @color: @color,
+        @text-shadow: @text-shadow,
+        @text-decoration: @text-decoration,
+        @border-width: @border-width,
+        @border-radius: @border-radius,
+        @border-color: @border-color,
+        @box-shadow: @box-shadow,
+        @background: @background,
+        @padding: @padding,
+        @transition: @transition,
+        @color-hover: @color-hover,
+        @text-shadow-hover: @text-shadow-hover,
+        @text-decoration-hover: @text-decoration-hover,
+        @border-width-hover: @border-width-hover,
+        @border-radius-hover: @border-radius-hover,
+        @border-color-hover: @border-color-hover,
+        @box-shadow-hover: @box-shadow-hover,
+        @background-hover: @background-hover,
+        @padding-hover: @padding-hover
+    );
+}

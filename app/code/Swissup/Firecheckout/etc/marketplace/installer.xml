@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <packages>
+        <package>swissup/firecheckout</package>
+        <package>swissup/module-firecheckout</package>
+    </packages>
+
+    <fields>
+        <field name="firecheckout_layout" title="Select Firecheckout Layout">
+            <source_model>Swissup\Firecheckout\Model\Config\Source\Layout</source_model>
+        </field>
+        <field name="firecheckout_theme" title="Select Firecheckout Theme">
+            <option title="Light">light</option>
+            <option title="Midnight">midnight</option>
+            <option title="Round">round</option>
+        </field>
+    </fields>
+
+    <commands>
+        <command class="Swissup\Marketplace\Installer\Command\Config">
+            <data>
+                <item name="firecheckout/general/enabled">1</item>
+                <item name="firecheckout/general/layout" helper="Swissup\Marketplace\Installer\Helper\Request::getData">
+                    <param name="key">firecheckout_layout</param>
+                </item>
+                <item name="firecheckout/design/theme" helper="Swissup\Marketplace\Installer\Helper\Request::getData">
+                    <param name="key">firecheckout_theme</param>
+                </item>
+            </data>
+        </command>
+    </commands>
+</config>

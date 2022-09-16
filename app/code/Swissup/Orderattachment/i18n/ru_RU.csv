@@ -1,0 +1,28 @@
+"Invalid Request Params","Неверные параметры запроса"
+"Can't find a attachment to delete.","Не удается найти вложение для удаления."
+"Invalid Hash Params","Неверные хэш-параметры"
+OrderAttachment,"Вложения к заказу"
+Attachments,Вложения
+"Can't find a attachment to update.","Не могу найти вложение для обновления."
+"Remove Item","Удалить объект"
+"Invalid File Type","Неверный тип файла"
+"Write comment here","Напишите комментарий здесь"
+"Size of the file is greather than allowed","Размер файла больше допустимого"
+"You have reached the limit of files","Вы достигли лимита файлов"
+Download,Скачать
+"Drag or Select your files here","Перетащите или выберите ваши файлы здесь"
+File,Файл
+Comment,Комментарий
+Action,Действие
+"Download Item","Скачать элемент"
+Swissup,Swissup
+General,Общая
+"Allow file upload during checkout","Разрешить загрузку файлов во время оформления заказа"
+"Allow file upload on order view page","Разрешить загрузку файла на странице просмотра заказа"
+"File restrictions","Файловые ограничения"
+Limit,Лимит
+"Size, Kilobytes","Размер, килобайт"
+"Allowed extensions","Разрешенные расширения"
+"File Type","Тип файла"
+Updated,Обновленный
+Modified,Модифицированный

@@ -1,0 +1,26 @@
+.fc-step-email-address {
+    .opc-block-shipping-information {
+        display: none;
+    }
+}
+.firecheckout {
+    @{fc-wrapper__selector} {
+        .opc .checkout-email-address {
+            margin: 0;
+        }
+        .checkout-email-address .form-login {
+            margin: 0;
+            border: 0;
+        }
+    }
+}
+
+@media @fc-screen__base__media {
+    .firecheckout {
+        .checkout-email-address {
+            .actions-toolbar > .primary {
+                float: right;
+            }
+        }
+    }
+}

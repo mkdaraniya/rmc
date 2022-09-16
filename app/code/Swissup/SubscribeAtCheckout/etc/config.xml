@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <subscribe_at_checkout>
+            <general>
+                <enabled>0</enabled>
+                <field_label>Subscribe to Newsletter</field_label>
+                <field_notice></field_notice>
+                <default_value>0</default_value>
+            </general>
+        </subscribe_at_checkout>
+    </default>
+</config>

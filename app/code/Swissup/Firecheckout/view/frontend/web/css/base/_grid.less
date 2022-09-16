@@ -1,0 +1,30 @@
+.firecheckout-generate-grid(@prefix) {
+    .firecheckout-loop-grid(@index) when (@index >= 0) {
+        @{prefix}fc-col-@{index} {
+            width: 100% / 12 * @index !important;
+        }
+        .firecheckout-loop-grid(@index - 1);
+    }
+    .firecheckout-loop-grid(12);
+
+    // 1. Can't use this class, becase we use inline-block for the fields
+    // 2. Grid is not used becase fields are rendered in fieldset which is not supports grid layout in Chrome
+    @{prefix}fc-col-newline {
+        clear: left;
+    }
+}
+
+.firecheckout-generate-grid(~'.');
+
+.fc-size-l {
+    .firecheckout-generate-grid(~'.fc-size-l\:');
+}
+.fc-size-m {
+    .firecheckout-generate-grid(~'.fc-size-m\:');
+}
+.fc-size-s {
+    .firecheckout-generate-grid(~'.fc-size-s\:');
+}
+.fc-size-xs {
+    .firecheckout-generate-grid(~'.fc-size-xs\:');
+}

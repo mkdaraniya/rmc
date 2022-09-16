@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Swissup_DeliveryDate::css/delivery-date.css" media="screen, print"/>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="delivery-date" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Swissup_DeliveryDate/js/container</item>
+                                                            <item name="displayArea" xsi:type="string">shippingAdditional</item>
+                                                            <item name="config" xsi:type="helper" helper="Swissup\DeliveryDate\Helper\JsComponent::getContainerConfig"/>
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="date" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Swissup_DeliveryDate/js/delivery-date</item>
+                                                                    <item name="config" xsi:type="helper" helper="Swissup\DeliveryDate\Helper\JsComponent::getDateFieldConfig"/>
+                                                                </item>
+                                                                <item name="time" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Swissup_DeliveryDate/js/delivery-time</item>
+                                                                    <item name="config" xsi:type="helper" helper="Swissup\DeliveryDate\Helper\JsComponent::getTimeFieldConfig"/>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

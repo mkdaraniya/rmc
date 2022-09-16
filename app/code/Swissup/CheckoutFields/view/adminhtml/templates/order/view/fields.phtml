@@ -1,0 +1,16 @@
+<?php $fields = $block->getFields(); ?>
+<?php if (is_null($fields)) return; ?>
+
+<section class="admin__page-section order-view-swissup-fields">
+    <div class="admin__page-section-title">
+        <span class="title"><?php /* @escapeNotVerified */ echo __('Additional Information') ?></span>
+        <div class="actions"><?php /* @escapeNotVerified */ echo $block->getEditLink() ?></div>
+    </div>
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item order-information">
+            <div class="admin__page-section-item-content" data-mage-init='{"Magento_Ui/js/core/app": <?= $block->escapeHtmlAttr($block->getJsLayout()); ?>}' data-bind="scope: 'swissup-checkout-fields'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            </div>
+        </div>
+    </div>
+</section>

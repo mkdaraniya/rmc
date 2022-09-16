@@ -1,0 +1,68 @@
+.firecheckout {
+    @{fc-container__selector} {
+        [data-collapsible="true"] {
+            border: 0;
+
+            margin-bottom: 5px;
+            &._active {
+                margin-bottom: 15px;
+            }
+
+            > [role="tab"],
+            > .title[data-role="title"] {
+                margin-bottom: 0;
+
+                &:before,
+                &:after {
+                    display: none;
+                }
+
+                &,
+                > span,
+                > strong,
+                .action-toggle {
+                    .lib-fc-subtitle();
+                    padding: 0;
+                    cursor: pointer;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                > span,
+                > strong,
+                .action-toggle {
+                    // fix to align shevron icon among elements with inner span and without it
+                    display: flex;
+                    align-items: center;
+
+                    &:after {
+                        .lib-fc-toggler();
+                    }
+
+                    > * + * {
+                        .margin-left(3px);
+                    }
+                }
+            }
+
+            &._active > .title[data-role="title"],
+            [role="tab"][aria-expanded="true"] {
+                > span,
+                > strong,
+                .action-toggle {
+                    &:after {
+                        .lib-fc-toggler-up();
+                    }
+                }
+            }
+
+            [role="tabpanel"],
+            [data-role="content"] {
+                margin-top: 5px;
+                padding: 5px 0 0;
+            }
+        }
+    }
+}

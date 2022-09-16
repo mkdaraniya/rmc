@@ -1,0 +1,10 @@
+"Please enter a valid VAT number.",有効なVAT番号を入力してください。
+"Show VAT Number field as required",必要に応じてVAT番号フィールドを表示
+"VAT Validation",VAT検証
+"Validate VAT number using VIES service",VIESサービスを使用してVAT番号を検証する
+"Allow to place order using invalid VAT Number",無効なVAT番号を使用して注文を許可する
+"Tax-free Purchases",免税購入
+"Remove tax if VAT Number is valid",VAT番号が有効な場合は税を削除します
+"Allow tax-free purchases for all EU countries",すべてのEU諸国で免税購入を許可する
+"TAX-free applicable EU countries",税抜きの該当するEU諸国
+"<strong>EU Countries only.</strong> More information about VIES here: <a href=""http://ec.europa.eu/taxation_customs/vies/faq.html"" target=""_blank"">FAQ</a>, <a href=""http://ec.europa.eu/taxation_customs/vies/help.html"" target=""_blank"">Help</a>.<br/>Use <em>General > Country Options > European Union Countries</em> to exclude some EU countries.","<strong> EU諸国のみ。</ strong> VIESの詳細については、<a href=""http://ec.europa.eu/taxation_customs/vies/faq.html"" target=""_blank""> FAQ </ aをご覧ください。 >、<a href=""http://ec.europa.eu/taxation_customs/vies/help.html"" target=""_blank"">ヘルプ</a>。<br/> <em>一般>国のオプションを使用> EU加盟国</ em>：一部のEU諸国を除外します。"

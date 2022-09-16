@@ -1,0 +1,28 @@
+"Invalid Request Params","Nieprawidłowe parametry żądania"
+"Can't find a attachment to delete.","Nie można znaleźć załącznika do usunięcia."
+"Invalid Hash Params","Nieprawidłowe parametry skrótu"
+OrderAttachment,"Zamówienie Załącznik"
+Attachments,Załączniki
+"Can't find a attachment to update.","Nie można znaleźć załącznika do aktualizacji."
+"Remove Item","Usuń przedmiot"
+"Invalid File Type","Nieprawidłowy typ pliku"
+"Write comment here","Napisz komentarz tutaj"
+"Size of the file is greather than allowed","Rozmiar pliku jest większy niż dozwolony"
+"You have reached the limit of files","Osiągnąłeś limit plików"
+Download,Pobieranie
+"Drag or Select your files here","Przeciągnij lub wybierz tutaj swoje pliki"
+File,Plik
+Comment,Komentarz
+Action,Akcja
+"Download Item","Pobierz element"
+Swissup,Swissup
+General,Generał
+"Allow file upload during checkout","Zezwalaj na przesyłanie plików podczas realizacji transakcji"
+"Allow file upload on order view page","Zezwalaj na przesyłanie plików na stronie widoku zamówienia"
+"File restrictions","Ograniczenia plików"
+Limit,Limit
+"Size, Kilobytes","Rozmiar, kilobajty"
+"Allowed extensions","Dozwolone rozszerzenia"
+"File Type","Typ pliku"
+Updated,Zaktualizowano
+Modified,Zmodyfikowano

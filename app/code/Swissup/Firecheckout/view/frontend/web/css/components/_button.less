@@ -1,0 +1,37 @@
+.firecheckout {
+    .checkout-shipping-address,
+    .checkout-billing-address,
+    .modal-footer,
+    .actions-toolbar {
+        .action.primary,
+        button.action {
+            .lib-fc-button();
+
+            + button:not(.secondary) {
+                margin: 0 10px;
+            }
+
+            &.secondary,
+            &.action-cancel,
+            &.action-secondary,
+            &.action-dismiss {
+                .lib-fc-button-secondary();
+            }
+            &.action-agree,
+            &.action-update,
+            &.action-login,
+            &.action[data-role="opc-continue"] {
+                .lib-fc-button-primary();
+            }
+        }
+    }
+    .place-order {
+        .actions-toolbar {
+            .primary {
+                .action {
+                    .lib-fc-button-order();
+                }
+            }
+        }
+    }
+}

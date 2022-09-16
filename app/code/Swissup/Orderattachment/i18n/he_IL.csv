@@ -1,0 +1,28 @@
+"Invalid Request Params","פרמטרים לבקשה לא חוקיים"
+"Can't find a attachment to delete.","לא ניתן למצוא קובץ מצורף למחיקה."
+"Invalid Hash Params","פרמטרים לא חוקיים של האש"
+OrderAttachment,OrderAttachment
+Attachments,"קבצים מצורפים"
+"Can't find a attachment to update.","לא ניתן למצוא קובץ מצורף לעדכון."
+"Remove Item","הסר פריט"
+"Invalid File Type","סוג קובץ לא תקין"
+"Write comment here","כתוב תגובה כאן"
+"Size of the file is greather than allowed","גודל הקובץ טוב יותר מהמותר"
+"You have reached the limit of files","הגעת למגבלת הקבצים"
+Download,הורד
+"Drag or Select your files here","גרור או בחר את הקבצים שלך לכאן"
+File,קובץ
+Comment,תגובה
+Action,פעולה
+"Download Item","הורד פריט"
+Swissup,סוויסאפ
+General,כללי
+"Allow file upload during checkout","אפשר העלאת קבצים במהלך התשלום"
+"Allow file upload on order view page","אפשר העלאת קבצים בדף תצוגת ההזמנה"
+"File restrictions","מגבלות קבצים"
+Limit,הגבלה
+"Size, Kilobytes","גודל, קילובייט"
+"Allowed extensions","הרחבות מותרות"
+"File Type","סוג קובץ"
+Updated,עודכן
+Modified,השתנה

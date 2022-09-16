@@ -1,0 +1,28 @@
+"Invalid Request Params","Ogiltiga förfrågningsparametrar"
+"Can't find a attachment to delete.","Kan inte hitta en bilaga att ta bort."
+"Invalid Hash Params","Ogiltiga Hash Params"
+OrderAttachment,OrderAttachment
+Attachments,bilagor
+"Can't find a attachment to update.","Kan inte hitta en bilaga som ska uppdateras."
+"Remove Item","Ta bort sak"
+"Invalid File Type","Ogiltig filtyp"
+"Write comment here","Skriv kommentar här"
+"Size of the file is greather than allowed","Filens storlek är smidigare än tillåtet"
+"You have reached the limit of files","Du har nått gränsen för filer"
+Download,"Ladda ner"
+"Drag or Select your files here","Dra eller välj dina filer här"
+File,Fil
+Comment,Kommentar
+Action,Verkan
+"Download Item","Ladda ner artikeln"
+Swissup,Swissup
+General,Allmän
+"Allow file upload during checkout","Tillåt filuppladdning under kassan"
+"Allow file upload on order view page","Tillåt filuppladdning på sidan med ordervyn"
+"File restrictions",Filbegränsningar
+Limit,Begränsa
+"Size, Kilobytes","Storlek, kilobyte"
+"Allowed extensions","Tillåtna tillägg"
+"File Type",Filtyp
+Updated,Uppdaterad
+Modified,Ändrad

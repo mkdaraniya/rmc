@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="taxvat" translate="label" type="text" sortOrder="2006" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Tax VAT</label>
+            <tab>swissup_checkout</tab>
+            <resource>Swissup_Taxvat::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="vat_frontend_visibility" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show VAT Number on Storefront</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>customer/create_account/vat_frontend_visibility</config_path>
+                </field>
+                <field id="required" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show VAT Number field as required</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="validate_heading" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>VAT Validation</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="validate" translate="label" type="select" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Validate VAT number using VIES service</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<strong>EU Countries only.</strong> More information about VIES here: <a href="http://ec.europa.eu/taxation_customs/vies/faq.html" target="_blank">FAQ</a>, <a href="http://ec.europa.eu/taxation_customs/vies/help.html" target="_blank">Help</a>.<br/>Use <em>General > Country Options > European Union Countries</em> to exclude some EU countries.]]></comment>
+                </field>
+                <field id="allow_invalid" translate="label" type="select" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow to place order using invalid VAT Number</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="validate">1</field>
+                    </depends>
+                </field>
+                <field id="tax_free_heading" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tax-free Purchases</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                    <depends>
+                        <field id="validate">1</field>
+                    </depends>
+                </field>
+                <field id="tax_free" translate="label comment" type="select" sortOrder="41" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Remove tax if VAT Number is valid</label>
+                    <comment>Multishipping checkout is not supported and will use standard tax calculation logic.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="validate">1</field>
+                    </depends>
+                </field>
+                <field id="tax_free_all" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow tax-free purchases for all EU countries</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="validate">1</field>
+                        <field id="tax_free">1</field>
+                    </depends>
+                </field>
+                <field id="tax_free_countries" translate="label" type="multiselect" sortOrder="51" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>TAX-free applicable EU countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <depends>
+                        <field id="validate">1</field>
+                        <field id="tax_free">1</field>
+                        <field id="tax_free_all">0</field>
+                    </depends>
+                </field>
+            </group>
+            <include path="Swissup_Checkout::system/checkout_modules.xml"/>
+        </section>
+    </system>
+</config>

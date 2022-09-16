@@ -1,0 +1,59 @@
+.swissup-checkout-fields {
+    &__title {
+        .label {
+            display: none !important;
+        }
+    }
+    &__field {
+        fieldset.admin__field {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            > legend {
+                display: none;
+            }
+        }
+
+        .admin__field-note {
+            display: none;
+        }
+
+        .control._with-tooltip {
+            input[type="checkbox"] {
+                width: auto;
+            }
+
+            select {
+                background-position: ~"calc(100% - 20px) 45%";
+                padding-right: 45px;
+            }
+
+            .field-tooltip {
+                right: 5px;
+
+                .rtl & {
+                    right: auto;
+                    left: 5px;
+                }
+            }
+
+            ._has-datepicker {
+                margin-right: -22px;
+
+                .rtl & {
+                    margin-left: -22px;
+                }
+            }
+        }
+    }
+
+    .ui-datepicker-trigger {
+        position: relative;
+        margin-left: -30px;
+
+        .rtl & {
+            margin-left: 0;
+            margin-right: -30px;
+        }
+    }
+}

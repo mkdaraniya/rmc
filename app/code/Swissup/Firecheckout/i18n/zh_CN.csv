@@ -1,0 +1,54 @@
+"Url Path",网址路径
+"After Adding a Product Redirect to Firecheckout",将产品重定向添加到Firecheckout之后
+"Page Layout",页面布局
+"Form Styles",表单样式
+"Use field placeholders instead of labels",使用字段占位符代替标签
+"Show field errors and notices in the Tooltips",在工具提示中显示字段错误和通知
+"Additional Content",附加内容
+"Above Firecheckout Form",在Firecheckout表格上方
+"Below Firecheckout Form",在Firecheckout表格下方
+"Below order summary (Above place order button)",以下订单摘要（“下订单”按钮上方）
+"Below place order button",下订单按钮
+"Intro Popup",介绍弹出窗口
+"Content for Guest Customers",来宾客户的内容
+"Content for Registered Customers",注册客户的内容
+"Default Method",默认方式
+"Default Method Code",默认方法代码
+"Use this field if you can't find the method you are looking for in the previous option",如果在上一个选项中找不到所需的方法，请使用此字段
+"Hide methods if single method is available only",如果只有一种方法，则隐藏方法
+"Payment Settings",付款设定
+"Show Billing Address Title",显示帐单地址标题
+"This option is not used when Billing Address displayed inside Payment Method",付款方式中显示帐单邮寄地址时不使用此选项
+"Horizontal (Label aside of the field)",水平（除田间标签）
+"Basic (Same as horizontal, except label above the field)",基本（与水平相同，但字段上方的标签除外）
+"Compact (Multiple fields per row)",紧凑型（每行多个字段）
+"1 Column (Multistep Wizard)",1列（多步向导）
+"1 Column (Expanded)",1列（扩展）
+"2 Columns (Wide Payment and Shipping sections)",2列（“付款和运输”部分）
+"2 Columns (Place Payment and Shipping sections side by side)",2列（并排付款和运输部分）
+"3 Columns",3栏
+"Default Checkout Layout",默认结帐布局
+"Empty (No Header and Footer)",空（无页眉和页脚）
+"Minimal (Header with store Logo only)",最小（仅带有商店徽标的标头）
+Full,充分
+"Back to Store",返回商店
+"Continue Shopping",继续购物
+"Firecheckout Page Header Container",Firecheckout页面标题容器
+"Firecheckout Page Header",Firecheckout页面标题
+"Please specify a shipping method.",请指定运送方式。
+"Please specify a payment method.",请指定付款方式。
+Cart,大车
+"Use Magento Config (Sales > Checkout > Checkout Options)",使用Magento配置（销售>结帐>结帐选项）
+"Payment Page (Above Payment Methods)",付款页面（以上付款方式）
+"Shipping Page (Below Shipping Address)",运送页面（在运送地址下方）
+"Some third-party modules may not work correctly with custom address position. In this case, select 'Use Magento Config' option please.",某些第三方模块可能无法在自定义地址位置正常工作。在这种情况下，请选择“使用Magento配置”选项。
+"Order Summary Settings",订单摘要设置
+"Show Order Review (Shipping Information)",显示订单审核（运输信息）
+"Useful for EU countries",对欧盟国家有用
+"Leave empty to add review without the title",留空以添加不带标题的评论
+"Custom CSS and JS",自定义CSS和JS
+"Use less syntax and variables to change styles!<br/>See the list of available variables: <a href=""http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/"" title=""Firecheckout Docs"">http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/</a><br/>You must run `setup:static-content:deploy` command to see the changes.","使用更少的语法和变量来更改样式！<br/>请参阅可用变量列表：<a href=""http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/"" title=""Firecheckout Docs""> http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/</a><br/>您必须运行 `setup:static-content:deploy` 命令才能看到变化。"
+Performance,性能
+"Use jsBuild",使用jsBuild
+"Combine js files into single jsbuild to reduce number of requests and improve page load time.",将js文件组合到单个jsbuild中，以减少请求数量并缩短页面加载时间。
+"jsBuild include paths",jsBuild包含路径

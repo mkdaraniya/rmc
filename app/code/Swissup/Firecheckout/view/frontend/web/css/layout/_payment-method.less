@@ -1,0 +1,186 @@
+.firecheckout {
+    .payment-method {
+        p:empty {
+            // remove margin below empty <p data-bind="html: getInstructions()"></p>
+            display: none;
+        }
+    }
+    &,
+    .checkout-payment-method {
+        .payment-option {
+            margin: 0 0 10px 0;
+
+            &-title {
+                padding-top: 0;
+                padding-bottom: 0;
+                padding-left: 0;
+                border: 0;
+            }
+            &-content {
+                padding: 10px 0 0;
+                max-width: none;
+                [data-collapsible="true"] {
+                    margin-top: 5px;
+                    &:first-child {
+                        margin-top: -5px;
+                    }
+                    [data-role="content"] {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .checkout-payment-method {
+        .opc-payment {
+            margin-bottom: 15px;
+        }
+        .fieldset {
+            > legend:first-child {
+                display: none;
+                ~ hr,
+                ~ br {
+                    display: none;
+                }
+            }
+        }
+        .payment-method {
+            &s {
+                margin: 0;
+            }
+            &-title {
+                padding: 10px 0;
+            }
+
+            + .payment-method {
+                .payment-method-title {
+                    border: 0;
+                }
+            }
+
+            .payment-method-note {
+                margin: 0 0 10px;
+            }
+
+            .fieldset {
+                margin: 0;
+            }
+        }
+        .payment-method-content {
+            .padding(0 0 0 25px);
+
+            .form {
+                margin-bottom: 15px;
+            }
+        }
+        .ccard {
+            max-width: 250px;
+            &.fieldset {
+                > .field .fields.group.group-2 .field {
+                    width: 50% !important;
+                    .float(left);
+                    .margin-right(@fc-form-field__gap * 2);
+                    + .field {
+                        margin: 0;
+                        width: ~"calc(49% - (@{fc-form-field__gap} * 2))" !important;
+                    }
+                }
+            }
+            .credit-card-types {
+                margin: 0;
+                img {
+                    vertical-align: top;
+                }
+            }
+            .number {
+                .input-text {
+                    width: 100%;
+                    &.mage-error {
+                        ~ .type {
+                            .right(27px);
+                        }
+                    }
+                }
+                .type {
+                    width: auto;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    position: absolute !important;
+                    top: round(@fc-form-field__height / 2 - 16);
+                    .right(@fc-form-field__padding-right);
+                    li {
+                        padding: 0;
+                        margin: 0;
+                        display: none;
+                        &._active {
+                            background: #fff;
+                            border: 1px solid lighten(@fc-form-field__border-color, 5%);
+                            padding: 0 2px;
+                            display: inline-block;
+                            overflow: hidden;
+                            & when (@fc-form-field__border-radius > 10) {
+                                border-radius: round(@fc-form-field__border-radius / 2);
+                            }
+                        }
+                    }
+                }
+            }
+            .month {
+                .select {
+                    width: 100%;
+                }
+            }
+            .year {
+                .select {
+                    width: 100%;
+                }
+            }
+            .cvv {
+                > .control {
+                    width: 50% !important;
+                    padding: 0;
+                }
+                .input-text {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
+        #po_number {
+            margin-bottom: 0; // purchase order number fix
+        }
+    }
+    &.fc-single-payment-method {
+        .checkout-payment-method {
+            .payment-method-content {
+                padding: 10px 0 10px 0;
+            }
+        }
+    }
+    .g-recaptcha {
+        margin-bottom: 20px;
+    }
+    .required-captcha.checkbox {
+        opacity: 0 !important;
+        pointer-events: none;
+        position: absolute !important;
+    }
+}
+.firecheckout {
+    @{fc-container__selector} {
+        .payment-method {
+            .payment-method-content {
+                .actions-toolbar {
+                    margin: 0;
+                    // hide "place order" in payment section, because we show
+                    // it in summary
+                    .action.checkout {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

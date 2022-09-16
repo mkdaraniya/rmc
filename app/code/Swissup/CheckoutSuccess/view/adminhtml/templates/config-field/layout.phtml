@@ -1,0 +1,27 @@
+<?php
+    $element = $block->getElement();
+    $store = $block->getStoreInConfig();
+    $query = [
+        'store' => $block->getRequest()->getParam('store'),
+        'website' => $block->getRequest()->getParam('website'),
+        'section' => $block->getRequest()->getParam('section')
+    ];
+?>
+<div
+    class="success-page-layout-wrapper"
+    data-mage-init='{"Swissup_CheckoutSuccess/js/layout-2.0": {
+        "iframeSrc": "<?= $block->getUrl('successPage/preview/', ['_query' => array_filter($query)]) ?>",
+        "settingsUrl": "<?= $block->getUrl('successPage/config/') ?>",
+        "orderId": "<?= $block->getLastOrder()->getIncrementId() ?>",
+        "isInherit": <?= $element->getData('disabled') ? 'true' : 'false' ?>,
+        "allowedBlocks": "#success_page_layout_available_blocks [data-type=\"block\"]",
+        "layoutContainers": ".success-page-layout-wrapper [data-type=\"container\"]"
+    }}'>
+<div data-role="spinner" class="admin__data-grid-loading-mask">
+    <div class="spinner">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+    <?php echo $element->getElementHtml(); ?>
+</div>

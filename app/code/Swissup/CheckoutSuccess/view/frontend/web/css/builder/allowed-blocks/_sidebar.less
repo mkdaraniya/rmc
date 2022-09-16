@@ -1,0 +1,53 @@
+.allowed-blocks {
+    align-content: start;
+    background: #fff;
+    bottom: 0;
+    filter: drop-shadow(0 0 0.5rem #adadad);
+    display: grid;
+    gap: 2rem;
+    left: 0;
+    max-width: 28rem;
+    padding: 2rem 1rem;
+    position: fixed;
+    top: 0;
+    transform: translateX(-105%);
+    transition: transform 150ms ease-in-out;
+    width: 75vw;
+    z-index: 999;
+
+    .heading {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .block-list {
+        display: grid;
+        gap: 2rem;
+        overflow: auto;
+        padding: .5rem 1rem;
+    }
+
+    button {
+        background: #fff;
+        border: 0;
+        padding: .5rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        svg {
+            color: #333;
+            height: 4rem;
+            vertical-align: top;
+            width: 4rem;
+            transform: scale(.5);
+        }
+    }
+}
+
+.show--allowed-blocks {
+    .allowed-blocks {
+        transform: translateX(0%);
+    }
+}

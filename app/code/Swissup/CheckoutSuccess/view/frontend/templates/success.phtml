@@ -1,0 +1,16 @@
+<?php
+    $helper = $this->helper('Swissup\CheckoutSuccess\Helper\Data');
+    $checkoutSuccessLayout = json_decode($helper->getConfigValue('layout/layout'), true);
+    $blockTemplateFile = $block->getTemplateFile('Swissup_CheckoutSuccess::success/block.phtml');
+?>
+<div class="checkout-success"><?php
+    foreach ($checkoutSuccessLayout as $container):
+    ?><div class="checkout-success-container" data-type="container" data-name="<?= $container['name'] ?>"><?php
+        foreach ($container['children'] as $child):
+            $html = $block
+                ->assign('name', $child['name'])
+                ->assign('config', $child['config'] ?? [])
+                ->fetchView($blockTemplateFile);
+            ?><?= trim($html) ?><?php
+        endforeach;?></div><?php
+endforeach; ?></div>

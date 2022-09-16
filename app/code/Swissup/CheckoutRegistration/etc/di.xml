@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Validate and store password -->
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="swissup_checkout_registration"
+            type="Swissup\CheckoutRegistration\Plugin\ShippingInformationManagement"/>
+    </type>
+
+    <!-- Validate and store password (Virtual quote) -->
+    <type name="Magento\Checkout\Api\GuestPaymentInformationManagementInterface">
+        <plugin name="swissup_checkout_registration"
+            type="Swissup\CheckoutRegistration\Plugin\PaymentInformationManagementForGuests"/>
+    </type>
+
+    <!-- Set password hash to use to create an account -->
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="swissup_checkout_registration"
+            type="Swissup\CheckoutRegistration\Plugin\CustomerRepository"/>
+    </type>
+
+    <type name="Magento\Checkout\Helper\Data">
+        <plugin name="swissup_checkout_registration"
+            type="Swissup\CheckoutRegistration\Plugin\CheckoutHelper"/>
+    </type>
+
+    <!-- Fix for Magento 2.3.0, 2.2.8 -->
+    <type name="Magento\Framework\Validator">
+        <plugin name="swissup_checkout_registration"
+            type="Swissup\CheckoutRegistration\Plugin\CustomerValidator"/>
+    </type>
+</config>
