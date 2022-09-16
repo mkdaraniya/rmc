@@ -1,0 +1,23 @@
+<?php // @codingStandardsIgnoreFile ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "swatchesProductAttributes": {
+                "hiddenFields": { }
+            }
+        }
+    }
+</script>
+<?php $helper = $this->helper('Swissup\CheckoutFields\Helper\Data'); ?>
+<script type="text/javascript">
+require(["jquery"], function($) {
+    $(function () {
+        var config = JSON.parse('<?= $block->escapeJs($helper->getDisplayTypeOptions()) ?>'),
+            displayTypeSelect = $('#display_type');
+
+        $('#frontend_input').on('change', function () {
+            displayTypeSelect.html(config[$(this).val()]);
+        });
+    });
+});
+</script>

@@ -1,0 +1,23 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <delivery_date>
+            <main>
+                <enabled>0</enabled>
+                <filter_per_shipping_method>1</filter_per_shipping_method>
+                <field_label>Delivery Date</field_label>
+                <date_show>opt</date_show>
+                <time_label>Delivery Time</time_label>
+                <time_show>no</time_show>
+            </main>
+            <first_available>
+                <processing_end_time>23,59,59</processing_end_time>
+                <min_delay>0</min_delay>
+                <first_day>order</first_day>
+            </first_available>
+            <last_available>
+                <max_delay>365</max_delay>
+            </last_available>
+        </delivery_date>
+    </default>
+</config>

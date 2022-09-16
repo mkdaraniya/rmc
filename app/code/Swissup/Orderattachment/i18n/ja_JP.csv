@@ -1,0 +1,28 @@
+"Invalid Request Params",無効なリクエストパラメータ
+"Can't find a attachment to delete.",削除する添付ファイルが見つかりません。
+"Invalid Hash Params",無効なハッシュパラメータ
+OrderAttachment,OrderAttachment
+Attachments,添付ファイル
+"Can't find a attachment to update.",更新する添付ファイルが見つかりません。
+"Remove Item",アイテムを削除
+"Invalid File Type",無効なファイルタイプ
+"Write comment here",ここにコメントを書く
+"Size of the file is greather than allowed",ファイルのサイズが許可されているサイズよりも大きい
+"You have reached the limit of files",ファイルの制限に達しました
+Download,ダウンロード
+"Drag or Select your files here",ここにファイルをドラッグまたは選択します
+File,ファイル
+Comment,コメント
+Action,アクション
+"Download Item",アイテムをダウンロード
+Swissup,スイスアップ
+General,全般
+"Allow file upload during checkout",チェックアウト中にファイルのアップロードを許可する
+"Allow file upload on order view page",注文表示ページでファイルのアップロードを許可する
+"File restrictions",ファイル制限
+Limit,限定
+"Size, Kilobytes",サイズ、キロバイト
+"Allowed extensions",許可された拡張機能
+"File Type",ファイルタイプ
+Updated,更新しました
+Modified,修正済み

@@ -1,0 +1,81 @@
+@import '_modrtl.less';
+
+@checkout-cart__qty-wrapper-border: 1px solid #e4e4e4;
+@checkout-cart__qty-wrapper-border-radius: 0;
+
+@checkout-cart__qty-width: 40px;
+@checkout-cart__qty-height: 40px;
+
+@checkout-cart__toggler-width: 20px;
+@checkout-cart__toggler-height: @checkout-cart__qty-height / 2;
+@checkout-cart__toggler-background-color: #fff;
+@checkout-cart__toggler-color: #777;
+@checkout-cart__toggler-icon-size: 16px;
+
+#checkout .opc-block-summary {
+    .product-item-sku {
+        opacity: .6;
+        margin-top: -10px;
+        display: block;
+        font-size: .9em;
+    }
+    .details-qty {
+        .qty-wrapper {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            width: @checkout-cart__qty-width + @checkout-cart__toggler-width;
+            height: @checkout-cart__qty-height;
+            border: @checkout-cart__qty-wrapper-border;
+            border-radius: @checkout-cart__qty-wrapper-border-radius;
+
+            .qty {
+                position: absolute;
+                &,
+                &:focus {
+                    border: 0 !important;
+                    border-radius: 0 !important;
+                }
+            }
+
+            .qty {
+                .left(0);
+                width: @checkout-cart__qty-width !important;
+                height: @checkout-cart__qty-height !important;
+                padding: 0 !important;
+                text-align: center;
+            }
+            .qty-toggler {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                .right(0);
+                height: @checkout-cart__toggler-height;
+                width: @checkout-cart__toggler-width;
+                color: @checkout-cart__toggler-color;
+                .border-left(@checkout-cart__qty-wrapper-border);
+                background-color: @checkout-cart__toggler-background-color;
+
+                &:hover {
+                    color: darken(@checkout-cart__toggler-color, 5%);
+                    background: darken(@checkout-cart__toggler-background-color, 1%);
+                }
+
+                svg {
+                    width: @checkout-cart__toggler-icon-size;
+                    height: @checkout-cart__toggler-icon-size;
+                }
+
+                &.qty-more {
+                    top: 0;
+                    border-bottom: @checkout-cart__qty-wrapper-border;
+                }
+                &.qty-less {
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}

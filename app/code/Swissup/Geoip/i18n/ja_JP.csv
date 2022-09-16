@@ -1,0 +1,12 @@
+Geoip,ジオイプ
+"MaxMind Database",MaxMindデータベース
+"MaxMind Service",MaxMindサービス
+IpStack,IpStack
+"Maxmind database file was not found.",Maxmindデータベースファイルが見つかりませんでした。
+Provider,プロバイダー
+"Account ID",アカウントID
+"License Key",ライセンスキー
+"Get your Account ID at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","<a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>でアカウントIDを取得します"
+"Get your License Key at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","<a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>でライセンスキーを取得します。"
+"API Key",APIキー
+"Get your free API key at <a href='https://ipstack.com/product'>https://ipstack.com/product</a>","<a href='https://ipstack.com/product'> https://ipstack.com/product </a>で無料のAPIキーを取得します"

@@ -1,0 +1,12 @@
+Geoip,Geoip
+"MaxMind Database","Baza danych MaxMind"
+"MaxMind Service","Usługa MaxMind"
+IpStack,IpStack
+"Maxmind database file was not found.","Plik bazy danych Maxmind nie został znaleziony."
+Provider,Dostawca
+"Account ID","ID konta"
+"License Key","Klucz licencyjny"
+"Get your Account ID at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","Uzyskaj identyfikator konta na <a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>"
+"Get your License Key at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","Uzyskaj klucz licencyjny na <a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>"
+"API Key","Klucz API"
+"Get your free API key at <a href='https://ipstack.com/product'>https://ipstack.com/product</a>","Zdobądź bezpłatny klucz API na <a href='https://ipstack.com/product'> https://ipstack.com/product </a>"

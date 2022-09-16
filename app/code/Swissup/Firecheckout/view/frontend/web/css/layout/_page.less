@@ -1,0 +1,113 @@
+.firecheckout {
+    // This header is used for empty layout only
+    .firecheckout-header {
+        text-align: center;
+        .header {
+            padding: 20px 20px 0;
+            position: static;
+            .logo {
+                float: none;
+                margin: 0;
+                img {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    &:not(.page-layout-checkout) {
+        .page-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            // third-party themes
+            > .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            width: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+
+            h1 {
+                .margin(20px auto 20px 0);
+            }
+            > * + * {
+                margin: 0 10px;
+            }
+        }
+    }
+
+    &.firecheckout-layout-empty,
+    &.firecheckout-layout-minimal {
+        .page-main {
+            padding-top: 10px;
+        }
+        .page-main,
+        .header.content {
+            width: 100%;
+            box-sizing: border-box;
+            max-width: @fc-page-wide__width;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    &.firecheckout-col1-set {
+        &.firecheckout-layout-empty,
+        &.firecheckout-layout-minimal {
+            .page-main,
+            .header.content {
+                max-width: @fc-page-narrow__width;
+            }
+        }
+    }
+
+    .continue-shopping {
+        display: none;
+    }
+
+    &-layout-empty {
+        .continue-shopping {
+            display: block;
+        }
+    }
+    &.firecheckout-layout-empty {
+        @media @fc-screen__small__media {
+            .page-title-wrapper {
+                flex-wrap: wrap;
+                margin-bottom: 15px;
+                h1 {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media @fc-screen__base__media {
+    .firecheckout {
+        &.firecheckout-quote-virtual {
+            &.firecheckout-layout-empty,
+            &.firecheckout-layout-minimal {
+                .page-main,
+                .header.content {
+                    max-width: @fc-page-narrow__width;
+                }
+            }
+        }
+
+        &-layout-full {
+            .nav-sections {
+                display: block;
+            }
+        }
+    }
+}

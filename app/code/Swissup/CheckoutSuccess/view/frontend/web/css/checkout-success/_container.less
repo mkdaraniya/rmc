@@ -1,0 +1,46 @@
+.checkout-success {
+    display: grid;
+    gap: 2rem;
+    grid-template-areas:
+        'container-top'
+        'container-middleleft'
+        'container-middleright'
+        'container-bottom';
+}
+
+[data-type="container"] {
+    align-content: start;
+    display: grid;
+    gap: 2rem;
+
+    &:empty {
+        display: none;
+    }
+
+    &[data-name="top"] {
+        grid-area: container-top
+    }
+
+    &[data-name="middleleft"] {
+        grid-area: container-middleleft;
+    }
+
+    &[data-name="middleright"] {
+        grid-area: container-middleright;
+    }
+
+    &[data-name="bottom"] {
+        grid-area: container-bottom;
+    }
+}
+
+/*  Desktop */
+@media (min-width: 768px) {
+    .checkout-success {
+        grid-template-areas:
+        'container-top container-top'
+        'container-middleleft container-middleright'
+        'container-bottom container-bottom';
+        grid-template-columns: 1fr 1fr;
+    }
+}

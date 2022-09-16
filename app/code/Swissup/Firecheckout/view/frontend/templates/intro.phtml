@@ -1,0 +1,53 @@
+<?php
+    $text = $block->getText();
+    if (!$text) {
+        return;
+    }
+?>
+
+<div class="fc-intro" id="fc-intro-modal">
+    <?php /* @escapeNotVerified */ echo $block->getText(); ?>
+</div>
+
+<script>
+require([
+    'jquery',
+    'Magento_Checkout/js/model/full-screen-loader',
+    'Magento_Ui/js/modal/modal'
+], function ($, loader) {
+    'use strict';
+
+    $('#fc-intro-modal').modal({
+        autoOpen: true,
+        innerScroll: true,
+        modalClass: 'fc-intro-modal',
+        clickableOverlay: false,
+        responsive: true,
+        buttons: [],
+
+        /**
+         * [opened description]
+         */
+        opened: function () {
+            $('body').addClass('_has-fc-intro-popup');
+        },
+
+        /**
+         * [closed description]
+         */
+        closed: function () {
+            $('body').removeClass('_has-fc-intro-popup');
+        }
+    });
+
+    $('[data-fc-intro-click]').on('click', function () {
+        $($(this).data('fc-intro-click')).trigger('click');
+    });
+
+    $(document).on('ajax:addToCart', function () {
+        loader.startLoader();
+        $('.loading-mask').addClass('fc-mask');
+        window.location.reload();
+    });
+});
+</script>

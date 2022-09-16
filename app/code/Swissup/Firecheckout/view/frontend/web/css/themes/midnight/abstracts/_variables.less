@@ -1,0 +1,180 @@
+//
+// Icons
+// ______________________________________________
+@fc-icon__info: 'data:image/svg+xml;base64,PHN2ZyBpZD0iaS1pbmZvIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjc1IiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLXdpZHRoPSIxIj4KICAgIDxwYXRoIGQ9Ik0xNiAxNCBMMTYgMjMgTTE2IDggTDE2IDEwIiAvPgogICAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTQiIC8+Cjwvc3ZnPg==';
+@fc-icon__caret: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDMwIDYwIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjc1IiBkPSJNMTUuNjc2IDMzLjAzN2w1LjEwMi01LjEwMy0uNzA3LTEuMDg2LTQuNDkgNC40OTItNC40OS00LjQ5Mi0uNzAyIDEuMDg2IDUuMTAyIDUuMTAzLjA3NS4xMTUuMDItLjAyLjAyLjAyeiIvPjwvc3ZnPg==';
+
+//
+// Body variables
+// ______________________________________________
+@fc__accent-color: #0078ce;
+@fc__text-color: rgba(255, 255, 255, 0.95);
+@fc__text-secondary-color: fadeout(@fc__text-color, 25%);
+@fc__action-color: #209dff;
+@fc__divider-color: rgba(255, 255, 255, 0.12);
+
+@fc-body__background-color: #4c4177;
+@fc-body__background-color-start: #4c4177;
+@fc-body__background-color-end: #2a5470;
+@fc-body__background: linear-gradient(315deg, @fc-body__background-color-start 0%, @fc-body__background-color-end 74%) fixed;
+
+//
+// Loader
+// ______________________________________________
+@fc-loader-mask__background: rgba(0,0,0,0.2);
+@fc-loader__primary-color: @fc__accent-color;
+@fc-loader__secondary-color: @fc__divider-color;
+
+//
+// Section variables
+// ______________________________________________
+@fc-section-desktop__gap: 27px;
+@fc-section__padding: 25px;
+@fc-section__background: rgba(0, 0, 0, 0.3);
+@fc-section__border: 0;
+
+@fc-section-title__color: @fc__text-color;
+@fc-section-title__font-weight: 500;
+@fc-section-title__padding: 0 0 15px;
+
+@fc-section-number__width: 32px;
+@fc-section-number__color: @fc__text-color;
+@fc-section-number__background: rgba(0, 0, 0, 0.2);
+@fc-section-number__font-family: inherit;
+@fc-section-number__font-size: 20px;
+@fc-section-number__font-weight: 600;
+@fc-section-number__margin: 0 10px 0 -7px;
+@fc-section-number__border-radius: 0;
+@fc-section-number__border: 0;
+
+@fc-subtitle__color: #bfc1d4;
+
+@fc-toggler__color: @fc__accent-color;
+@fc-toggler__font-size: 12px;
+
+//
+// Form variables
+// ______________________________________________
+@fc-form-field__background-color: rgba(0, 0, 0, 0.2);
+@fc-form-field-option__background: darken(mix(@fc-body__background-color-start, @fc-body__background-color-end), 20%);
+@fc-form-field__color: @fc__text-color;
+@fc-form-field__placeholder-color: fadeout(@fc-form-field__color, 50%);
+@fc-form-field__border-color: @fc-form-field__background-color;
+@fc-form-field__border-width: 1px;
+@fc-form-field__border-radius: 3px;
+@fc-form-field__height: 50px;
+@fc-form-field__focus__border-color: @fc-form-field__background-color;
+@fc-form-field__error__border-color: rgba(255, 40, 52, 0.5);
+@fc-form-field__focus__background-color: transparent;
+@fc-form-field__autofill__background-color: #242b3a;
+@fc-form-field__autofill__color: @fc-form-field__color;
+
+@fc-form-field-note__color: @fc__text-secondary-color;
+
+@fc-form-checkbox-radio__background-color: @fc-section__background;
+@fc-form-checkbox-radio__border-color: rgba(255, 255, 255, 0.16);
+@fc-form-checkbox-radio__box-shadow-color: @fc__accent-color;
+@fc-form-checkbox-radio__checked__box-shadow-color: @fc__accent-color;
+@fc-form-checkbox-radio__focus__border-color: @fc__accent-color;
+
+//
+// Messages
+// ______________________________________________
+@fc-message__opacity: 0.8;
+@fc-message__border-radius: @fc-form-field__border-radius;
+@fc-message__background: rgba(0, 0, 0, 0.3);
+@fc-message__success__color: #00e400;
+@fc-message__error__color: #ff0600;
+@fc-message__notice__color: #f79700;
+
+//
+// Buttons
+// ______________________________________________
+@fc-button__border-width: 0;
+@fc-button__border-radius: 4px;
+@fc-button__box-shadow: none;
+@fc-button__background: @fc__accent-color;
+@fc-button__color: #fff;
+@fc-button__padding: 7px 15px;
+@fc-button__text-decoration: none;
+@fc-button__text-shadow: none;
+@fc-button__transition: all 200ms ease-in-out;
+@fc-button__hover__background: shade(@fc-button__background, 7%);
+
+@fc-button-secondary__background: transparent;
+@fc-button-secondary__box-shadow: none;
+@fc-button-secondary__border-color: transparent;
+@fc-button-secondary__color: #777;
+@fc-button-secondary__padding: 0;
+
+@fc-button-primary__padding: 13px 25px;
+@fc-button-primary__hover__background: @fc-button__hover__background;
+
+@fc-button-order__wide-layout: true;
+@fc-button-order__box-shadow: none;
+@fc-button-order__color: #fff;
+@fc-button-order__padding: 18px 35px;
+@fc-button-order__border-radius: @fc-button__border-radius;
+@fc-button-order__hover__background: @fc-button__hover__background;
+
+@fc-button-auth__enabled: true;
+@fc-button-auth__hover__background: @fc-button__hover__background;
+
+//
+// Progress bar
+// ______________________________________________
+@fc-progress-bar__color: @fc__text-secondary-color;
+@fc-progress-bar-item__color: @fc__text-color;
+@fc-progress-bar-item__active__color: @fc__text-color;
+@fc-progress-bar-item__completed__color: @fc__action-color;
+
+//
+// Modal
+// ______________________________________________
+@fc-modal__popup-background: @fc-section__background;
+@fc-modal__overlay-background: @fc-body__background;
+@fc-modal__divider-background: #1a283e;
+@fc-modal__divider-color: @fc__text-secondary-color;
+
+//
+// Intro popup
+// ______________________________________________
+@fc-intro-popup__overlay-background: @fc-modal__overlay-background;
+
+//
+// Tooltips (Native Magento's tooltips)
+// ______________________________________________
+@fc-tooltip-content__box-shadow: 0 0 45px rgba(0, 0, 0, 0.1);
+@fc-tooltip-content__background-color: darken(mix(@fc-body__background-color-start, @fc-body__background-color-end), 20%);
+@fc-tooltip-content__border-color: @fc-tooltip-content__background-color;
+@fc-tooltip-content__border-width: 1px;
+
+//
+// Tiny scrollbar styles
+// ______________________________________________
+@fc-scrollbar__background-color: transparent;
+@fc-scrollbar-thumb__background-color: @fc__accent-color;
+
+//
+// Saved addresses variables
+// ______________________________________________
+@fc-address-item__border-color: @fc__accent-color;
+@fc-address-item__hover__background: fadeout(@fc-section__background, 15%);
+
+//
+// Order summary
+// ______________________________________________
+@fc-order-summary__use-overflow-gradient: false;
+@fc-order-summary__item-toggler-color: fadeout(@fc__text-color, 70%);
+
+//
+// Third-party variables
+// ______________________________________________
+@fc-orderattachments__border: 1px dotted rgba(255, 255, 255, 0.2);
+
+@fc-delivery-date-icon__color: @fc__text-secondary-color;
+
+@fc-checkout-cart__toggler-background-color: @fc-form-field__background-color;
+@fc-checkout-cart__toggler-color: @fc-form-field__color;
+
+@fc-social-login__link-color: #fff;

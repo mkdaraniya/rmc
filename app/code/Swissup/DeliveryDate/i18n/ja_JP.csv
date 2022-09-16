@@ -1,0 +1,28 @@
+"Delivery Date",配送日
+"Delivery Time",納期
+"Delivery Date &amp; Time",配送日時間
+Main,メイン
+"Show for all shipping methods",すべての配送方法を表示
+"Date Field Settings",日付フィールドの設定
+"Field Label",フィールドラベル
+"Show Field",フィールドを表示
+"Use first avilable date as default value",デフォルト値として最初の利用可能な日付を使用
+"Date format",日付形式
+"Leave empty to use active locale format.",アクティブなロケール形式を使用するには、空のままにします。
+"<strong>l, j F, Y - Sunday, 4 October, 2018</strong><br/>l - A full textual representation of the day of the week<br/>j - Day of the month without leading zeros<br/>F - A full textual representation of a month, such as January or March<br/>Y - A full numeric representation of a year, 4 digits<br/><br/><strong>m/d/Y - 10/04/2018</strong><br/>m - Numeric representation of a month, with leading zeros<br/>d - Day of the month, 2 digits with leading zeros<br/>Y - A full numeric representation of a year, 4 digits","<strong> l、j F、Y-2018年10月4日日曜日</ strong> <br/> l-曜日の完全なテキスト表現<br/> j-先行ゼロなしの月の日付< br /> F-1月や3月などの月の完全なテキスト表現<br/> Y-4桁の年の完全な数値表現<br/> <br/> <strong> m / d / Y -10/04/2018 </ strong> <br/> m-先行ゼロ付きの月の数値表現<br/> d-日付、先行ゼロ付きの2桁<br/> Y-完全な数値年の表現、4桁"
+"Time Field Settings",時間フィールド設定
+"Time Options",時間のオプション
+"Add Time Entry",タイムエントリを追加
+"First available delivery date rules",最初に利用可能な納期ルール
+"Delivery processing day ends at",配送処理日はで終了します
+"Delivery will be available since first available day (order date) plus this value",配達は最初の利用可能日（注文日）にこの値を加えてから利用可能
+"Last available delivery date rules",最終納期ルール
+"Period in days, while delivery will be available, since first available day",最初の利用可能日から配達が利用可能になるまでの日数
+"Exclude delivery date rules",納期ルールを除外する
+"Exclude days of week from delivery",配達から曜日を除外する
+Holidays,祝日
+Offset,オフセット
+"Add Holiday",休日を追加
+"Delivery Time is required",配達時間が必要です
+"Delivery Date is required",配達日が必要です
+"Invalid Delivery Time value",無効な配達時間の値

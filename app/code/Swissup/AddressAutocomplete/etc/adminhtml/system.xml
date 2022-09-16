@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="address_autocomplete" translate="label" type="text" sortOrder="115" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Address Autocomplete</label>
+            <tab>swissup_checkout</tab>
+            <resource>Swissup_AddressAutocomplete::config</resource>
+            <group id="main" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Main</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_key" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <comment><![CDATA[<a href="https://docs.swissuplabs.com/m2/extensions/address-autocomplete/get-api-key/">Get API Key</a>]]></comment>
+                </field>
+                <field id="fields" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Initialize autocompletion on</label>
+                    <source_model>Swissup\AddressAutocomplete\Model\Config\Source\AutocompletionFields</source_model>
+                </field>
+                <field id="geolocation" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use geolocation detection</label>
+                    <comment>When enabled, will ask permission to access browser location API, and fill the form with detected address</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="address_restriction_heading" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address Search Restrictions</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="restrict_to_current" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Restrict the search to currently selected country</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="country" translate="label" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Restrict the search to a specific countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="restrict_to_current">0</field>
+                    </depends>
+                </field>
+
+                <field id="address_formatting_heading" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address Formatting</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="street_number_placement" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Street Number Placement</label>
+                    <source_model>Swissup\AddressAutocomplete\Model\Config\Source\StreetNumberPlacement</source_model>
+                </field>
+                <field id="unit_number" translate="label comment" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Parse Unit Number</label>
+                    <comment><![CDATA[While Google Places Api doesn't support unit number, we can parse it manually when customer is entering it with street number.<br/>Example: 1412/3 Herbert Street, Charlston]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="unit_number_placement" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Unit Number Placement</label>
+                    <source_model>Swissup\AddressAutocomplete\Model\Config\Source\UnitNumberPlacement</source_model>
+                    <depends>
+                        <field id="unit_number">1</field>
+                    </depends>
+                </field>
+                <field id="unit_number_divider" translate="label comment" type="select" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Unit Number Divider</label>
+                    <comment>Divider is used when unit number shares the same input with another field</comment>
+                    <source_model>Swissup\AddressAutocomplete\Model\Config\Source\UnitNumberDivider</source_model>
+                    <depends>
+                        <field id="unit_number">1</field>
+                    </depends>
+                </field>
+
+                <field id="advanced_formatting_heading" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Advanced Formatting</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="use_address_mapping" translate="label" type="select" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use Advanced Formatting</label>
+                    <comment>Caution! Advanced formatting has the highest priority and will override "Address Formatting" options</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="address_mapping" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Advanced Formatting</label>
+                    <frontend_model>Swissup\AddressAutocomplete\Block\Adminhtml\System\Config\Form\Field\Json</frontend_model>
+                    <comment><![CDATA[<a href="https://docs.swissuplabs.com/m2/extensions/address-autocomplete/configuration/address-formatting/">Read docs and view examples</a>]]></comment>
+                    <validate>address-autocomplete-validate-json</validate>
+                    <depends>
+                        <field id="use_address_mapping">1</field>
+                    </depends>
+                </field>
+            </group>
+            <include path="Swissup_Checkout::system/checkout_modules.xml"/>
+        </section>
+    </system>
+</config>

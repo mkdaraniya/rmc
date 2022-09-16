@@ -1,0 +1,33 @@
+.fc-spinner {
+    position: absolute;
+    top: @fc-form-spinner__top;
+    .right(@fc-form-spinner__right);
+    opacity: 0;
+    transition: 0s opacity linear 200ms; // don't show spinner for fast requests
+
+    &.shown {
+        opacity: 1;
+    }
+
+    &::before {
+        display: none;
+    }
+    &::after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        .right(0);
+        width: @fc-form-spinner__size;
+        height: @fc-form-spinner__size;
+        .margin-left(-(round(@fc-form-spinner__size / 2)));
+        margin-top: -(round(@fc-form-spinner__size / 2));
+
+        -webkit-animation: 0.4s linear infinite firecheckout-spin;
+        animation: 0.4s linear infinite firecheckout-spin;
+        border: @fc-form-spinner__border-width solid @fc-loader__secondary-color;
+        border-top: @fc-form-spinner__border-width solid @fc-loader__primary-color;
+        border-radius: 50%;
+        cursor: wait;
+    }
+}

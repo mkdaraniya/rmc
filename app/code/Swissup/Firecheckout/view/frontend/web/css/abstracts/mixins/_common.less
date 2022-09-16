@@ -1,0 +1,74 @@
+.lib-fc-css(
+    @_property,
+    @_value,
+    @_prefix: 0
+) when not (@_value = '')
+    and not (@_value = false)
+    and not (extract(@_value, 1) = false)
+    and not (extract(@_value, 2) = false)
+    and not (extract(@_value, 3) = false)
+    and not (extract(@_value, 4) = false)
+    and not (extract(@_value, 5) = false) {
+    @{_property}: @_value;
+}
+
+.lib-fc-section(
+    @padding: @fc-section__padding,
+    @background: @fc-section__background,
+    @border: @fc-section__border,
+    @border-radius: @fc-section__border-radius,
+    @box-shadow: @fc-section__box-shadow
+) {
+    box-sizing: border-box;
+    .padding(@padding);
+    background: @background;
+    border: @border;
+    .border-radius(@border-radius);
+    box-shadow: @box-shadow;
+}
+
+.lib-fc-section-reset() {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.lib-fc-subtitle(
+    @color: @fc-subtitle__color,
+    @text-transform: @fc-subtitle__text-transform,
+    @text-decoration: @fc-subtitle__text-decoration,
+    @font-size: @fc-subtitle__font-size,
+    @font-weight: @fc-subtitle__font-weight
+) {
+    .lib-fc-css(color, @color);
+    .lib-fc-css(text-transform, @text-transform);
+    .lib-fc-css(text-decoration, @text-decoration);
+    .lib-fc-css(font-size, @font-size);
+    .lib-fc-css(font-weight, @font-weight);
+    padding: 0;
+}
+
+.lib-fc-toggler(
+    @color: @fc-toggler__color
+) {
+    .lib-fc-css(border-color, @color);
+
+    content: '';
+    transform: rotate(45deg);
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    .margin(0 0 0 5px);
+    position: relative;
+    top: -3px;
+    right: auto;
+    background: transparent;
+}
+
+.lib-fc-toggler-up() {
+    transform: rotate(225deg);
+    top: 2px;
+}

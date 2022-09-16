@@ -1,0 +1,21 @@
+"Add New Field","Lägg till nytt fält"
+"Save Field","Spara fält"
+"Delete Field","Radera fält"
+"Edit Field '%1'","Redigera fältet %1"
+"New Field","Nytt fält"
+"Advanced Field Properties","Avancerade fältegenskaper"
+"Use values greater than 1","Använd värden större än 1"
+"Field Properties",Fältegenskaper
+"Field Information",Fältinformation
+"Checkout field was deleted.","Kassafältet raderades."
+"Can't find a field to delete.","Kan inte hitta ett fält att ta bort."
+"Edit Field","Redigera fält"
+"This field no longer exists.","Det här fältet finns inte längre."
+"Manage Fields","Hantera fält"
+"You saved the checkout field.","Du sparat kassafältet."
+"An field with this code already exists.","Ett fält med den här koden finns redan."
+"An field with the same code (%1) already exists.","Ett fält med samma kod (%1) finns redan."
+"Please fill all required fields before placing the order.","Vänligen fyll i alla obligatoriska fält innan du beställer."
+"Additional Information","ytterligare information"
+"No additional information found.","Ingen ytterligare information hittades."
+"Field Code",Fältkod

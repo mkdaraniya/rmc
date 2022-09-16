@@ -1,0 +1,28 @@
+"Invalid Request Params",无效的请求参数
+"Can't find a attachment to delete.",找不到要删除的附件。
+"Invalid Hash Params",无效的哈希参数
+OrderAttachment,订单附件
+Attachments,附件
+"Can't find a attachment to update.",找不到要更新的附件。
+"Remove Item",除去项目
+"Invalid File Type",无效的文件类型
+"Write comment here",在这里写评论
+"Size of the file is greather than allowed",文件大小超出允许范围
+"You have reached the limit of files",您已达到文件数限制
+Download,下载
+"Drag or Select your files here",在此处拖动或选择文件
+File,文件
+Comment,评论
+Action,行动
+"Download Item",下载项目
+Swissup,Swissup
+General,一般
+"Allow file upload during checkout",允许在结帐时上传文件
+"Allow file upload on order view page",允许在订单查看页面上上传文件
+"File restrictions",文件限制
+Limit,限制
+"Size, Kilobytes",大小，千字节
+"Allowed extensions",允许的扩展名
+"File Type",文件类型
+Updated,更新
+Modified,改性

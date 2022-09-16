@@ -1,0 +1,114 @@
+& when (@fc-form-checkbox-radio__enabled = true) {
+    .firecheckout {
+        .form-shipping-address,
+        @{fc-container__selector} {
+            input[type="checkbox"],
+            input[type="radio"] {
+                opacity: 1;
+                -webkit-appearance: none;
+                display: inline-block;
+                position: relative;
+                top: 0;
+                z-index: 1; /* Move it above the label in case if label has wrong 'for' */
+                .margin(0 5px 0 0);
+                padding: 0 !important;
+                background-color: @fc-form-checkbox-radio__background-color;
+                box-shadow: @fc-form-checkbox-radio__box-shadow;
+                border: @fc-form-checkbox-radio__border;
+                border-radius: 4px;
+                -webkit-transition: all 0.2s ease-in-out !important;
+                transition: all 0.2s ease-in-out !important;
+                outline: 0;
+                width: 18px !important;
+                height: 18px !important;
+                min-width: 18px !important;
+                min-height: 18px !important;
+                cursor: pointer;
+                vertical-align: middle !important;
+                transform: none !important;
+                clip-path: initial !important;
+                --webkit-clip-path: initial !important;
+
+                + label {
+                    display: inline;
+                    vertical-align: middle !important;
+                    line-height: 24px;
+                    .breeze-theme& {
+                        line-height: 18px;
+                    }
+                    &::before {
+                        // Hide custom checkbox and radio styles in third-party themes
+                        display: none;
+                    }
+                    &::after {
+                        content: none !important;
+                    }
+
+                    + .field-note,
+                    + .mage-error,
+                    + .field-error {
+                        .firecheckout:not(.fc-form-horizontal)& {
+                            .margin-left(27px);
+                        }
+                        .fc-form-horizontal& {
+                            margin-top: 3px;
+                        }
+                    }
+                }
+
+                &::after {
+                    content: '';
+
+                    background-color: transparent;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    border: 0;
+
+                    -webkit-transition: all 0.2s ease-in-out 0.1s;
+                    transition: all 0.2s ease-in-out 0.1s;
+                    transform: scale(0.2);
+                    opacity: 0;
+
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+
+                    width: 18px;
+                    height: 18px;
+                    margin-left: -9px;
+                    margin-top: -9px;
+                }
+
+                &:checked {
+                    box-shadow: @fc-form-checkbox-radio__checked__box-shadow;
+                    border: none;
+                    &:focus {
+                        box-shadow: @fc-form-checkbox-radio__checked-focus__box-shadow;
+                    }
+                    &::after {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                }
+                &:focus {
+                    border-color: @fc-form-checkbox-radio__focus__border-color;
+                    outline: 0;
+                }
+            }
+            input[type="checkbox"] {
+                &::after {
+                    background-image: url(@fc-form-checkbox__background-image);
+                    background-size: 12px 10px;
+                }
+            }
+            input[type="radio"] {
+                border-radius: 50%;
+                &::after {
+                    background-image: url(@fc-form-radio__background-image);
+                    background-size: 8px 8px;
+                }
+            }
+        }
+    }
+}

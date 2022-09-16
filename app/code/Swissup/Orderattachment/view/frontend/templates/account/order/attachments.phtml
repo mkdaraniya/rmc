@@ -1,0 +1,26 @@
+<?php if ($this->isOrderAttachmentEnabled()) : ?>
+<?php
+    $style = '';
+    if (!$this->isAllowedFileUpload()) {
+        $style = 'display:none;';
+    }
+?>
+<div class="block block-order-details-view">
+    <div class="block-title">
+        <strong><?php /* @escapeNotVerified */ echo __('Order Attachments') ?></strong>
+    </div>
+    <div class="block-content">
+        <form id="attachment-form" class="form form-attachments" enctype="multipart/form-data">
+            <input class="input"
+                   type="file"
+                   style="display: none;"
+                   id="order-attachment"
+                   name="order-attachment[]" multiple />
+                <div class="swissup-attachment-drag-area" style="cursor:pointer;<?php echo $style; ?>" data-role="order-attachment" data-mage-init='{"Swissup_Orderattachment/js/order-attachment": {"config": <?= $this->getAttachmentConfig(); ?>}}'>
+                    <h4><?php  /* @escapeNotVerified */ echo __('Drag or Select your files here') ?></h4>
+                </div>
+            <div class="attachment-container"></div>
+        </form>
+    </div>
+</div>
+<?php endif; ?>

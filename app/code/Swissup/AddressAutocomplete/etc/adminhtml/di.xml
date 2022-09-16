@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType
+        name="Swissup\AddressAutocomplete\Block\Adminhtml\System\Config\Form\Field\Json"
+        type="Swissup\Codemirror\Block\Adminhtml\System\Config\Form\Field\Editor">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="editor_config" xsi:type="array">
+                    <item name="mode" xsi:type="string">application/ld+json</item>
+                    <item name="line_wrapping" xsi:type="boolean">true</item>
+                    <item name="css_class" xsi:type="string">cm-break-word</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

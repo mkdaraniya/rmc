@@ -1,0 +1,36 @@
+<div class="admin__field order-create-field">
+    <label class="label admin__field-label">
+        <span><?php echo $block->escapeHtml(__('Delivery Date')) ?></span>
+    </label>
+    <input type="text" id="delivery-date" name="delivery-date" class="admin__control-text"
+        data-mage-init="<?php echo $block->getDeliveryDateFieldConfig() ?>"
+        value="<?php echo $block->escapeHtml($block->getDeliveryDate()) ?>"/>
+</div>
+
+<div class="admin__field order-create-field">
+    <label class="label admin__field-label">
+        <span><?php echo $block->escapeHtml(__('Delivery Time')) ?></span>
+    </label>
+    <select type="text" id="delivery-time" name="delivery-time" class="admin__control-select">
+        <option value=""></option>
+        <?php
+        $value = $block->getDeliveryTime();
+        foreach ($block->helper->getTimeOptions() as $option):
+            $selected = '';
+            if ($value == $option['value']) {
+                $selected = ' selected="selected"';
+            }
+
+            $optionLabel = $block->escapeHtml($option['label']);
+            if (method_exists($block, 'escapeHtmlAttr')) {
+                $optionValue = $block->escapeHtmlAttr($option['value']);
+            } else {
+                $optionValue = $block->escapeHtml($option['value']);
+            }
+        ?>
+            <option value="<?php echo $optionValue ?>"<?php echo $selected ?>>
+                <?php echo $optionLabel ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>

@@ -1,0 +1,10 @@
+<?php
+    $text = $block->getText();
+    if (!$text) {
+        return;
+    }
+?>
+
+<div class="widget block block-static-block <?php echo $block->getBlockCss() ?>">
+    <?php /* @escapeNotVerified */ echo $block->getText(); ?>
+</div>

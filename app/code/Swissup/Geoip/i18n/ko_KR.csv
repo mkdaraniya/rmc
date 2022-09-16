@@ -1,0 +1,12 @@
+Geoip,Geoip
+"MaxMind Database","MaxMind 데이터베이스"
+"MaxMind Service","MaxMind 서비스"
+IpStack,IPStack
+"Maxmind database file was not found.","Maxmind 데이터베이스 파일을 찾을 수 없습니다."
+Provider,공급자
+"Account ID","계정 ID"
+"License Key","라이센스 키"
+"Get your Account ID at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","<a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>에서 계정 ID를 받으십시오."
+"Get your License Key at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","<a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>에서 라이센스 키를 받으십시오."
+"API Key","API 키"
+"Get your free API key at <a href='https://ipstack.com/product'>https://ipstack.com/product</a>","<a href='https://ipstack.com/product'> https://ipstack.com/product </a>에서 무료 API 키를 받으십시오."

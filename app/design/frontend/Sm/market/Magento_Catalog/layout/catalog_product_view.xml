@@ -20,7 +20,7 @@
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="view.addto.compare" remove="true"/>
         <referenceBlock name="catalog.compare.link" remove="true" />
-
+	
         <referenceContainer name="sidebar.additional">
             <block class="Magento\Cms\Block\Block" name="product-sidebar" after="-">
                 <arguments>
@@ -37,6 +37,17 @@
             </block>
         </referenceContainer>
 
+
+
+
+        <referenceContainer name="product.info.main">
+        <block class="Magento\Catalog\Block\Product\View\Attributes" name="additional.attributes" as="additional" 				template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info">
+        </block>
+        </referenceContainer>
+
+
+
+        
         <referenceContainer name="page.bottom.container">
             <container name="div.container.detail" htmlTag="div" htmlClass="container">
                 <block class="Magento\Catalog\Block\Product\ProductList\Related" name="catalog.product.related.theme"
@@ -69,3 +80,4 @@
         </referenceContainer>
     </body>
 </page>
+

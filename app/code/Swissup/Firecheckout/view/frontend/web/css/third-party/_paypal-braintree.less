@@ -1,0 +1,28 @@
+.firecheckout {
+    .payment-method-braintree {
+        .hosted-control {
+            .lib-fc-form-input();
+            width: 100%;
+            &.hosted-cid {
+                width: 100%;
+            }
+            &:focus {
+                background-color: #fff;
+            }
+        }
+
+        .hosted-date-wrap {
+            .hosted-control.hosted-date {
+                width: 50%;
+                .margin-right(@fc-form-field__gap * 2);
+                &:after {
+                    display: none;
+                }
+                + .hosted-date {
+                    margin: 0;
+                    width: ~"calc(49% - (@{fc-form-field__gap} * 2))";
+                }
+            }
+        }
+    }
+}

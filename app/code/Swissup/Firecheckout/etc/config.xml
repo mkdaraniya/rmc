@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <firecheckout>
+            <general>
+                <enabled>0</enabled>
+                <url_path>checkout</url_path>
+                <layout>firecheckout-col3-set</layout>
+            </general>
+            <design>
+                <page_layout>empty</page_layout>
+                <theme>light</theme>
+                <form_style>compact</form_style>
+                <hide_labels>1</hide_labels>
+                <use_tooltips>1</use_tooltips>
+            </design>
+            <payment>
+                <display_billing_address_title>1</display_billing_address_title>
+                <display_billing_address_on>default</display_billing_address_on>
+                <billing_address_save_mode>default</billing_address_save_mode>
+            </payment>
+            <performance>
+                <jsbuild>0</jsbuild>
+                <jsbuild_paths><![CDATA[
+Swissup_AddressAutocomplete
+Swissup_AddressFieldManager
+Swissup_Checkout
+Swissup_CheckoutCart
+Swissup_CheckoutFields
+Swissup_CheckoutRegistration
+Swissup_CustomerFieldManager
+Swissup_DeliveryDate
+Swissup_Geoip
+Swissup_Firecheckout---custom.js
+Swissup_FirecheckoutIntegrations
+Swissup_Orderattachment
+Swissup_SubscribeAtCheckout
+Swissup_Taxvat
+Magento_Checkout---set-payment-information-extended.js
+Magento_CheckoutAgreements
+Magento_OfflinePayments
+Magento_OfflineShipping
+]]></jsbuild_paths>
+                <prefetch>1</prefetch>
+            </performance>
+        </firecheckout>
+    </default>
+</config>

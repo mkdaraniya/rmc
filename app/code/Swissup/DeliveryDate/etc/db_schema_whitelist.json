@@ -1,0 +1,21 @@
+{
+    "swissup_deliverydate": {
+        "column": {
+            "id": true,
+            "quote_id": true,
+            "order_id": true,
+            "comment": true,
+            "date": true,
+            "timerange": true
+        },
+        "index": {
+            "SWISSUP_DELIVERYDATE_QUOTE_ID": true,
+            "SWISSUP_DELIVERYDATE_ORDER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_DELIVERYDATE_QUOTE_ID_QUOTE_ENTITY_ID": true,
+            "SWISSUP_DELIVERYDATE_ORDER_ID_SALES_ORDER_ENTITY_ID": true
+        }
+    }
+}

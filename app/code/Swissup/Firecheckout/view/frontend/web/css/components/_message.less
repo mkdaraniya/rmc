@@ -1,0 +1,25 @@
+.firecheckout {
+    .message {
+        .lib-fc-css(opacity, @fc-message__opacity);
+        .lib-fc-css(border-radius, @fc-message__border-radius);
+        .lib-fc-css(background, @fc-message__background);
+        &.success {
+            .lib-fc-css(color, @fc-message__success__color);
+            > *:first-child::before {
+                .lib-fc-css(color, @fc-message__success__color);
+            }
+        }
+        &.error {
+            .lib-fc-css(color, @fc-message__error__color);
+            > *:first-child::before {
+                .lib-fc-css(color, @fc-message__error__color);
+            }
+        }
+        &.notice {
+            .lib-fc-css(color, @fc-message__notice__color);
+            > *:first-child::before {
+                .lib-fc-css(color, @fc-message__notice__color);
+            }
+        }
+    }
+}

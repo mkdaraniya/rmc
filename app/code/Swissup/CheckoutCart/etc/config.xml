@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <checkout_cart>
+            <general>
+                <enabled>0</enabled>
+                <qty_increment_enabled>1</qty_increment_enabled>
+                <product_link_enabled>0</product_link_enabled>
+                <product_sku_enabled>0</product_sku_enabled>
+                <change_sort_order>1</change_sort_order>
+            </general>
+        </checkout_cart>
+    </default>
+</config>

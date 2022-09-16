@@ -1,0 +1,26 @@
+<?php
+    $helper = $this->helper('Swissup\CheckoutSuccess\Helper\Builder');
+?>
+
+<div class="allowed-blocks">
+    <div class="heading">
+        <?= __('Available blocks') ?>
+    </div>
+    <div class="block-list">
+    <?php foreach ($helper->getAllowedBlocks() as $name) :
+    ?>
+        <div
+            data-type="block"
+            data-name="<?= $block->escapeHtmlAttr($name) ?>"
+            data-title="<?= $block->escapeHtmlAttr($helper->getBlockLabel($name)) ?>"
+            data-empty="true"
+        ></div>
+    <?php endforeach; ?>
+    </div>
+
+    <button onclick="require(['jquery'], ($) => $('body').toggleClass('show--allowed-blocks'))">
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <use href="#x"></use>
+        </svg>
+    </button>
+</div>

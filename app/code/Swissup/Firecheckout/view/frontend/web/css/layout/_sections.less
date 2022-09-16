@@ -1,0 +1,75 @@
+.firecheckout {
+    .opc {
+        background: none;
+        border: 0;
+    }
+    // section styles
+    @{fc-wrapper__selector} .opc > li,
+    @{fc-container__selector} .opc-sidebar {
+        .lib-fc-section();
+    }
+
+    &.firecheckout-col1-set.fc-multistep {
+        @{fc-wrapper__selector} .opc {
+            .lib-fc-section();
+            padding: 0;
+            margin-bottom: @fc-section__gap;
+            > li {
+                .lib-fc-section-reset();
+            }
+        }
+    }
+
+    // section titles
+    @{fc-container__selector} {
+        counter-reset: firecheckout-section-counter;
+
+        .opc-wrapper .step-title,
+        .opc-block-summary > .title,
+        .opc-sidebar .step-title {
+            display: flex;
+            align-items: center;
+            border: 0;
+            margin: 0;
+            .padding(@fc-section-title__padding);
+            font-size: @fc-section-title__font-size;
+            font-weight: @fc-section-title__font-weight;
+            .lib-fc-css(color, @fc-section-title__color);
+
+            &:before {
+                box-sizing: content-box;
+                flex-shrink: 0;
+                text-align: center;
+                background: @fc-section-number__background;
+                width: @fc-section-number__width;
+                height: @fc-section-number__height;
+                line-height: @fc-section-number__height;
+                .margin(@fc-section-number__margin);
+                color: @fc-section-number__color;
+                font-weight: @fc-section-number__font-weight;
+                font-size: @fc-section-number__font-size;
+                font-family: @fc-section-number__font-family;
+                border: @fc-section-number__border;
+                .border-radius(@fc-section-number__border-radius);
+                counter-increment: firecheckout-section-counter;
+                content: counter(firecheckout-section-counter);
+
+                .firecheckout-col1-set&,
+                .firecheckout-quote-virtual& {
+                    display: none;
+                }
+            }
+        }
+
+        .fc-heading,
+        .fc-subtitle,
+        .opc-sidebar .opc-block-summary .step-title {
+            .lib-fc-subtitle();
+            margin-bottom: 12px;
+            padding: 0;
+            &:before {
+                display: none;
+            }
+        }
+    }
+}

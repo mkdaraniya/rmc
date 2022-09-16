@@ -1,0 +1,26 @@
+.fc-hidden {
+    display: none !important;
+}
+
+@media (min-width: @fc-screen__small__max-width) {
+    .fc-flex {
+        display: flex;
+        &-center {
+            justify-content: center;
+        }
+    }
+}
+
+.fc-product-columns(@i: 5) when (@i > 0) {
+    &-@{i} .products-grid .product-item {
+        width: 100% / @i !important;
+        margin: 0 !important;
+    }
+    .fc-product-columns(@i - 1);
+}
+
+.fc-product-list {
+    &.cols {
+        .fc-product-columns();
+    }
+}

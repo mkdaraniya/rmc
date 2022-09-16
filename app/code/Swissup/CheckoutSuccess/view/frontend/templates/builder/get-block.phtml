@@ -1,0 +1,10 @@
+<?php
+    /** @var $block \Magento\Checkout\Block\Onepage\Success */
+    $blockTemplateFile = $block->getTemplateFile('Swissup_CheckoutSuccess::success/block.phtml');
+    $request = $block->getRequest();
+    $request = $block->getRequest();
+?>
+<?= $block
+    ->assign('name', $request->getParam('block'))
+    ->assign('config', $request->getParam('config', []))
+    ->fetchView($blockTemplateFile) ?>

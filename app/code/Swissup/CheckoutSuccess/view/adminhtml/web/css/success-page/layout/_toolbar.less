@@ -1,0 +1,61 @@
+.builder-toolbar {
+    align-items: center;
+    display: flex;
+    background: @spl-color-light;
+    box-sizing: border-box;
+    height: 5.5rem;
+    padding: 1rem;
+    width: 100%;
+
+    .actions-view,
+    .actions-builder {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .order-wrapper {
+        align-items: center;
+        display: flex;
+        gap: .5rem;
+
+        input[type="text"] {
+            width: auto;
+        }
+    }
+
+    button {
+        align-items: center;
+        display: flex;
+        gap: .5rem;
+
+        &::before {
+            font-family: 'Admin Icons';
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            speak: none;
+        }
+    }
+
+    .button-builder::before {
+        content: '\e612';
+        transform: scale(1.25);
+    }
+
+    .button-save::before {
+        content: '\e636';
+    }
+
+    .button-blocks::before {
+        content: '\e602';
+        transform: scale(1.25);
+    }
+
+    .button-full-scr {
+        margin-left: auto;
+        &::before {
+            content: '\e644';
+        }
+    }
+
+}

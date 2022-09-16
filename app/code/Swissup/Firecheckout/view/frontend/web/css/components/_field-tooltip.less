@@ -1,0 +1,111 @@
+.firecheckout {
+    .field-tooltip {
+        .field-tooltip-content {
+            color: inherit;
+            background: @fc-tooltip-content__background-color;
+            border: @fc-tooltip-content__border-width solid @fc-tooltip-content__border-color;
+            width: @fc-tooltip-content__width;
+            box-shadow: @fc-tooltip-content__box-shadow;
+
+            &:before {
+                .border-right-color(@fc-tooltip-content__border-color);
+            }
+            &:after {
+                .border-right-color(@fc-tooltip-content__background-color);
+            }
+        }
+    }
+
+    .shipping-policy-block.field-tooltip {
+        .field-tooltip-content {
+            width: 450px;
+
+            .rtl& {
+                .right(-10px);
+                .left(auto);
+
+                &:before,
+                &:after {
+                    .right(10px);
+                    .left(auto);
+                }
+            }
+        }
+    }
+
+    .shipping-policy-block.field-tooltip,
+    .modal-popup .field-tooltip {
+        .field-tooltip-content {
+            &:before,
+            &:after {
+                .border-right-color(transparent);
+            }
+
+            &:before {
+                border-bottom-color: @fc-tooltip-content__border-color;
+            }
+            &:after {
+                border-bottom-color: @fc-tooltip-content__background-color;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .firecheckout {
+        .field-tooltip {
+            .field-tooltip-content {
+                .right(-10px);
+                .left(auto);
+                top: 40px;
+
+                &:before,
+                &:after {
+                    .border-right-color(transparent);
+                    margin-top: -21px;
+                    .right(10px);
+                    .left(auto);
+                    top: 0;
+                }
+
+                &:before {
+                    border-bottom-color: @fc-tooltip-content__border-color;
+                }
+                &:after {
+                    border-bottom-color: @fc-tooltip-content__background-color;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 639px) {
+    .shipping-policy-block.field-tooltip {
+        .field-tooltip-content {
+            max-width: 350px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .firecheckout {
+        .field-tooltip {
+            .field-tooltip-content {
+               width: 150px;
+            }
+        }
+    }
+    .shipping-policy-block.field-tooltip {
+        .field-tooltip-content {
+            max-width: 320px;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .shipping-policy-block.field-tooltip {
+        .field-tooltip-content {
+            max-width: 270px;
+        }
+    }
+}

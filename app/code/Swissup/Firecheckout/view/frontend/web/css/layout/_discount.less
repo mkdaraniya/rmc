@@ -1,0 +1,55 @@
+.firecheckout.fc-form-tooltips {
+    @{fc-container__selector} {
+        .opc-sidebar:not(.fc-size-xs),
+        .checkout-payment-method:not(.fc-size-xs) {
+            .discount-code {
+                .form-discount {
+                    display: flex;
+                    .field {
+                        label {
+                            display: none;
+                        }
+                    }
+                }
+                .payment-option-inner {
+                    flex-grow: 1;
+                    margin: 0;
+                }
+                .actions-toolbar {
+                    z-index: 1; // used by midnight theme
+                    flex-shrink: 0;
+                    width: auto;
+                    margin: 0;
+                    > div {
+                        height: 100%;
+                    }
+                    .action {
+                        height: 100%;
+                        margin: 0 5px;
+                        .lib-fc-css(border-radius, @fc-button__border-radius);
+                    }
+                }
+
+                & when (@fc-discount__overlap-button = true) {
+                    .payment-option-inner {
+                        .margin-right(-45px);
+                        input#discount-code {
+                            .padding-right(50px);
+                            &.mage-error {
+                                .padding-right(67px);
+                            }
+                        }
+                        div.mage-error {
+                            .right(50px);
+                        }
+                    }
+                    .actions-toolbar {
+                        .action {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<div class="fieldset swissup-checkout-fields" data-bind="visible: visible">
+    <div class="step-title" translate="'Additional Information'" data-role="title"></div>
+    <div class="fieldset" data-role="content">
+        <each args="data: elems, as: 'element'">
+            <render if="hasTemplate()"></render>
+        </each>
+    </div>
+</div>

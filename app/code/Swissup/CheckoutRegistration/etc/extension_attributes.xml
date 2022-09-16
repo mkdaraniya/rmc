@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <!-- Validate data when password fields are visible -->
+    <extension_attributes for="Magento\Checkout\Api\Data\ShippingInformationInterface">
+        <attribute code="registration_checkbox_state" type="boolean"/>
+        <attribute code="registration_password" type="string"/>
+        <attribute code="registration_password_confirmation" type="string"/>
+    </extension_attributes>
+    <!-- Validate data again because for virtual quote there is no call to ShippingInformation -->
+    <extension_attributes for="Magento\Quote\Api\Data\PaymentInterface">
+        <attribute code="registration_checkbox_state" type="boolean"/>
+        <attribute code="registration_password" type="string"/>
+        <attribute code="registration_password_confirmation" type="string"/>
+    </extension_attributes>
+</config>

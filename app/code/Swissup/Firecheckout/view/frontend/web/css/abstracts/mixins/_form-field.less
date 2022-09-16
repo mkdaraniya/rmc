@@ -1,0 +1,173 @@
+.lib-fc-form-field-general() {
+    .padding(@fc-form-field__gap);
+    display: inline-block;
+    box-sizing: border-box;
+    float: none;
+    width: 100%;
+    margin: 0;
+
+    div.field {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .additional {
+        margin-top: 8px;
+    }
+
+    &.choice {
+        &:before {
+            display: none;
+        }
+        > .label {
+            float: none;
+        }
+    }
+
+    > .label {
+        .float(left);
+        width: auto;
+        margin-top: 0;
+        margin-bottom: 5px;
+        padding: 0;
+        .text-align(left);
+        vertical-align: top;
+        box-sizing: border-box;
+        font-weight: normal;
+        white-space: normal;
+        &::after {
+            margin: 0;
+        }
+    }
+    > .control {
+        float: none;
+        clear: both;
+        width: auto;
+        display: block;
+        padding: 0 !important;
+        margin: 0 !important;
+        &._with-tooltip {
+            input,
+            textarea,
+            select {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+
+    &.required,
+    &._required {
+        > .label {
+            &::after {
+                // Fix spacing between asterisk and label when
+                // no whitespace between them
+                position: static;
+                content: ' *';
+                color: #e02b27;
+                font-size: 1.4rem;
+                .margin(0 0 0 2px);
+            }
+        }
+    }
+}
+.lib-fc-form-field-hidden-label() {
+    &:not(.choice) {
+        position: relative;
+        > .label {
+            pointer-events: none;
+            position: absolute !important;
+            .left(@fc-form-field__padding-left + @fc-form-field__gap + @fc-form-field__border-width);
+            top: round(@fc-form-field__height / 2 / 2) - 1px;
+            z-index: 3;
+
+            padding: 0 !important;
+            margin: 0;
+            clip: auto;
+            width: auto;
+            height: auto;
+            max-width: 85%;
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            color: @fc-form-field__placeholder-color;
+            font-size: 11px;
+            line-height: normal;
+            opacity: 0;
+            transition: all 100ms ease-in-out;
+
+            &::after {
+                font-size: 11px;
+                color: currentColor;
+            }
+        }
+
+        input,
+        select,
+        textarea {
+            transition: all 100ms ease-in-out;
+        }
+
+        &.fc-dirty {
+            > .label {
+                top: round(@fc-form-field__height / 2 / 2) - 3px;
+                opacity: 1;
+            }
+
+            input,
+            select,
+            textarea {
+                padding-top: @fc-form-field__dirty__padding-top;
+                padding-bottom: @fc-form-field__dirty__padding-bottom;
+            }
+        }
+    }
+}
+.lib-fc-form-field-horizontal() {
+    width: 100%;
+    > .label {
+        width: 35%;
+        margin: @fc-form-field__height / 2 - 12px 0 0;
+        .padding(0 9px 0 0);
+        .text-align(right);
+        word-wrap: break-word;
+    }
+    > .control {
+        &:not(:empty) {
+            .lib-fc-css(min-height, @fc-form-field__height);
+        }
+        display: inline-block;
+        width: 65%;
+    }
+    > .label + .control {
+        > .choice {
+            margin: @fc-form-field__height / 2 - 17px 0 0;
+            > .label {
+                display: none;
+            }
+        }
+    }
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+.lib-fc-form-field-compact() {
+    width: @fc-form-compact__field-width;
+    float: none;
+    vertical-align: top;
+    &.choice,
+    &.field-select-billing {
+        width: 100% !important;
+        display: block !important;
+    }
+}
+.lib-fc-form-field-compact-xs() {
+    width: @fc-form-compact__xs__field-width;
+}
+.lib-fc-form-field-compact-l() {
+    width: @fc-form-compact__l__field-width;
+}

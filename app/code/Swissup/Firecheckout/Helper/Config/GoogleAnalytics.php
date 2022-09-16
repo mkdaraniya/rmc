@@ -1,0 +1,49 @@
+<?php
+
+namespace Swissup\Firecheckout\Helper\Config;
+
+use Magento\Framework\App\Helper\Context;
+use Magento\Framework\App\Helper\AbstractHelper;
+
+class GoogleAnalytics extends AbstractHelper
+{
+    /**
+     * @var string
+     */
+    const CONFIG_PATH_ENABLED = 'firecheckout/analytics/google_analytics_enabled';
+
+    /**
+     * @var \Swissup\Firecheckout\Helper\Data
+     */
+    private $helper;
+
+    /**
+     * Constructor
+     *
+     * @param Context $context
+     */
+    public function __construct(
+        Context $context,
+        \Swissup\Firecheckout\Helper\Data $helper
+    ) {
+        parent::__construct($context);
+
+        $this->helper = $helper;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isEnabled()
+    {
+        return (bool) $this->helper->getConfigValue(self::CONFIG_PATH_ENABLED);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isDisabled()
+    {
+        return !$this->isEnabled();
+    }
+}

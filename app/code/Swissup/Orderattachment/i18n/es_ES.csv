@@ -1,0 +1,28 @@
+"Invalid Request Params","Parámetros de solicitud no válidos"
+"Can't find a attachment to delete.","No se puede encontrar un archivo adjunto para eliminar."
+"Invalid Hash Params","Parámetros hash no válidos"
+OrderAttachment,"Orden Adjunto"
+Attachments,"Archivos adjuntos"
+"Can't find a attachment to update.","No se puede encontrar un archivo adjunto para actualizar."
+"Remove Item","Remover el artículo"
+"Invalid File Type","Tipo de archivo invalido"
+"Write comment here","Escribe un comentario aquí"
+"Size of the file is greather than allowed","El tamaño del archivo es mayor de lo permitido"
+"You have reached the limit of files","Has alcanzado el límite de archivos"
+Download,Descargar
+"Drag or Select your files here","Arrastra o selecciona tus archivos aquí"
+File,Archivo
+Comment,Comentario
+Action,Acción
+"Download Item","Descargar artículo"
+Swissup,Swissup
+General,General
+"Allow file upload during checkout","Permitir carga de archivos durante el pago"
+"Allow file upload on order view page","Permitir carga de archivos en la página de vista de pedidos"
+"File restrictions","Restricciones de archivo"
+Limit,Límite
+"Size, Kilobytes","Tamaño, kilobytes"
+"Allowed extensions","Extensiones permitidas"
+"File Type","Tipo de archivo"
+Updated,Actualizado
+Modified,Modificado

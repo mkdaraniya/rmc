@@ -1,0 +1,73 @@
+.firecheckout {
+    .opc-block-shipping-information {
+        background: transparent;
+        padding: 0;
+        border: 0;
+    }
+
+    #opc-sidebar {
+        > .opc-block-shipping-information {
+            display: none; // remove empty gap below "Place Order" in light theme
+        }
+    }
+
+    .opc-sidebar {
+        .opc-block-shipping-information {
+            margin: 0 0 15px;
+        }
+        .shipping-information {
+            display: flex;
+            margin: 5px -3px 0;
+
+            .ship-to,
+            .ship-via {
+                margin: 0;
+                width: 50%;
+                padding: 0 5px;
+            }
+
+            .shipping-information {
+                &-title {
+                    .lib-fc-css(color, @fc__text-color);
+                    padding: 0;
+                    margin: 0 0 2px;
+                    border: 0;
+                    font-weight: bold;
+                    font-size: 13px;
+                    .action {
+                        position: static;
+                        font-size: 11px;
+                        padding: 1px;
+                        vertical-align: baseline;
+                        text-transform: none;
+                        &:before {
+                            display: none;
+                        }
+                        span {
+                            position: static;
+                            margin: 0;
+                            clip: auto;
+                            height: auto;
+                            width: auto;
+                            overflow: visible;
+                        }
+                    }
+                }
+                &-content {
+                    line-height: 15px;
+                    font-size: 11px;
+                }
+            }
+
+            .fc-hide-shipping-methods.fc-single-shipping-method& {
+                .ship-via {
+                    .shipping-information-title {
+                        .action.action-edit {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.firecheckout {
+    .checkout-agreement {
+        &s-block {
+            // margin-top: 15px;
+
+            .checkout-agreements.fieldset {
+                .checkout-agreement.field {
+                    display: flex;
+                    .padding-right(20px);
+
+                    input[type="checkbox"] {
+                        + label {
+                            white-space: nowrap;
+                            line-height: inherit !important;
+                            &::after {
+                                position: absolute;
+                                .margin-left(4px);
+                            }
+                        }
+
+                        & when (@fc-form-checkbox-radio__enabled = true) {
+                            margin-top: 1px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        // first line of label should be on the same line with checkbox
+        white-space: nowrap;
+
+        .action {
+            white-space: normal;
+            .text-align(left);
+            text-transform: none;
+        }
+
+        + .checkout-agreement {
+            margin-top: 2px;
+        }
+    }
+
+    .opc-payment .checkout-agreements-block {
+        .fc-agreements-moved& {
+            display: none;
+        }
+    }
+
+    // agreements in "order summary"
+    .opc-block-summary {
+        .checkout-agreements {
+            .checkout-agreement.field {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}

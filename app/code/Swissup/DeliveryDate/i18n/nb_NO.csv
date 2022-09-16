@@ -1,0 +1,28 @@
+"Delivery Date",Leveringsdato
+"Delivery Time",Leveringstid
+"Delivery Date &amp; Time","Leveringsdato & amp; Tid"
+Main,Hoved
+"Show for all shipping methods","Vis for alle forsendelsesmetoder"
+"Date Field Settings","Innstillinger for datofelt"
+"Field Label",Feltmerke
+"Show Field","Vis felt"
+"Use first avilable date as default value","Bruk første tilgjengelige dato som standardverdi"
+"Date format",Datoformat
+"Leave empty to use active locale format.","La det være tomt for å bruke aktivt språkformat."
+"<strong>l, j F, Y - Sunday, 4 October, 2018</strong><br/>l - A full textual representation of the day of the week<br/>j - Day of the month without leading zeros<br/>F - A full textual representation of a month, such as January or March<br/>Y - A full numeric representation of a year, 4 digits<br/><br/><strong>m/d/Y - 10/04/2018</strong><br/>m - Numeric representation of a month, with leading zeros<br/>d - Day of the month, 2 digits with leading zeros<br/>Y - A full numeric representation of a year, 4 digits","<strong> l, j F, Y - søndag 4. oktober, 2018 </strong> <br/> l - En fulltekstuell fremstilling av ukens dag <br/> j - Månedens dag uten ledende nuller < br /> F - En fulltekstuell representasjon av en måned, for eksempel januar eller mars <br/> Y - En full numerisk representasjon av et år, 4 sifre <br/> <br/> <strong> m / d / Y - 10/04/2018 </strong> <br/> m - Numerisk fremstilling av en måned, med ledende nuller <br/> d - Månedens dag, 2 sifre med ledende nuller <br/> Y - Et fullstendig tall representasjon av et år, 4 sifre"
+"Time Field Settings","Innstillinger for tidsfelt"
+"Time Options",Tidsalternativer
+"Add Time Entry","Legg til tidsinngang"
+"First available delivery date rules","Første tilgjengelige leveringsdato regler"
+"Delivery processing day ends at","Leveringsbehandlingsdag avsluttes kl"
+"Delivery will be available since first available day (order date) plus this value","Levering vil være tilgjengelig siden første tilgjengelige dag (bestillingsdato) pluss denne verdien"
+"Last available delivery date rules","Siste tilgjengelige leveringsdato regler"
+"Period in days, while delivery will be available, since first available day","Periode i dager, mens levering vil være tilgjengelig, siden første tilgjengelige dag"
+"Exclude delivery date rules","Utelat regler for leveringsdato"
+"Exclude days of week from delivery","Ekskluder dager i uken fra levering"
+Holidays,Holidays
+Offset,offset
+"Add Holiday","Legg til ferie"
+"Delivery Time is required","Leveringstid er nødvendig"
+"Delivery Date is required","Leveringsdato er påkrevd"
+"Invalid Delivery Time value","Ugyldig leveringstid verdi"

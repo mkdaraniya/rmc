@@ -1,0 +1,25 @@
+.firecheckout {
+    @{fc-container__selector} {
+        .opc-block-summary {
+            .details-qty  {
+                .qty-wrapper {
+                    .lib-fc-css(width, @fc-checkout-cart__qty-wrapper-width);
+                    .lib-fc-css(border-color, @fc-checkout-cart__qty-wrapper-border-color);
+                    .lib-fc-css(border-width, @fc-checkout-cart__qty-wrapper-border-width);
+                    .lib-fc-css(border-radius, @fc-checkout-cart__qty-wrapper-border-radius);
+
+                    .qty {
+                        &-toggler {
+                            .lib-fc-css(justify-content, @fc-checkout-cart__toggler-justify-content);
+                            .lib-fc-css(width, @fc-checkout-cart__toggler-width);
+                            .lib-fc-css(border-color, @fc-checkout-cart__toggler-border-color);
+                            .lib-fc-css(color, @fc-checkout-cart__toggler-color);
+                            .lib-fc-css(background-color, @fc-checkout-cart__toggler-background-color);
+                            .border-left-width(@fc-checkout-cart__qty-wrapper-border-width);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

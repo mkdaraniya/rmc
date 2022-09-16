@@ -1,0 +1,10 @@
+"Please enter a valid VAT number.",请输入有效的增值税号。
+"Show VAT Number field as required",根据需要显示增值税号字段
+"VAT Validation",增值税验证
+"Validate VAT number using VIES service",使用VIES服务验证增值税号
+"Allow to place order using invalid VAT Number",允许使用无效的增值税号下订单
+"Tax-free Purchases",免税购买
+"Remove tax if VAT Number is valid",如果增值税号有效，则免税
+"Allow tax-free purchases for all EU countries",允许所有欧盟国家免税购买
+"TAX-free applicable EU countries",免税适用的欧盟国家
+"<strong>EU Countries only.</strong> More information about VIES here: <a href=""http://ec.europa.eu/taxation_customs/vies/faq.html"" target=""_blank"">FAQ</a>, <a href=""http://ec.europa.eu/taxation_customs/vies/help.html"" target=""_blank"">Help</a>.<br/>Use <em>General > Country Options > European Union Countries</em> to exclude some EU countries.","<strong>仅适用于欧盟国家/地区。</ strong>有关VIES的更多信息，请参见：<a href=""http://ec.europa.eu/taxation_customs/vies/faq.html"" target=""_blank"">常见问题解答</ a >，<a href=""http://ec.europa.eu/taxation_customs/vies/help.html"" target=""_blank"">帮助</a>。<br/>使用<em>常规>国家/地区选项>欧盟国家</ em>排除一些欧盟国家。"

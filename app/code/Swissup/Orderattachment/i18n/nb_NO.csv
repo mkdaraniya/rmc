@@ -1,0 +1,28 @@
+"Invalid Request Params","Ugyldige forespørselsparametre"
+"Can't find a attachment to delete.","Finner ikke et vedlegg å slette."
+"Invalid Hash Params","Ugyldige Hash-parametere"
+OrderAttachment,OrderAttachment
+Attachments,vedlegg
+"Can't find a attachment to update.","Finner ikke et vedlegg som skal oppdateres."
+"Remove Item","Fjerne gjenstand"
+"Invalid File Type","Ugyldig filtype"
+"Write comment here","Skriv kommentar her"
+"Size of the file is greather than allowed","Størrelsen på filen er større enn tillatt"
+"You have reached the limit of files","Du har nådd filgrensen"
+Download,nedlasting
+"Drag or Select your files here","Dra eller velg filene dine hit"
+File,Fil
+Comment,Kommentar
+Action,Handling
+"Download Item","Last ned varen"
+Swissup,Swissup
+General,Generell
+"Allow file upload during checkout","Tillat filopplasting under kassen"
+"Allow file upload on order view page","Tillat filopplasting på bestillingssiden"
+"File restrictions",Filbegrensninger
+Limit,Grense
+"Size, Kilobytes","Størrelse, kilobyte"
+"Allowed extensions","Tillatte utvidelser"
+"File Type",Filtype
+Updated,oppdatert
+Modified,modifisert

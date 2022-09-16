@@ -1,0 +1,85 @@
+.firecheckout {
+    &.firecheckout-col1-set.fc-multistep {
+        @{fc-container__selector} {
+            .authentication-wrapper {
+                .float(right);
+                & when (@fc-button-auth__enabled = true) {
+                    margin-top: -7px;
+                }
+            }
+        }
+        .opc-wrapper {
+            clear: both;
+        }
+        .continue-shopping {
+            display: none;
+        }
+
+        &.fc-hide-shipping-methods {
+            &.fc-single-shipping-method {
+                @{fc-wrapper__selector} {
+                    .checkout-shipping-method {
+                        display: block;
+
+                        .step-title,
+                        .no-quotes-block,
+                        .shipping-policy-block,
+                        #checkout-shipping-method-load {
+                            display: none;
+                        }
+                        .actions-toolbar {
+                            margin: 0 !important;
+                            .action {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @{fc-wrapper__selector} {
+            .checkout-shipping-address {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                + .checkout-shipping-method {
+                    padding-top: 15px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .opc-sidebar {
+            display: none;
+            .fc-step-payment& {
+                display: block;
+            }
+        }
+    }
+}
+
+@media @fc-screen__base__media {
+    .firecheckout {
+        &.firecheckout-col1-set.fc-multistep {
+            #shipping-method-buttons-container {
+                margin-top: 30px;
+            }
+            .agreements-clone,
+            .place-order {
+                display: none;
+                .fc-step-payment& {
+                    display: block;
+                }
+            }
+            .opc-sidebar {
+                display: block;
+            }
+            .fc-placeOrder-container {
+                .place-order {
+                    margin: 0;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference
+        for="Swissup\Firecheckout\Api\GuestShippingMethodManagementInterface"
+        type="Swissup\Firecheckout\Model\GuestShippingMethodManagement"
+    />
+    <preference
+        for="Swissup\Firecheckout\Api\ShippingMethodManagementInterface"
+        type="Swissup\Firecheckout\Model\ShippingMethodManagement"
+    />
+
+    <preference
+        for="Swissup\Firecheckout\Api\GuestShippingAddressManagementInterface"
+        type="Swissup\Firecheckout\Model\GuestShippingAddressManagement"
+    />
+    <preference
+        for="Swissup\Firecheckout\Api\ShippingAddressManagementInterface"
+        type="Swissup\Firecheckout\Model\ShippingAddressManagement"
+    />
+
+    <!-- Fix missing email address in quote table -->
+    <type name="Magento\Quote\Api\CartManagementInterface">
+        <plugin name="swissup_firecheckout" type="Swissup\Firecheckout\Plugin\Model\QuoteManagement" />
+    </type>
+
+    <!-- Sort shipping methods by their price -->
+    <type name="Magento\Quote\Api\ShippingMethodManagementInterface">
+        <plugin name="swissup_firecheckout" type="Swissup\Firecheckout\Plugin\Model\ShippingMethodManagement" />
+    </type>
+
+    <!-- Backend Theme Editor -->
+    <type name="Magento\Framework\View\Asset\Source">
+        <plugin name="Firecheckout" type="Swissup\Firecheckout\Plugin\View\AssetSource" />
+    </type>
+</config>

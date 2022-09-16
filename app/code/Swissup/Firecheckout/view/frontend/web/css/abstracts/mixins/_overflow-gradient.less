@@ -1,0 +1,26 @@
+.lib-fc-overflow-gradient() {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        height: 25px;
+        pointer-events: none;
+    }
+    &::after {
+        bottom: 0;
+        background: linear-gradient(
+            fadeout(@fc-section__background, 99%),
+            @fc-section__background
+        );
+    }
+}
+
+.lib-fc-overflow-gradient-reset() {
+    position: static;
+    &::after {
+        background: none;
+    }
+}

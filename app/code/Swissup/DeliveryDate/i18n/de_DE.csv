@@ -1,0 +1,28 @@
+"Delivery Date",Lieferdatum
+"Delivery Time",Lieferzeit
+"Delivery Date &amp; Time","Lieferdatum & amp; Zeit"
+Main,Main
+"Show for all shipping methods","Für alle Versandarten anzeigen"
+"Date Field Settings",Datumsfeldeinstellungen
+"Field Label",Feldbezeichnung
+"Show Field","Feld anzeigen"
+"Use first avilable date as default value","Verwenden Sie das erste verfügbare Datum als Standardwert"
+"Date format",Datumsformat
+"Leave empty to use active locale format.","Leer lassen, um das aktive Gebietsschema zu verwenden."
+"<strong>l, j F, Y - Sunday, 4 October, 2018</strong><br/>l - A full textual representation of the day of the week<br/>j - Day of the month without leading zeros<br/>F - A full textual representation of a month, such as January or March<br/>Y - A full numeric representation of a year, 4 digits<br/><br/><strong>m/d/Y - 10/04/2018</strong><br/>m - Numeric representation of a month, with leading zeros<br/>d - Day of the month, 2 digits with leading zeros<br/>Y - A full numeric representation of a year, 4 digits","<strong> l, j F, Y - Sonntag, 4. Oktober 2018 </ strong> <br/> l - Eine vollständige Textdarstellung des Wochentags <br/> j - Tag des Monats ohne führende Nullen < br /> F - Eine vollständige Textdarstellung eines Monats, z. B. Januar oder März. <br/> Y - Eine vollständige numerische Darstellung eines Jahres mit 4 Ziffern. <br/> <br/> <strong> m / d / Y - 10/04/2018 </ strong> <br/> m - Numerische Darstellung eines Monats mit führenden Nullen <br/> d - Tag des Monats, zweistellig mit führenden Nullen <br/> Y - Eine vollständige Zahl Darstellung eines Jahres, 4-stellig"
+"Time Field Settings",Zeitfeldeinstellungen
+"Time Options",Zeitoptionen
+"Add Time Entry","Zeiteintrag hinzufügen"
+"First available delivery date rules","Erste verfügbare Lieferterminregeln"
+"Delivery processing day ends at","Der Versandtag endet um"
+"Delivery will be available since first available day (order date) plus this value","Die Lieferung erfolgt ab dem ersten verfügbaren Tag (Bestelldatum) zuzüglich dieses Wertes"
+"Last available delivery date rules","Regeln für den letzten verfügbaren Liefertermin"
+"Period in days, while delivery will be available, since first available day","Zeitraum in Tagen, in dem die Lieferung verfügbar ist, seit dem ersten verfügbaren Tag"
+"Exclude delivery date rules","Regeln für Liefertermine ausschließen"
+"Exclude days of week from delivery","Wochentage von der Lieferung ausschließen"
+Holidays,Ferien
+Offset,Offset
+"Add Holiday","Urlaub hinzufügen"
+"Delivery Time is required","Lieferzeit ist erforderlich"
+"Delivery Date is required","Liefertermin ist erforderlich"
+"Invalid Delivery Time value","Ungültiger Lieferzeitwert"
