@@ -1,0 +1,16 @@
+{
+    "name": "swissup/module-firecheckout-integrations",
+    "description": "Code for third-party modules that requires additional logic at firecheckout page",
+    "keywords": [
+        "firecheckout"
+    ],
+    "type": "magento2-module",
+    "version": "1.4.5",
+    "license": "OSL-3.0",
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\FirecheckoutIntegrations\\": ""
+        }
+    }
+}

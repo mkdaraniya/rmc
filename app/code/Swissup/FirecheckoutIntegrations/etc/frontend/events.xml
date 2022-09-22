@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_load_before">
+        <observer name="swissup_firecheckout_integrations_add_layout_updates"
+            instance="Swissup\FirecheckoutIntegrations\Observer\AddLayoutUpdates" />
+    </event>
+</config>

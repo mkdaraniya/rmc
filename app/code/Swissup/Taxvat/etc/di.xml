@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Model\Address\CompositeValidator">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="swissup-taxvat" xsi:type="object">Swissup\Taxvat\Model\AddressValidator\Taxvat</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Add required-entry class when render address form -->
+    <type name="Magento\Customer\Helper\Address">
+        <plugin name="swissup_taxvat" type="Swissup\Taxvat\Plugin\Helper\CustomerAddress" />
+    </type>
+
+    <!-- Checkout -->
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="swissup-taxvat-validate-shipping"
+                type="Swissup\Taxvat\Plugin\Model\ShippingInformationManagement" sortOrder="1"/>
+    </type>
+    <type name="Magento\Quote\Model\BillingAddressManagement">
+        <plugin name="swissup-taxvat-validate-billing"
+                type="Swissup\Taxvat\Plugin\Model\BillingAddressManagement" sortOrder="1"/>
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="swissup-taxvat-validation-info"
+                type="Swissup\Taxvat\Plugin\Block\Checkout\LayoutProcessor" sortOrder="1"/>
+    </type>
+
+    <!-- Memoization to prevent multiple VIES requests -->
+    <type name="Magento\Customer\Model\Vat">
+        <plugin name="swissup-taxvat-validation" type="Swissup\Taxvat\Plugin\Model\CustomerVat" />
+    </type>
+    <!-- Zero tax -->
+    <type name="Magento\Tax\Model\Calculation">
+        <plugin name="swissup-taxvat-zero-tax" type="Swissup\Taxvat\Plugin\Model\TaxCalculation" />
+    </type>
+    <!-- Copy vat_id to address object -->
+    <type name="Magento\Tax\Model\Sales\Total\Quote\CommonTaxCollector">
+        <plugin name="swissup-taxvat-copy-vat-to-address" type="Swissup\Taxvat\Plugin\Model\TaxSalesTotalQuoteCommonTaxCollector" />
+    </type>
+
+    <!-- Multishipping checkout -->
+    <type name="Magento\Multishipping\Model\Checkout\Type\Multishipping\State">
+        <plugin name="swissup-taxvat" type="Swissup\Taxvat\Plugin\Model\MultishippingState" />
+    </type>
+    <type name="Magento\Multishipping\Controller\Checkout\CheckItems">
+        <plugin name="swissup-taxvat-validate-shipping" type="Swissup\Taxvat\Plugin\Action\MultishippingCheckItems" />
+    </type>
+    <type name="Magento\Multishipping\Controller\Checkout\Address\SetBilling">
+        <plugin name="swissup-taxvat-validate-billing" type="Swissup\Taxvat\Plugin\Action\MultishippingSetBilling" />
+    </type>
+</config>

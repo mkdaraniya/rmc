@@ -1,0 +1,78 @@
+.firecheckout {
+    .opc-progress-bar {
+        display: block;
+        margin: 0 0 15px !important;
+
+        li {
+            display: inline-block;
+            width: auto;
+            font-size: 13px;
+            line-height: 22px;
+            color: @fc-progress-bar__color;
+            border: 0;
+            text-transform: none;
+            padding: 0;
+            height: auto;
+            margin: 0;
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                content: '›';
+                color: @fc-progress-bar__color;
+                .margin(0 5px 0 2px);
+                position: static;
+                border: 0;
+                height: auto;
+            }
+
+            &:last-child {
+                &::after {
+                    display: none !important;
+                }
+            }
+
+            span {
+                width: auto;
+                padding: 0;
+                margin: 0;
+                font-size: 13px;
+                .text-align(left);
+                color: @fc-progress-bar-item__color;
+
+                &::before,
+                &::after {
+                    display: none;
+                }
+            }
+
+            &._active {
+                background: transparent;
+                border: none;
+
+                &::after {
+                    display: inline;
+                }
+
+                span {
+                    color: @fc-progress-bar-item__active__color;
+                    font-weight: bold;
+                }
+            }
+
+            &._complete {
+                cursor: pointer;
+                &:hover {
+                    span {
+                        text-decoration: underline;
+                    }
+                }
+                span {
+                    color: @fc-progress-bar-item__completed__color;
+                }
+            }
+        }
+    }
+}

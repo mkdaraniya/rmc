@@ -1,0 +1,16 @@
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?php /* @escapeNotVerified */ echo __('Order Attachments') ?></span>
+    </div>
+    <form id="attachment-form" class="form form-attachments" enctype="multipart/form-data">
+        <input class="input"
+               type="file"
+               style="display: none;"
+               id="order-attachment"
+               name="order-attachment[]" multiple />
+        <div class="swissup-attachment-drag-area" style="cursor:pointer" data-role="order-attachment" data-mage-init='{"Swissup_Orderattachment/js/order-attachment": {"config": <?= $this->getAttachmentConfig(); ?>}}'>
+            <h4>Drag or Select your files here</h4>
+        </div>
+        <div class="attachment-container"></div>
+    </form>
+</section>

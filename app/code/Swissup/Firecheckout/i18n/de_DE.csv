@@ -1,0 +1,54 @@
+"Url Path",URL-Pfad
+"After Adding a Product Redirect to Firecheckout","Nach dem Hinzufügen eines Produkts Weiterleiten an Firecheckout"
+"Page Layout",Seitenlayout
+"Form Styles",Formularstile
+"Use field placeholders instead of labels","Verwenden Sie Feldplatzhalter anstelle von Beschriftungen"
+"Show field errors and notices in the Tooltips","Zeigen Sie Feldfehler und Hinweise in den QuickInfos an"
+"Additional Content","Zusätzlicher Inhalt"
+"Above Firecheckout Form","Über dem Firecheckout-Formular"
+"Below Firecheckout Form","Unterhalb des Firecheckout-Formulars"
+"Below order summary (Above place order button)","Unterhalb der Bestellübersicht (Schaltfläche ""Bestellung über dem Platz"")"
+"Below place order button","Unten platz bestellen button"
+"Intro Popup","Intro Popup"
+"Content for Guest Customers","Inhalte für Gastkunden"
+"Content for Registered Customers","Inhalt für registrierte Kunden"
+"Default Method",Standardmethode
+"Default Method Code",Standardmethodencode
+"Use this field if you can't find the method you are looking for in the previous option","Verwenden Sie dieses Feld, wenn Sie die in der vorherigen Option gesuchte Methode nicht finden können"
+"Hide methods if single method is available only","Methoden ausblenden, wenn nur eine Methode verfügbar ist"
+"Payment Settings",Zahlungseinstellungen
+"Show Billing Address Title","Titel der Rechnungsadresse anzeigen"
+"This option is not used when Billing Address displayed inside Payment Method","Diese Option wird nicht verwendet, wenn die Rechnungsadresse in der Zahlungsmethode angezeigt wird"
+"Horizontal (Label aside of the field)","Horizontal (Beschriftung außerhalb des Feldes)"
+"Basic (Same as horizontal, except label above the field)","Grundlegend (Wie horizontal, außer Beschriftung über dem Feld)"
+"Compact (Multiple fields per row)","Kompakt (Mehrere Felder pro Zeile)"
+"1 Column (Multistep Wizard)","1 Spalte (Mehrschrittassistent)"
+"1 Column (Expanded)","1 Spalte (erweitert)"
+"2 Columns (Wide Payment and Shipping sections)","2 Spalten (breite Bereiche für Zahlung und Versand)"
+"2 Columns (Place Payment and Shipping sections side by side)","2 Spalten (Bereiche für Zahlung und Versand nebeneinander platzieren)"
+"3 Columns","3 Spalten"
+"Default Checkout Layout",Standard-Checkout-Layout
+"Empty (No Header and Footer)","Leer (keine Kopf- und Fußzeile)"
+"Minimal (Header with store Logo only)","Minimal (nur Header mit Store-Logo)"
+Full,Voll
+"Back to Store","Zurück zum Laden"
+"Continue Shopping","Mit dem Einkaufen fortfahren"
+"Firecheckout Page Header Container",Firecheckout-Seitenkopfzeilencontainer
+"Firecheckout Page Header","Kopfzeile der Firecheckout-Seite"
+"Please specify a shipping method.","Bitte gib eine Versandart an."
+"Please specify a payment method.","Bitte geben Sie eine Zahlungsmethode an."
+Cart,Wagen
+"Use Magento Config (Sales > Checkout > Checkout Options)","Verwenden Sie Magento Config (Sales> Checkout> Checkout-Optionen)"
+"Payment Page (Above Payment Methods)","Zahlungsseite (über Zahlungsmethoden)"
+"Shipping Page (Below Shipping Address)","Versandseite (unterhalb der Lieferadresse)"
+"Some third-party modules may not work correctly with custom address position. In this case, select 'Use Magento Config' option please.","Einige Module von Drittanbietern funktionieren möglicherweise nicht ordnungsgemäß mit der benutzerdefinierten Adressposition. Wählen Sie in diesem Fall bitte die Option 'Magento Config verwenden'."
+"Order Summary Settings","Einstellungen für die Bestellübersicht"
+"Show Order Review (Shipping Information)","Bestellübersicht anzeigen (Versandinformationen)"
+"Useful for EU countries","Nützlich für EU-Länder"
+"Leave empty to add review without the title","Lassen Sie dieses Feld leer, um eine Bewertung ohne Titel hinzuzufügen"
+"Custom CSS and JS","Benutzerdefiniertes CSS und JS"
+"Use less syntax and variables to change styles!<br/>See the list of available variables: <a href=""http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/"" title=""Firecheckout Docs"">http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/</a><br/>You must run `setup:static-content:deploy` command to see the changes.","Verwenden Sie weniger Syntax und Variablen, um Stile zu ändern!<br/>Sehen Sie sich die Liste der verfügbaren Variablen an: <a href=""http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/"" title=""Firecheckout Docs"">http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/</a><br/>Sie müssen den Befehl `setup:static-content:deploy` ausführen, um die Änderungen."
+Performance,Performance
+"Use jsBuild","Verwenden Sie jsBuild"
+"Combine js files into single jsbuild to reduce number of requests and improve page load time.","Kombinieren Sie js-Dateien zu einem einzigen jsbuild, um die Anzahl der Anforderungen zu verringern und die Ladezeit der Seite zu verbessern."
+"jsBuild include paths","jsBuild enthält Pfade"

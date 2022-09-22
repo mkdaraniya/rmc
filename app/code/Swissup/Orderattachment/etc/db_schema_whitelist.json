@@ -1,0 +1,25 @@
+{
+    "swissup_orderattachment": {
+        "column": {
+            "attachment_id": true,
+            "quote_id": true,
+            "order_id": true,
+            "path": true,
+            "comment": true,
+            "hash": true,
+            "type": true,
+            "uploaded_at": true,
+            "modified_at": true
+        },
+        "index": {
+            "SWISSUP_ORDERATTACHMENT_QUOTE_ID": true,
+            "SWISSUP_ORDERATTACHMENT_ORDER_ID": true,
+            "SWISSUP_ORDERATTACHMENT_HASH": true,
+            "SWISSUP_ORDERATTACHMENT_PATH_COMMENT_HASH": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_ORDERATTACHMENT_ORDER_ID_SALES_ORDER_ENTITY_ID": true
+        }
+    }
+}

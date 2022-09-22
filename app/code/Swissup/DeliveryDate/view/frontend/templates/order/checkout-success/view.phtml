@@ -1,0 +1,20 @@
+<?php
+    $date = $block->getDeliveryDate(\IntlDateFormatter::LONG);
+    $time = (string) $block->getDeliveryTime();
+
+    if (!$date && !$time) {
+        return;
+    }
+?>
+
+<div class="delivery-date">
+    <?php if ($date && $time) : ?>
+        <span class="label"><?= $block->escapeHtml(__('Delivery Date &amp; Time:')) ?></span>
+    <?php elseif ($time) : ?>
+        <span class="label"><?= $block->escapeHtml(__('Delivery Time:')) ?></span>
+    <?php else : ?>
+        <span class="label"><?= $block->escapeHtml(__('Delivery Date:')) ?></span>
+    <?php endif ?>
+    <date><?= $block->escapeHtml($date) ?></date>
+    <time><?= $block->escapeHtml($time) ?></time>
+</div>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Managing shipping guest information -->
+    <route url="/V1/guest-carts/:cartId/shipping-method" method="POST">
+        <service class="Swissup\Firecheckout\Api\GuestShippingMethodManagementInterface" method="saveShippingMethod"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing My shipping method -->
+    <route url="/V1/carts/mine/shipping-method" method="POST">
+        <service class="Swissup\Firecheckout\Api\ShippingMethodManagementInterface" method="saveShippingMethod"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <!-- Managing shipping guest information -->
+    <route url="/V1/guest-carts/:cartId/shipping-address" method="POST">
+        <service class="Swissup\Firecheckout\Api\GuestShippingAddressManagementInterface" method="saveShippingAddress"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing My shipping method -->
+    <route url="/V1/carts/mine/shipping-address" method="POST">
+        <service class="Swissup\Firecheckout\Api\ShippingAddressManagementInterface" method="saveShippingAddress"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

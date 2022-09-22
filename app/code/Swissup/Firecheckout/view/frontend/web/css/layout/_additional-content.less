@@ -1,0 +1,28 @@
+.firecheckout {
+    .column.main {
+        .widget.block {
+            .margin(10px 0 15px);
+        }
+    }
+    .opc-sidebar {
+        .additional-content {
+            .widget.block {
+                .margin(15px 0);
+                &.firecheckout-content {
+                    &-below-place-order {
+                        & when (@fc-button-order__stick-to-bottom = false) {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-layout-full {
+        .column.main {
+            .widget.block.firecheckout-content-top {
+                margin-top: 0;
+            }
+        }
+    }
+}

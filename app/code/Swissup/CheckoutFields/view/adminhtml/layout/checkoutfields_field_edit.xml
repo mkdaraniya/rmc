@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Swissup\CheckoutFields\Block\Adminhtml\Field\Edit\Tabs" name="field_edit_tabs">
+                <container label="Main" name="main">
+                    <block class="Swissup\CheckoutFields\Block\Adminhtml\Field\Edit\Tab\Main" as="base"/>
+                    <block class="Swissup\CheckoutFields\Block\Adminhtml\Field\Edit\Tab\Options" as="options"/>
+                    <block class="Swissup\CheckoutFields\Block\Adminhtml\Field\Edit\Tab\Advanced" as="advanced"/>
+                </container>
+                <block class="Magento\Eav\Block\Adminhtml\Attribute\Edit\Options\Labels" as="labels"/>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Swissup\CheckoutFields\Block\Adminhtml\Field\Edit" name="checkoutfields_field_edit"/>
+        </referenceContainer>
+        <referenceContainer name="js">
+            <block class="Magento\Backend\Block\Template" name="field_edit_js" template="Swissup_CheckoutFields::field/js.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

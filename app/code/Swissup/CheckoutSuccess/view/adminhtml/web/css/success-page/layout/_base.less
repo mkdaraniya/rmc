@@ -1,0 +1,34 @@
+.success-page-layout-wrapper {
+    position: relative;
+
+    .iframe-wrapper {
+        background: #fff;
+        position: relative;
+
+        .notice {
+            color: @spl-color-dark;
+            font-size: 2rem;
+            font-weight: 600;
+            left: 50%;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    iframe {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        min-height: 33vh;
+
+        &[src] {
+            min-height: 75vh;
+
+            + .notice {
+                display: none;
+            }
+        }
+    }
+}

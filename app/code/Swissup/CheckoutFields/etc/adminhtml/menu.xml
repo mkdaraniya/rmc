@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Swissup_CheckoutFields::checkoutfields"
+            title="Checkout Fields"
+            module="Swissup_CheckoutFields"
+            sortOrder="330"
+            parent="Swissup_Checkout::checkout"
+            action="checkoutfields/field"
+            resource="Swissup_CheckoutFields::checkoutfields"/>
+    </menu>
+</config>

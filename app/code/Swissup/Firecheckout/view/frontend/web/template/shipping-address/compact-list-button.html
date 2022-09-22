@@ -1,0 +1,17 @@
+<!-- ko if: (visible)-->
+<button class="action fc-compact-address-button"
+        type="button"
+        data-bind="
+            click: toggle,
+            css: {
+                'fc-expanded': expanded(),
+                'fc-active': active()
+            },
+            attr: {
+                title: title()
+            }
+        "
+        title="Show All Addresses">
+    <span data-bind="text: title()">Show All Addresses</span>
+</button>
+<!-- /ko -->

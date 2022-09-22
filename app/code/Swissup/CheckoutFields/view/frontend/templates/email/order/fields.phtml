@@ -1,0 +1,38 @@
+<?php $order = $this->getOrder(); ?>
+<?php if ($order): ?>
+    <?php $fields = $this->getFields($order); ?>
+    <?php if (!$fields) return; ?>
+    <table>
+        <tr class="email-summary">
+            <td>
+                <h3><?php echo __('Additional Information') ?></h3>
+            </td>
+        </tr>
+    </table>
+    <?php if (count($fields)): ?>
+        <table class="email-items">
+            <tbody>
+            <?php foreach ($fields as $field): ?>
+                <tr>
+                    <td><?php echo $block->escapeHtml($field->getLabel()); ?></td>
+                    <td class="col"><strong>
+                        <?php
+                            $fieldValue = $field->getValue();
+                            if (is_array($fieldValue)) {
+                                foreach ($fieldValue as $value) {
+                                    echo $block->escapeHtml($value);
+                                    echo '<br>';
+                                }
+                            } else {
+                                echo nl2br($block->escapeHtml($fieldValue));
+                            }
+                        ?>
+                    </strong></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <?php echo __('No additional information found.') ?>
+    <?php endif; ?>
+<?php endif; ?>

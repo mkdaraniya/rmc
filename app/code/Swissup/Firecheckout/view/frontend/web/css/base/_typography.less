@@ -1,0 +1,34 @@
+.firecheckout {
+    .page-main,
+    .modal-popup,
+    .modal-custom {
+        .lib-fc-css(color, @fc__text-color);
+
+        h1, h2, h3, h4, h5, h6,
+        .page-title-wrapper h1.page-title,
+        .block .block-title strong {
+            .lib-fc-css(color, @fc__text-color);
+        }
+
+        a {
+            .lib-fc-css(color, @fc__action-color);
+        }
+    }
+
+    .page-main {
+        .popup .actions-toolbar .action.cancel,
+        .paypal-button-widget .paypal-button,
+        .bundle-options-container .action.back,
+        .block.related .action.select,
+        .cart.table-wrapper .actions-toolbar > .action-delete,
+        .cart.table-wrapper .action.help.map,
+        .checkout-index-index .modal-popup .modal-footer .action-hide-popup,
+        .opc-wrapper .edit-address-link,
+        .opc-block-shipping-information .shipping-information-title .action-edit,
+        .action-auth-toggle,
+        .checkout-payment-method .checkout-billing-address .action-cancel,
+        .checkout-agreements-block .action-show {
+            .lib-fc-css(color, @fc__action-color);
+        }
+    }
+}

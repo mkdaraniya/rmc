@@ -1,0 +1,110 @@
+{
+    "swissup_checkoutfields_field": {
+        "column": {
+            "field_id": true,
+            "attribute_code": true,
+            "frontend_input": true,
+            "frontend_label": true,
+            "is_required": true,
+            "sort_order": true,
+            "is_active": true,
+            "default_value": true,
+            "created_at": true,
+            "updated_at": true,
+            "is_used_in_grid": true,
+            "notice": true,
+            "tooltip": true,
+            "placeholder": true,
+            "display_type": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_CHECKOUTFIELDS_FIELD_ATTRIBUTE_CODE": true
+        }
+    },
+    "swissup_checkoutfields_store": {
+        "column": {
+            "field_id": true,
+            "store_id": true
+        },
+        "index": {
+            "SWISSUP_CHECKOUTFIELDS_STORE_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_C42CB795A66DBCC88D33F8065919AF4D": true,
+            "SWISSUP_CHECKOUTFIELDS_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "swissup_checkoutfields_field_label": {
+        "column": {
+            "field_label_id": true,
+            "field_id": true,
+            "store_id": true,
+            "value": true
+        },
+        "index": {
+            "SWISSUP_CHECKOUTFIELDS_FIELD_LABEL_STORE_ID": true,
+            "SWISSUP_CHECKOUTFIELDS_FIELD_LABEL_FIELD_ID_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_E7E171B8B0F681A0E777CE1693A59492": true,
+            "SWISSUP_CHECKOUTFIELDS_FIELD_LABEL_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "swissup_checkoutfields_field_option": {
+        "column": {
+            "option_id": true,
+            "field_id": true,
+            "sort_order": true
+        },
+        "index": {
+            "SWISSUP_CHECKOUTFIELDS_FIELD_OPTION_FIELD_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_5CC2AAA284556C26E7C1BFDAD477C6E0": true
+        }
+    },
+    "swissup_checkoutfields_field_option_value": {
+        "column": {
+            "value_id": true,
+            "option_id": true,
+            "store_id": true,
+            "value": true
+        },
+        "index": {
+            "SWISSUP_CHECKOUTFIELDS_FIELD_OPTION_VALUE_OPTION_ID": true,
+            "SWISSUP_CHECKOUTFIELDS_FIELD_OPTION_VALUE_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_6E757EBCD992B3552EEC096808D8D80D": true,
+            "SWISSUP_CHKTFIELDS_FIELD_OPT_VAL_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "swissup_checkoutfields_values": {
+        "column": {
+            "value_id": true,
+            "field_id": true,
+            "store_id": true,
+            "quote_id": true,
+            "order_id": true,
+            "value": true
+        },
+        "index": {
+            "SWISSUP_CHECKOUTFIELDS_VALUES_STORE_ID": true,
+            "SWISSUP_CHECKOUTFIELDS_VALUES_FIELD_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SWISSUP_CHECKOUTFIELDS_VALUES_QUOTE_ID_QUOTE_ENTITY_ID": true,
+            "SWISSUP_CHECKOUTFIELDS_VALUES_ORDER_ID_SALES_ORDER_ENTITY_ID": true,
+            "FK_F2C48477B1630B9075AE632B0B78A1CC": true,
+            "SWISSUP_CHECKOUTFIELDS_VALUES_STORE_ID_STORE_STORE_ID": true,
+            "SWISSUP_CHECKOUTFIELDS_VALUES_QUOTE_ID_FIELD_ID_STORE_ID": true,
+            "SWISSUP_CHECKOUTFIELDS_VALUES_ORDER_ID_FIELD_ID_STORE_ID": true
+        }
+    }
+}

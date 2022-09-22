@@ -1,0 +1,44 @@
+<?php
+    /** @var $block  \Magento\Checkout\Block\Onepage\Success */
+    /** @var $name   string */
+    /** @var $config array */
+
+    $request = $block->getRequest();
+    $childNames = $block->getChildNames();
+    if (!in_array($name, $childNames)) {
+        return;
+    }
+
+    if ($child = $block->getChildBlock($name)) {
+        $child->addData($config);
+    }
+
+    $html = $block->getChildHtml($name, false);
+    $isBuilder = $request->getParam('builder');
+?>
+
+<?php if ($isBuilder):
+    $helper = $this->helper('Swissup\CheckoutSuccess\Helper\Builder');
+    $blockDeclaration = $helper->getBlockDeclaration($name);
+    $hasSettings = !!($blockDeclaration['config'] ?? false);
+?>
+    <div data-type="block" data-name="<?= $name ?>" data-config='<?= json_encode($config) ?>' data-empty="<?= empty($html) ? 'true' : 'false' ?>">
+        <?= $html ?>
+        <div class="toolbar-actions">
+            <?php if ($hasSettings): ?>
+            <button class="button-action button-settings" title="<?= __('Settings')?>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <use href="#gear"></use>
+                </svg>
+            </button>
+            <?php endif ?>
+            <button class="button-action button-delete" title="<?= __('Remove')?>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <use href="#trash"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+<?php else: ?>
+    <div data-type="block" data-name="<?= $name ?>"><?= $html ?></div>
+<?php endif; ?>

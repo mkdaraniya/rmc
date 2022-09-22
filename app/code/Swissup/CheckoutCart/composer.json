@@ -1,0 +1,29 @@
+{
+    "name": "swissup/module-checkout-cart",
+    "description": "Editable and configurable shopping cart at the checkout page",
+    "keywords": [
+        "shopping cart",
+        "checkout cart"
+    ],
+    "type": "magento2-module",
+    "version": "1.5.7",
+    "license": "OSL-3.0",
+    "require": {
+        "swissup/module-checkout": "^1.5.1",
+        "swissup/module-rtl": "^1.3.4"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\CheckoutCart\\": ""
+        }
+    },
+    "extra": {
+        "swissup": {
+            "links": {
+                "docs"     : "http://docs.swissuplabs.com/m2/extensions/checkout-cart/",
+                "changelog": "http://docs.swissuplabs.com/m2/extensions/checkout-cart/changelog"
+            }
+        }
+    }
+}

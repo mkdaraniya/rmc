@@ -1,0 +1,28 @@
+<?php
+    /** @var $block \Swissup\CheckoutFields\Block\Adminhtml\Order\View\Fields */
+    $order = $block->getOrder();
+    if (!$order) {
+        return;
+    }
+
+    $fields = $this->getFields($order);
+    if (!$fields || count($fields) < 1) {
+        return;
+    }
+?>
+<div class="block block-checkout-fields-view">
+    <div class="block-title">
+        <strong><?= /* @escapeNotVerified */ __('Additional Information') ?></strong>
+    </div>
+    <div class="block-content">
+    <?php foreach ($fields as $field):
+        $fieldValue = $field->getValue();
+        $fieldValue = is_array($fieldValue) ? implode('; ', $fieldValue) : $fieldValue;
+    ?>
+        <p class="checkout-field">
+            <span class="label"><?= $block->escapeHtml($field->getLabel()); ?>:</span>
+            <span class="data"><?= $block->escapeHtml($fieldValue); ?></span>
+        </p>
+    <?php endforeach; ?>
+    </div>
+</div>

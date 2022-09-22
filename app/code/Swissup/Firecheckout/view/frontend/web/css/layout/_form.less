@@ -1,0 +1,245 @@
+.firecheckout {
+    @{fc-container__selector},
+    .modal-custom,
+    .modal-popup {
+        .fieldset {
+            background: none;
+        }
+        div.field .control,
+        .fieldset div.field .control {
+            position: relative;
+        }
+        .fieldset div.field {
+            &:not(.choice) {
+                > .label {
+                    & when (@fc-form-field__border-radius > 10) {
+                        .lib-fc-css(margin-left, @fc-form-field__border-radius / 2);
+                        .lib-fc-css(margin-right, @fc-form-field__border-radius / 2);
+                    }
+                }
+            }
+        }
+
+        input:not([type="checkbox"]):not([type="radio"]):not([type="image"]),
+        select,
+        textarea {
+            .lib-fc-form-input();
+        }
+        textarea {
+            .lib-fc-form-textarea();
+        }
+        select {
+            .lib-fc-form-select();
+            &[multiple] {
+                height: auto;
+            }
+        }
+        ._error {
+            input:not([type="checkbox"]):not([type="radio"]):not([type="image"]),
+            select,
+            textarea {
+                .lib-fc-css(border-color, @fc-form-field__error__border-color);
+            }
+        }
+
+        div.mage-error,
+        div.field-error {
+            position: static;
+            margin-top: 2px;
+            font-size: .85em;
+        }
+
+        .field-note,
+        .note {
+            .lib-fc-css(color, @fc-form-field-note__color);
+            font-size: .85em;
+            & when (@fc-form-field__border-radius > 10) {
+                .lib-fc-css(margin-left, @fc-form-field__border-radius / 2);
+                .lib-fc-css(margin-right, @fc-form-field__border-radius / 2);
+            }
+        }
+    }
+    @{fc-container__selector},
+    .modal-custom,
+    .modal-popup {
+        fieldset.field {
+            legend {
+                display: none;
+            }
+            .field,
+            .field.additional {
+                > label {
+                    clip: auto;
+                    height: auto;
+                    width: auto;
+                    position: static !important;
+                    overflow: visible;
+                }
+            }
+        }
+    }
+
+    &:not(.fc-form-horizontal) {
+        .fc-field-choice {
+            > label {
+                display: none !important;
+            }
+        }
+    }
+
+    .fc-newline {
+        display: none;
+    }
+    .fc-size-l .fc-size-l\:fc-newline,
+    .fc-size-m .fc-size-m\:fc-newline,
+    .fc-size-s .fc-size-s\:fc-newline,
+    .fc-size-xs .fc-size-xs\:fc-newline {
+        display: block;
+    }
+}
+
+//
+// Styles for address form inputs
+// ______________________________________________
+.firecheckout {
+    .payment-method-content div.field {
+        .lib-fc-form-field-general(); // fix for "Save for later use" checkbox outside of fieldset
+    }
+    .form-shipping-address,
+    .payment-method,
+    @{fc-container__selector} .form-login,
+    #maincontent .block-authentication,
+    @{fc-container__selector} .checkout-shipping-address,
+    @{fc-container__selector} .checkout-billing-address {
+        .fieldset .field {
+            margin: 0;
+            padding: 0;
+        }
+        .fieldset,
+        fieldset .control {
+            letter-spacing: @fc-form__letter-spacing-fix;
+            > * {
+                letter-spacing: normal;
+            }
+        }
+        .fieldset {
+            margin-left: -@fc-form-field__gap;
+            margin-right: -@fc-form-field__gap;
+            .fieldset {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        .actions-toolbar {
+            padding: 0 @fc-form-field__gap;
+        }
+        .fieldset div.field,
+        .fieldset.address > div.field {
+            .lib-fc-form-field-general();
+        }
+    }
+
+    &.fc-form-hide-labels {
+        .form-shipping-address,
+        @{fc-container__selector} .form-login,
+        #maincontent .block-authentication,
+        @{fc-container__selector} .checkout-shipping-address,
+        @{fc-container__selector} .checkout-billing-address {
+            .fieldset div.field {
+                legend.label {
+                    display: none;
+                }
+                .additional {
+                    margin-top: 0;
+                }
+            }
+            .fieldset div.field {
+                .lib-fc-form-field-hidden-label();
+            }
+        }
+    }
+
+    &.fc-form-compact {
+        .form-shipping-address,
+        @{fc-container__selector} .checkout-shipping-address,
+        @{fc-container__selector} .checkout-billing-address {
+            .fieldset,
+            fieldset .control {
+                letter-spacing: @fc-form__letter-spacing-fix;
+                float: none;
+                width: auto;
+                gap: 0;
+                > * {
+                    letter-spacing: normal;
+                }
+            }
+        }
+    }
+}
+
+.firecheckout {
+    &.fc-form-horizontal {
+        .form-shipping-address,
+        @{fc-container__selector} .form-login,
+        #maincontent .block-authentication,
+        @{fc-container__selector} .checkout-shipping-address:not(.fc-size-xs),
+        @{fc-container__selector} .checkout-payment-method:not(.fc-size-xs) .checkout-billing-address {
+            .fieldset div.field {
+                .lib-fc-form-field-horizontal();
+            }
+            .fieldset > .actions-toolbar {
+                .margin-left(35%);
+            }
+        }
+    }
+
+    &.fc-form-compact {
+        .form-shipping-address,
+        @{fc-container__selector} .checkout-shipping-address,
+        @{fc-container__selector} .checkout-billing-address {
+            .fieldset {
+                &#customer-email-fieldset {
+                    .field {
+                        width: 100%;
+                    }
+                }
+                div.field {
+                    .lib-fc-form-field-compact();
+                }
+                .street {
+                    div.field {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .form-shipping-address.fc-size-xs,
+        @{fc-container__selector} .checkout-shipping-address.fc-size-xs,
+        @{fc-container__selector} .checkout-payment-method.fc-size-xs .checkout-billing-address {
+            .fieldset {
+                div.field {
+                    .lib-fc-form-field-compact-xs();
+                }
+                .street {
+                    div.field {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .form-shipping-address.fc-size-l,
+        @{fc-container__selector} .checkout-shipping-address.fc-size-l,
+        @{fc-container__selector} .checkout-payment-method.fc-size-l .checkout-billing-address {
+            .fieldset {
+                div.field {
+                    .lib-fc-form-field-compact-l();
+                }
+                .street {
+                    div.field {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Swissup_Orderattachment::css/orderattachment.css"/>
+    </head>
+    <body>
+        <referenceBlock name="sales_order_tabs">
+            <block class="Swissup\Orderattachment\Block\Adminhtml\Order\View\Tab\Attachments" name="sales.order.view.tab.attachment" as="swissup_attachments" template="order/view/tab/attachments.phtml"/>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">swissup_attachments</argument>
+                <argument name="block" xsi:type="string">swissup_attachments</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

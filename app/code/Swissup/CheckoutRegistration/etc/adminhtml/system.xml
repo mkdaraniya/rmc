@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="checkout_registration" type="text" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customer Registration</label>
+            <tab>swissup_checkout</tab>
+            <resource>Swissup_CheckoutRegistration::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="mode" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Registration Mode</label>
+                    <source_model>Swissup\CheckoutRegistration\Model\System\Config\Source\RegistrationMode</source_model>
+                </field>
+                <field id="checkbox_status" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate registration checkbox by default</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="mode">optional</field>
+                    </depends>
+                </field>
+                <field id="mode_downloadable" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Registration Mode if Cart Contains Downloadable Items</label>
+                    <source_model>Swissup\CheckoutRegistration\Model\System\Config\Source\RegistrationMode</source_model>
+                </field>
+            </group>
+            <include path="Swissup_Checkout::system/checkout_modules.xml"/>
+        </section>
+    </system>
+</config>

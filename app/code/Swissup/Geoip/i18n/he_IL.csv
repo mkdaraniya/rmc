@@ -1,0 +1,12 @@
+Geoip,גיאופ
+"MaxMind Database","מסד נתונים של MaxMind"
+"MaxMind Service","שירות MaxMind"
+IpStack,IpStack
+"Maxmind database file was not found.","קובץ מסד הנתונים של Maxmind לא נמצא."
+Provider,ספק
+"Account ID","מזהה חשבון"
+"License Key","מפתח רישיון"
+"Get your Account ID at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","קבל את זיהוי החשבון שלך ב <a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>"
+"Get your License Key at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","השג את מפתח הרישיון שלך בכתובת <a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>"
+"API Key","מפתח API"
+"Get your free API key at <a href='https://ipstack.com/product'>https://ipstack.com/product</a>","השג את מפתח ה- API בחינם בכתובת <a href='https://ipstack.com/product'> https://ipstack.com/product </a>"

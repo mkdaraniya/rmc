@@ -1,0 +1,64 @@
+<div class="fieldset checkout-registration" data-bind="visible: isFormVisible()">
+    <div class="field" if="checkbox.visible">
+        <div class="control">
+            <div class="choice field">
+                <input type="checkbox"
+                    class="checkbox"
+                    name="register_account"
+                    id="registration-checkbox"
+                    data-bind="{
+                        checked: checked
+                    }"/>
+                <label class="label" for="registration-checkbox">
+                    <span data-bind="i18n: 'Create an Account'"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="fieldset registration-form" data-bind="visible: isPasswordVisible()">
+        <div class="field password required">
+            <label class="label" for="registration-password">
+                <span data-bind="i18n: 'Password'"></span>
+            </label>
+            <div class="control">
+                <input class="input-text"
+                    type="password"
+                    name="registration_password"
+                    id="registration-password"
+                    autocomplete="off"
+                    data-bind="
+                        event: { input: validate },
+                        textInput: password,
+                        attr: {
+                            'data-password-min-length': pass.minLength,
+                            'data-password-min-character-sets': pass.minCharacterSets
+                        }
+                    "
+                    data-validate="{
+                        required: true,
+                        'validate-customer-password': true
+                    }"/>
+            </div>
+        </div>
+        <div class="field password-confirm required">
+            <label class="label" for="registration-password-confirmation">
+                <span data-bind="i18n: 'Confirm Password'"></span>
+            </label>
+            <div class="control">
+                <input class="input-text"
+                    type="password"
+                    name="registration_password_confirmation"
+                    id="registration-password-confirmation"
+                    autocomplete="off"
+                    data-bind="
+                        event: { input: validate },
+                        textInput: passwordConfirmation
+                    "
+                    data-validate="{
+                        required: true,
+                        equalTo: '#registration-password'
+                    }"/>
+            </div>
+        </div>
+    </div>
+</div>

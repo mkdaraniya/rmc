@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Block\Address\Edit">
+        <plugin name="swissup_geoip" type="Swissup\Geoip\Plugin\Block\CustomerAddressEdit" />
+    </type>
+    <type name="Magento\Tax\Model\TaxConfigProvider">
+        <plugin name="swissup_geoip" type="Swissup\Geoip\Plugin\Model\TaxConfigProviderPlugin" sortOrder="10" />
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\AttributeMerger">
+        <plugin name="swissup_geoip" type="Swissup\Geoip\Plugin\Block\CheckoutAttributeMerger" />
+    </type>
+
+    <type name="Magento\Framework\HTTP\PhpEnvironment\RemoteAddress">
+        <arguments>
+            <argument name="alternativeHeaders" xsi:type="array">
+                <item name="sucuri" xsi:type="string">HTTP_X_SUCURI_CLIENTIP</item>
+                <item name="stackpath" xsi:type="string">HTTP_X_SP_FORWARDED_IP</item>
+                <item name="real_ip" xsi:type="string">HTTP_X_REAL_IP</item>
+                <item name="x_forwarded_for" xsi:type="string">HTTP_X_FORWARDED_FOR</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Swissup\Geoip\Model\ProviderFactory">
+        <arguments>
+            <argument name="types" xsi:type="array">
+                <item name="maxmind_database" xsi:type="array">
+                    <item name="label" xsi:type="string">MaxMind Database</item>
+                    <item name="class" xsi:type="string">Swissup\Geoip\Model\Provider\MaxmindDatabase</item>
+                </item>
+                <item name="maxmind_service" xsi:type="array">
+                    <item name="label" xsi:type="string">MaxMind Service</item>
+                    <item name="class" xsi:type="string">Swissup\Geoip\Model\Provider\MaxmindService</item>
+                </item>
+                <item name="ipstack" xsi:type="array">
+                    <item name="label" xsi:type="string">IpStack</item>
+                    <item name="class" xsi:type="string">Swissup\Geoip\Model\Provider\Ipstack</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

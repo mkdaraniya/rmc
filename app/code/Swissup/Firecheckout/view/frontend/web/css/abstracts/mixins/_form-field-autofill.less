@@ -1,0 +1,10 @@
+.lib-fc-form-input-autofill() {
+    &:-webkit-autofill {
+        & when not (@fc-form-field__autofill__background-color = false) {
+            -webkit-box-shadow: 0 0 0 50px @fc-form-field__autofill__background-color inset !important;
+        }
+        & when not (@fc-form-field__autofill__color = false) {
+            -webkit-text-fill-color: @fc-form-field__autofill__color !important;
+        }
+    }
+}

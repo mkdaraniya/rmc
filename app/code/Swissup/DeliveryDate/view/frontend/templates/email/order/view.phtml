@@ -1,0 +1,25 @@
+<?php
+    $date = (string) $block->getDeliveryDate();
+    $time = (string) $block->getDeliveryTime();
+
+    if (!$date && !$time) {
+        return;
+    }
+?>
+
+<table class="email-items">
+    <tbody>
+        <?php if ($date): ?>
+            <tr>
+                <td><?php echo $block->escapeHtml(__('Delivery Date')) ?></td>
+                <td class="col"><strong><?php echo $block->escapeHtml($date) ?></strong></td>
+            </tr>
+        <?php endif ?>
+        <?php if ($time): ?>
+            <tr>
+                <td><?php echo $block->escapeHtml(__('Delivery Time')) ?></td>
+                <td class="col"><strong><?php echo $block->escapeHtml($time) ?></strong></td>
+            </tr>
+        <?php endif ?>
+    </tbody>
+</table>

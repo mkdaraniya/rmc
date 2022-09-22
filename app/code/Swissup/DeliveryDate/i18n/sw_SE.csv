@@ -1,0 +1,28 @@
+"Delivery Date",Leveransdatum
+"Delivery Time",Leveranstid
+"Delivery Date &amp; Time","Leveransdatum & amp; Tid"
+Main,Huvudsaklig
+"Show for all shipping methods","Visa för alla leveransmetoder"
+"Date Field Settings",Datumfältinställningar
+"Field Label",Fältetikett
+"Show Field","Visa fält"
+"Use first avilable date as default value","Använd första tillgängliga datum som standardvärde"
+"Date format",Datumformat
+"Leave empty to use active locale format.","Lämna tomt för att använda det aktiva språkformatet."
+"<strong>l, j F, Y - Sunday, 4 October, 2018</strong><br/>l - A full textual representation of the day of the week<br/>j - Day of the month without leading zeros<br/>F - A full textual representation of a month, such as January or March<br/>Y - A full numeric representation of a year, 4 digits<br/><br/><strong>m/d/Y - 10/04/2018</strong><br/>m - Numeric representation of a month, with leading zeros<br/>d - Day of the month, 2 digits with leading zeros<br/>Y - A full numeric representation of a year, 4 digits","<strong> l, j F, Y - söndag 4 oktober, 2018 </strong> <br/> l - En fullständig textlig presentation av veckodagen <br/> j - Månadens dag utan ledande nollor < br /> F - En fullständig textlig representation av en månad, till exempel januari eller mars <br/> Y - En fullständig numerisk representation av ett år, 4 siffror <br/> <br/> <strong> m / d / Y - 10/04/2018 </strong> <br/> m - Numerisk representation av en månad, med ledande nollor <br/> d - Månadens dag, 2 siffror med ledande nollor <br/> Y - En fullständig siffra årets representation, 4 siffror"
+"Time Field Settings","Inställningar för tidsfält"
+"Time Options",Tidsalternativ
+"Add Time Entry","Lägg till tidsinmatning"
+"First available delivery date rules","Första tillgängliga leveransdatumregler"
+"Delivery processing day ends at","Leveransbehandlingsdagen slutar kl"
+"Delivery will be available since first available day (order date) plus this value","Leveransen kommer att finnas tillgänglig sedan den första tillgängliga dagen (beställningsdatum) plus detta värde"
+"Last available delivery date rules","Senaste tillgängliga leveransdatumregler"
+"Period in days, while delivery will be available, since first available day","Period i dagar, medan leveransen kommer att finnas tillgänglig, sedan den första tillgängliga dagen"
+"Exclude delivery date rules","Uteslut regler för leveransdatum"
+"Exclude days of week from delivery","Uteslut veckodagar från leverans"
+Holidays,Högtider
+Offset,Offset
+"Add Holiday","Lägg till semester"
+"Delivery Time is required","Leveranstid krävs"
+"Delivery Date is required","Leveransdatum krävs"
+"Invalid Delivery Time value","Ogiltigt leveranstidsvärde"

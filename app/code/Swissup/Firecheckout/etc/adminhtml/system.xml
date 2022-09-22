@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="firecheckout" type="text" sortOrder="635" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Firecheckout</label>
+            <tab>swissup_checkout</tab>
+            <resource>Swissup_Firecheckout::config_firecheckout</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="url_path" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Url Path</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="redirect_to_checkout" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1">
+                    <label>After Adding a Product Redirect to Firecheckout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="design" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Design</label>
+                <field id="page_layout" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Layout</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\PageLayout</source_model>
+                </field>
+                <field id="layout" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Layout</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\Layout</source_model>
+                    <config_path>firecheckout/general/layout</config_path>
+                </field>
+                <field id="email_on_separate_step" translate="label" type="select" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Move Email to the Separate Step</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="layout">firecheckout-col1-set</field>
+                    </depends>
+                </field>
+                <field id="place_order_button_position" translate="label" type="select" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Place Order Button Position</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\PlaceOrderPosition</source_model>
+                    <depends>
+                        <field id="layout" separator=",">firecheckout-col1-set,firecheckout-col1-set expanded</field>
+                    </depends>
+                </field>
+                <field id="theme" translate="label" type="select" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Theme</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\Theme</source_model>
+                </field>
+                <field id="form_heading" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Form Styles</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="form_style" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mode</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\FormStyle</source_model>
+                </field>
+                <field id="hide_labels" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use field placeholders instead of labels</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="form_style" separator=",">basic,compact</field>
+                    </depends>
+                </field>
+                <field id="use_tooltips" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show field errors and notices in the Tooltips</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="additional_content" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Additional Content</label>
+                <field id="top" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Above Firecheckout Form</label>
+                    <source_model>Swissup\Core\Model\Config\Source\CmsBlock</source_model>
+                </field>
+                <field id="bottom" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Below Firecheckout Form</label>
+                    <source_model>Swissup\Core\Model\Config\Source\CmsBlock</source_model>
+                </field>
+                <field id="below_order_summary" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Below order summary (Above place order button)</label>
+                    <source_model>Swissup\Core\Model\Config\Source\CmsBlock</source_model>
+                </field>
+                <field id="below_place_order" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Below place order button</label>
+                    <source_model>Swissup\Core\Model\Config\Source\CmsBlock</source_model>
+                </field>
+                <group id="intro" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Intro Popup</label>
+                    <comment>This popup will be displayed at initial page load. One time only.</comment>
+                    <field id="guest" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Content for Guest Customers</label>
+                        <source_model>Swissup\Core\Model\Config\Source\CmsBlock</source_model>
+                    </field>
+                    <field id="registered" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Content for Registered Customers</label>
+                        <source_model>Swissup\Core\Model\Config\Source\CmsBlock</source_model>
+                    </field>
+                </group>
+            </group>
+            <group id="analytics" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Analytics</label>
+                <field id="google_analytics_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1">
+                    <label>Enable Google Analytics Integration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="google_analytics_account" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1">
+                    <label>Account Number</label>
+                    <comment>Read our integration details docs: https://docs.swissuplabs.com/m2/extensions/firecheckout/configuration/analytics/</comment>
+                    <config_path>google/analytics/account</config_path>
+                    <depends>
+                        <field id="google_analytics_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="shipping" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipping Settings</label>
+                <field id="default_method" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1">
+                    <label>Default Method</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\ShippingMethods</source_model>
+                </field>
+                <field id="default_method_code" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1">
+                    <label>Default Method Code</label>
+                    <comment>Use this field if you can't find the method you are looking for in the previous option</comment>
+                </field>
+                <field id="hide_methods" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1">
+                    <label>Hide methods if single method is available only</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sort_by_price" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1">
+                    <label>Sort shipping methods by price</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="payment" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Payment Settings</label>
+                <field id="default_method" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1">
+                    <label>Default Method</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\PaymentMethods</source_model>
+                </field>
+                <field id="billing_address_heading" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Billing Address</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="display_billing_address_title" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Billing Address Title</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This option is not used when Billing Address displayed inside Payment Method</comment>
+                </field>
+                <field id="display_billing_address_on" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Billing Address On</label>
+                    <comment>Some third-party modules may not work correctly with custom position. In this case, select 'Use Magento Config' option please.</comment>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\BillingAddressDisplayOptions</source_model>
+                </field>
+                <field id="billing_address_save_mode" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Save Mode</label>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\BillingAddressSaveModes</source_model>
+                </field>
+            </group>
+            <group id="agreements" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Terms and Conditions</label>
+                <field id="enabled" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <comment><![CDATA[Agreement text and settings are located at "Stores > Terms and Conditions" page]]></comment>
+                    <config_path>checkout/options/enable_agreements</config_path>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="position" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position</label>
+                    <comment>Some third-party modules may not work correctly with custom position. In this case, select 'Use Magento Config' option please.</comment>
+                    <source_model>Swissup\Firecheckout\Model\Config\Source\AgreementsPosition</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <comment>Leave empty to show agreements without the title</comment>
+                    <depends>
+                        <field id="position" separator=",">above-place-order</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="order_summary" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Order Summary Settings</label>
+                <field id="show_order_review" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Order Review (Shipping Information)</label>
+                    <comment>Useful for EU countries</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <comment>Leave empty to add review without the title</comment>
+                </field>
+            </group>
+            <group id="custom_css_js" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom CSS and JS</label>
+                <field id="css" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CSS</label>
+                    <frontend_model>Swissup\Codemirror\Block\Adminhtml\System\Config\Form\Field\Css</frontend_model>
+                </field>
+                <field id="less" translate="label" type="textarea" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>LESS</label>
+                    <frontend_model>Swissup\Codemirror\Block\Adminhtml\System\Config\Form\Field\Less</frontend_model>
+                    <comment><![CDATA[Use less syntax and variables to change styles!<br/>See the list of available variables: <a href="http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/" title="Firecheckout Docs">http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/</a><br/>You must run `setup:static-content:deploy` command to see the changes.]]></comment>
+                </field>
+                <field id="js" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>JS</label>
+                    <frontend_model>Swissup\Codemirror\Block\Adminhtml\System\Config\Form\Field\Javascript</frontend_model>
+                </field>
+            </group>
+            <group id="performance" translate="label" type="text" sortOrder="600" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Performance</label>
+                <field id="jsbuild" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use jsBuild</label>
+                    <comment>Combine js files into single jsbuild to reduce number of requests and improve page load time.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="jsbuild_paths" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>jsBuild include paths</label>
+                    <depends>
+                        <field id="jsbuild">1</field>
+                    </depends>
+                </field>
+                <field id="prefetch" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Prefetch jsBuild to speedup checkout page loading time</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="jsbuild">1</field>
+                    </depends>
+                </field>
+            </group>
+            <include path="Swissup_Checkout::system/checkout_modules.xml"/>
+        </section>
+    </system>
+</config>

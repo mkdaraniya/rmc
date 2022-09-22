@@ -1,0 +1,12 @@
+Geoip,geoip
+"MaxMind Database",MaxMind-database
+"MaxMind Service",MaxMind-service
+IpStack,IpStack
+"Maxmind database file was not found.","Maxmind-databasebestand niet gevonden."
+Provider,leverancier
+"Account ID","Account ID"
+"License Key",Licentiesleutel
+"Get your Account ID at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","Haal uw account-ID op <a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>"
+"Get your License Key at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","Download uw licentiecode op <a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>"
+"API Key","API sleutel"
+"Get your free API key at <a href='https://ipstack.com/product'>https://ipstack.com/product</a>","Download uw gratis API-sleutel op <a href='https://ipstack.com/product'> https://ipstack.com/product </a>"

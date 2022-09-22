@@ -1,0 +1,6 @@
+type StoreConfig {
+    firecheckout_general_enabled : Int  @doc(description: "Extended Config Data - firecheckout/general/enabled")
+    firecheckout_design_page_layout : String  @doc(description: "Extended Config Data - firecheckout/design/page_layout")
+    firecheckout_design_layout : String  @doc(description: "Extended Config Data - firecheckout/general/layout")
+    firecheckout_design_place_order_button_position : String  @doc(description: "Extended Config Data - firecheckout/design/place_order_button_position")
+}

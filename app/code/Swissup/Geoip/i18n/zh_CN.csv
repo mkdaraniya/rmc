@@ -1,0 +1,12 @@
+Geoip,Geoip
+"MaxMind Database",MaxMind数据库
+"MaxMind Service",MaxMind服务
+IpStack,IpStack
+"Maxmind database file was not found.",找不到Maxmind数据库文件。
+Provider,提供者
+"Account ID",帐户ID
+"License Key",注册码
+"Get your Account ID at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","在<a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>上获取您的帐户ID。"
+"Get your License Key at <a href='https://www.maxmind.com/en/accounts/current/license-key'>https://www.maxmind.com</a>","在<a href='https://www.maxmind.com/en/my_license_key'> https://www.maxmind.com/en/my_license_key </a>上获取许可证密钥。"
+"API Key",API密钥
+"Get your free API key at <a href='https://ipstack.com/product'>https://ipstack.com/product</a>","在<a href='https://ipstack.com/product'> https://ipstack.com/product </a>上获取免费的API密钥"

@@ -1,0 +1,54 @@
+"Url Path",URLパス
+"After Adding a Product Redirect to Firecheckout",Firecheckoutへの製品リダイレクトの追加後
+"Page Layout",ページレイアウト
+"Form Styles",フォームスタイル
+"Use field placeholders instead of labels",ラベルの代わりにフィールドプレースホルダーを使用する
+"Show field errors and notices in the Tooltips",ツールチップにフィールドエラーと通知を表示する
+"Additional Content",追加コンテンツ
+"Above Firecheckout Form",Firecheckoutフォームの上
+"Below Firecheckout Form",Firecheckoutフォームの下
+"Below order summary (Above place order button)","注文の概要の下（Above place orderボタン）"
+"Below place order button",注文ボタンの下
+"Intro Popup",イントロポップアップ
+"Content for Guest Customers",ゲストのお客様向けコンテンツ
+"Content for Registered Customers",登録済みのお客様向けのコンテンツ
+"Default Method",デフォルトの方法
+"Default Method Code",デフォルトのメソッドコード
+"Use this field if you can't find the method you are looking for in the previous option",前のオプションで探しているメソッドが見つからない場合は、このフィールドを使用します
+"Hide methods if single method is available only",単一のメソッドのみが使用可能な場合、メソッドを非表示
+"Payment Settings",支払い設定
+"Show Billing Address Title",請求先住所のタイトルを表示
+"This option is not used when Billing Address displayed inside Payment Method",支払い方法内に請求先住所が表示されている場合、このオプションは使用されません
+"Horizontal (Label aside of the field)",水平（フィールドの横のラベル）
+"Basic (Same as horizontal, except label above the field)",基本（フィールドの上のラベルを除き、水平と同じ）
+"Compact (Multiple fields per row)",コンパクト（行ごとに複数のフィールド）
+"1 Column (Multistep Wizard)",1列（マルチステップウィザード）
+"1 Column (Expanded)",1列（拡張）
+"2 Columns (Wide Payment and Shipping sections)",2列（広い支払いセクションと配送セクション）
+"2 Columns (Place Payment and Shipping sections side by side)",2列（支払いと配送のセクションを並べて配置）
+"3 Columns",3列
+"Default Checkout Layout",デフォルトのチェックアウトレイアウト
+"Empty (No Header and Footer)",空（ヘッダーとフッターなし）
+"Minimal (Header with store Logo only)",最小（ストアロゴ付きヘッダーのみ）
+Full,いっぱい
+"Back to Store",ストアに戻る
+"Continue Shopping",ショッピングを続ける
+"Firecheckout Page Header Container",Firecheckoutページヘッダーコンテナー
+"Firecheckout Page Header",Firecheckoutページヘッダー
+"Please specify a shipping method.",配送方法を指定してください。
+"Please specify a payment method.",支払い方法を指定してください。
+Cart,カート
+"Use Magento Config (Sales > Checkout > Checkout Options)","Magento Configを使用する（[販売]> [チェックアウト]> [チェックアウトオプション]）"
+"Payment Page (Above Payment Methods)",支払いページ（上記の支払い方法）
+"Shipping Page (Below Shipping Address)",配送ページ（配送先住所の下）
+"Some third-party modules may not work correctly with custom address position. In this case, select 'Use Magento Config' option please.","一部のサードパーティモジュールは、カスタムアドレス位置で正しく動作しない場合があります。この場合、「Magento Configを使用」オプションを選択してください。"
+"Order Summary Settings",注文概要の設定
+"Show Order Review (Shipping Information)",注文レビューを表示（配送情報）
+"Useful for EU countries",EU諸国に有用
+"Leave empty to add review without the title",空欄のままにして、タイトルなしでレビューを追加します
+"Custom CSS and JS",カスタムCSSおよびJS
+"Use less syntax and variables to change styles!<br/>See the list of available variables: <a href=""http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/"" title=""Firecheckout Docs"">http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/</a><br/>You must run `setup:static-content:deploy` command to see the changes.","少ない構文と変数を使用してスタイルを変更してください！<br/>利用可能な変数のリストを参照してください: <a href=""http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/"" title=""Firecheckout Docs"">http://docs.swissuplabs.com/m2/extensions/firecheckout/customization/less-variables/</a><br/>`setup:static-content:deploy` コマンドを実行して、変更します。"
+Performance,性能
+"Use jsBuild",jsBuildを使用する
+"Combine js files into single jsbuild to reduce number of requests and improve page load time.",jsファイルを単一のjsbuildに結合して、リクエストの数を減らし、ページの読み込み時間を改善します。
+"jsBuild include paths",jsBuildインクルードパス

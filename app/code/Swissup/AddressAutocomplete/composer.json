@@ -1,0 +1,39 @@
+{
+    "name": "swissup/module-address-autocomplete",
+    "description": "Magento 2 module for address autocompleting",
+    "keywords": [
+        "address",
+        "autocomplete",
+        "google"
+    ],
+    "type": "magento2-module",
+    "version": "1.6.5",
+    "license": "OSL-3.0",
+    "require": {
+        "swissup/module-checkout": "^1.5.1",
+        "swissup/module-codemirror": "^1.1.6"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Swissup\\AddressAutocomplete\\": ""
+        }
+    },
+    "extra": {
+        "swissup": {
+            "links": {
+                "docs"     : "http://docs.swissuplabs.com/m2/extensions/address-autocomplete/",
+                "changelog": "http://docs.swissuplabs.com/m2/extensions/address-autocomplete/changelog/"
+            }
+        },
+        "marketplace": {
+            "gallery": [
+                "https://docs.swissuplabs.com/images/marketplace/module-address-autocomplete.png"
+            ],
+            "links": {
+                "docs": "https://docs.swissuplabs.com/m2/extensions/address-autocomplete/",
+                "changelog": "https://docs.swissuplabs.com/m2/extensions/address-autocomplete/changelog/"
+            }
+        }
+    }
+}

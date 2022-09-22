@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="firecheckout_general_enabled" xsi:type="string">firecheckout/general/enabled</item>
+                <item name="firecheckout_design_page_layout" xsi:type="string">firecheckout/design/page_layout</item>
+                <item name="firecheckout_design_layout" xsi:type="string">firecheckout/general/layout</item>
+                <item name="firecheckout_design_place_order_button_position" xsi:type="string">firecheckout/design/place_order_button_position</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

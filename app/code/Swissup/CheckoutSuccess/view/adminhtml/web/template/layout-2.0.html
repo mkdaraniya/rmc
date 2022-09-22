@@ -1,0 +1,27 @@
+<div id="<%= widgetFullName %>-<%= uuid %>" class="success-page-layout<% if (isInherit) {%> disabled<% } %>">
+
+    <div class="builder-toolbar">
+        <div class="actions-view">
+            <div class="order-wrapper">
+                <label for="<%= widgetFullName %>-<%= uuid %>-order">Order to preview</label>
+                <input id="<%= widgetFullName %>-<%= uuid %>-order" type="text" value="<%= options.orderId %>"/>
+            </div>
+            <button class="button-view">Preview page</button>
+        <% if (!isInherit) {%>
+            <button class="primary button-builder">Builder</button>
+        </div>
+        <div class="actions-builder" style="display: none">
+            <button class="primary button-save">Save</button>
+            <button class="button-blocks">Insert block</button>
+        <% } %>
+        </div>
+        <button class="button-full-scr" title="Full screen">Full screen</button>
+    </div>
+
+    <div class="iframe-wrapper">
+        <iframe onload="jQuery(this).trigger('swissup::iframeLoaded')" loading="lazy"></iframe>
+        <p class="notice">Check how checkout success page looks. Or build your own checkout success page.</p>
+    </div>
+
+</div>
+<div data-role="popup" data-mage-init='{"Magento_Ui/js/modal/modal":{"title":"Settings"}}' class="success-page-settings"></div>

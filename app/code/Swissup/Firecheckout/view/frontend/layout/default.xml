@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="before.body.end">
+            <block class="Swissup\Firecheckout\Block\Prefetch" name="firecheckout.prefetch">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<div data-mage-init='{"Swissup_Firecheckout/js/prefetch": {}}'></div>]]></argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

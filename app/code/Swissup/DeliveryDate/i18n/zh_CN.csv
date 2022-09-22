@@ -1,0 +1,28 @@
+"Delivery Date",邮寄日期
+"Delivery Time",交货时间
+"Delivery Date &amp; Time",交货日期和时间时间
+Main,主要
+"Show for all shipping methods",显示所有运输方式
+"Date Field Settings",日期字段设置
+"Field Label",栏位标签
+"Show Field",显示领域
+"Use first avilable date as default value",使用第一个有效日期作为默认值
+"Date format",日期格式
+"Leave empty to use active locale format.",保留为空白以使用活动的语言环境格式。
+"<strong>l, j F, Y - Sunday, 4 October, 2018</strong><br/>l - A full textual representation of the day of the week<br/>j - Day of the month without leading zeros<br/>F - A full textual representation of a month, such as January or March<br/>Y - A full numeric representation of a year, 4 digits<br/><br/><strong>m/d/Y - 10/04/2018</strong><br/>m - Numeric representation of a month, with leading zeros<br/>d - Day of the month, 2 digits with leading zeros<br/>Y - A full numeric representation of a year, 4 digits","<strong> l，j F，Y-2018年10月4日，星期日</ strong> <br/> l-一周中某天的完整文字表示<br/> j-每月中没有前导零的日期< br /> F-一个月的完整文本表示形式，例如一月或三月<br/> Y-一年的完整数字表示形式，四位数<br/> <br/> <strong> m / d / Y -10/04/2018 </ strong> <br/> m-一个月的数字表示形式，前导零<br/> d-月份中的一天，两个数字前导零<br/> Y-完整数字一年的代表，4位数字"
+"Time Field Settings",时间字段设置
+"Time Options",时间选项
+"Add Time Entry",添加时间输入
+"First available delivery date rules",第一个可用的交货日期规则
+"Delivery processing day ends at",交货处理日在
+"Delivery will be available since first available day (order date) plus this value",自第一个可用日（订购日期）起加上此值，便可以交货
+"Last available delivery date rules",最后可用交货日期规则
+"Period in days, while delivery will be available, since first available day",从第一个可用日开始，以天为单位，但可以交付
+"Exclude delivery date rules",排除交货日期规则
+"Exclude days of week from delivery",从交货中排除星期几
+Holidays,假期
+Offset,偏移量
+"Add Holiday",新增假期
+"Delivery Time is required",需要交货时间
+"Delivery Date is required",交货日期为必填项
+"Invalid Delivery Time value",无效的交货时间值

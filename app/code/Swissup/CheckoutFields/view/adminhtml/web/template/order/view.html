@@ -1,0 +1,33 @@
+<div id="checkout-fields-view" data-bind="visible: !editMode()">
+    <!-- ko if: (fields().length > 0) -->
+    <table class="admin__table-secondary order-information-table">
+        <tbody>
+            <!--ko foreach: fields() -->
+            <tr>
+                <th data-bind="text: label"></th>
+                <td>
+                    <!-- ko if: value -->
+                    <strong data-bind="html: value, css: {multiline : multiline}"></strong>
+                    <!-- /ko -->
+                    <!-- ko ifnot: value -->
+                    <strong data-bind="i18n: 'N/A'"></strong>
+                    <!-- /ko -->
+                </td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+    <!-- /ko -->
+    <!-- ko if: (fields().length == 0) -->
+    <span data-bind="i18n: 'No additional information found.'"></span>
+    <!-- /ko -->
+</div>
+<div id="checkout-fields-edit" data-bind="visible: editMode()">
+    <div class="fieldset" data-role="content">
+    <!-- ko foreach: { data: elems, as: 'element' } -->
+        <!-- ko if: hasTemplate() -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    <!-- /ko -->
+    </div>
+</div>
