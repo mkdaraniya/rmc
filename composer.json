@@ -24,7 +24,10 @@
         "magento/composer-root-update-plugin": "~1.1",
         "magento/product-community-edition": "2.4.3-p1",
         "mageplaza/module-gdpr": "^4.2",
-        "prince/module-productattachment": "^2.1"
+        "mageplaza/module-multi-flat-rates": "^4.0",
+        "mageplaza/module-smtp": "^4.7",
+        "prince/module-productattachment": "^2.1",
+        "tnw/module-stripe": "^2.3"
     },
     "autoload": {
         "exclude-from-classmap": [

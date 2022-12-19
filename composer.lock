@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e50c130b60c4d963a0c0d134c5d328e1",
+    "content-hash": "41ea0cee2c6b63d18d1c026452c5b1f8",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17672,6 +17672,113 @@
             "time": "2022-08-30T08:42:47+00:00"
         },
         {
+            "name": "mageplaza/module-multi-flat-rates",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-multi-flat-rates.git",
+                "reference": "205b8b281726313b0f690aa870e28e324fa73134"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-multi-flat-rates/zipball/205b8b281726313b0f690aa870e28e324fa73134",
+                "reference": "205b8b281726313b0f690aa870e28e324fa73134",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Multiflatrates\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 Multi Flat Rates extension",
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-multi-flat-rates/issues",
+                "source": "https://github.com/mageplaza/magento-2-multi-flat-rates/tree/v4.0.1"
+            },
+            "time": "2021-09-20T08:06:02+00:00"
+        },
+        {
+            "name": "mageplaza/module-smtp",
+            "version": "4.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-smtp.git",
+                "reference": "fc7930bea186120bf1f40da00cf96eb19c71b875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/fc7930bea186120bf1f40da00cf96eb19c71b875",
+                "reference": "fc7930bea186120bf1f40da00cf96eb19c71b875",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.12"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Smtp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "SMTP Extension for Magento 2 helps the owner of store simply install SMTP (Simple Mail Transfer Protocol) server which transmits the messages into codes or numbers",
+            "keywords": [
+                "Facebook ADS",
+                "Marketing Automation",
+                "Messenger",
+                "email",
+                "email marketing",
+                "email settings",
+                "facebook",
+                "gmail smtp",
+                "google ads",
+                "magento 2",
+                "magento 2 smtp",
+                "magento smtp",
+                "mageplaza",
+                "sms",
+                "sms marketing",
+                "smtp",
+                "web push notification",
+                "whatsapp"
+            ],
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-smtp/issues",
+                "source": "https://github.com/mageplaza/magento-2-smtp/tree/v4.7.4"
+            },
+            "time": "2022-12-06T01:48:00+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.27.1",
             "source": {
@@ -19680,6 +19787,66 @@
                 "source": "https://github.com/Spomky-Labs/otphp/tree/v10.0.3"
             },
             "time": "2022-03-17T08:00:35+00:00"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v7.128.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c704949c49b72985c76cc61063aa26fefbd2724e",
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.5.0",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/stripe/stripe-php/issues",
+                "source": "https://github.com/stripe/stripe-php/tree/v7.128.0"
+            },
+            "time": "2022-05-05T17:18:02+00:00"
         },
         {
             "name": "symfony/config",
@@ -22293,6 +22460,79 @@
                 "source": "https://github.com/thecodingmachine/safe/tree/v1.3.3"
             },
             "time": "2020-10-28T17:51:34+00:00"
+        },
+        {
+            "name": "tnw/marketing",
+            "version": "2.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PowerSync/TNW_Marketing.git",
+                "reference": "365d38ffd8f9fc5d16f2391319831fa0200502fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PowerSync/TNW_Marketing/zipball/365d38ffd8f9fc5d16f2391319831fa0200502fd",
+                "reference": "365d38ffd8f9fc5d16f2391319831fa0200502fd",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "TNW\\Marketing\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "gpl-3.0"
+            ],
+            "description": "PowerSync  Marketing",
+            "support": {
+                "issues": "https://github.com/PowerSync/TNW_Marketing/issues",
+                "source": "https://github.com/PowerSync/TNW_Marketing/tree/2.9.0"
+            },
+            "time": "2022-10-11T10:52:05+00:00"
+        },
+        {
+            "name": "tnw/module-stripe",
+            "version": "2.3.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PowerSync/TNW_Stripe.git",
+                "reference": "dccd372b5d2e2f312111a4ceddb1d914a74198ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PowerSync/TNW_Stripe/zipball/dccd372b5d2e2f312111a4ceddb1d914a74198ab",
+                "reference": "dccd372b5d2e2f312111a4ceddb1d914a74198ab",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": ">100",
+                "stripe/stripe-php": "^7",
+                "tnw/marketing": "~2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "TNW\\Stripe\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Stripe Payments for Magento 2",
+            "support": {
+                "issues": "https://github.com/PowerSync/TNW_Stripe/issues",
+                "source": "https://github.com/PowerSync/TNW_Stripe/tree/2.3.17"
+            },
+            "time": "2022-11-01T09:18:21+00:00"
         },
         {
             "name": "tubalmartin/cssmin",
