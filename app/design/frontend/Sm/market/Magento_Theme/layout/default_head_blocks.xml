@@ -10,5 +10,7 @@
     <head>
         <meta name="x_ua_compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		
+		<css src = "css/custom_style.css" />
     </head>
 </page>
