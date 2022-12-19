@@ -1,0 +1,4 @@
+.products-grid .product-item-name a {
+    display: inline-block;
+    font-weight: bolder;
+}
