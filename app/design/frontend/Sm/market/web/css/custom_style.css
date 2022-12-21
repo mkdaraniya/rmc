@@ -1,4 +1,9 @@
-.products-grid .product-item-name a {
-    display: inline-block;
-    font-weight: bolder;
+.product.attribute.overview {
+  font-weight: bold;
+}
+.value {
+  font-weight: bold;
+}
+.filter-options-item.allow.active {
+  display: none !important;
 }
