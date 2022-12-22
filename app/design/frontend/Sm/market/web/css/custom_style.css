@@ -7,4 +7,10 @@
 .filter-options-item.allow.active {
   display: none !important;
 }
+<<<<<<< HEAD
 
+=======
+.message.info.empty {
+  display: none;
+}
+>>>>>>> bdc9cfd9498a69de0b0f22d010453f53d6d03a31
