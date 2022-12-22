@@ -7,6 +7,6 @@
 .filter-options-item.allow.active {
   display: none !important;
 }
-.message.info.empty {
+.sidebar.sidebar-additional {
   display: none;
 }
