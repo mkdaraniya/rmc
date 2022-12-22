@@ -7,3 +7,6 @@
 .filter-options-item.allow.active {
   display: none !important;
 }
+.message.info.empty {
+  display: none;
+}
