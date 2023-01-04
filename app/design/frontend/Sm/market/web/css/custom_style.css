@@ -7,14 +7,7 @@
 .filter-options-item.allow.active {
   display: none !important;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-.message.info.empty {
-=======
 .sidebar.sidebar-additional {
->>>>>>> 95b4fee1c61077b70edaac2ae88fb07b6deeb097
   display: none;
 }
->>>>>>> bdc9cfd9498a69de0b0f22d010453f53d6d03a31
+
