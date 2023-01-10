@@ -22,3 +22,9 @@
   margin: 12px 0px 11.5px;
   width: 100%;
 }
+#searchbox {
+  min-height: 0px;
+}
+.action.action-apply.iwd_opc_button.secondary {
+  background-color: #7ECB30 !important;
+}
