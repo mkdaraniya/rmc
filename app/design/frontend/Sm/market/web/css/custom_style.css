@@ -10,4 +10,19 @@
 .sidebar.sidebar-additional {
   display: none;
 }
+<<<<<<< HEAD
 
+=======
+.product.attribute.sku {
+  font-size: initial;
+}
+.product-item {
+  position: relative;
+  top: 15px;
+}
+.opc-block-summary .product-item .product-item-inner {
+  display: table;
+  margin: 12px 0px 11.5px;
+  width: 100%;
+}
+>>>>>>> 01489811fedf941c54dc9b012c88e4997e1ed623
