@@ -11,7 +11,7 @@
   display: none;
 }
 .product.attribute.sku {
-  font-size: 18px;;
+  font-size: medium !important;
 }
 .product-item {
   position: relative;
