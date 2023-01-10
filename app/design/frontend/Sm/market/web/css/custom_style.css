@@ -10,3 +10,10 @@
 .sidebar.sidebar-additional {
   display: none;
 }
+.product.attribute.sku {
+    font-size: 150%;
+}
+.product-item {
+  position: relative;
+  top: 15px;
+}
