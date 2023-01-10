@@ -58,7 +58,8 @@ $customerData = $callPriceHelper->getCurrentCustomerData();
                         <strong class="product name product-item-name">
                             <a class="product-item-link"
                                href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
-                                <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+                                <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getSku(), 'sku')."<br>"; ?>
+								<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
                             </a>
                         </strong>
                         <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
