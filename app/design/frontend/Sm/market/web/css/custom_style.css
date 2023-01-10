@@ -11,9 +11,14 @@
   display: none;
 }
 .product.attribute.sku {
-    font-size: 150%;
+  font-size: initial;
 }
 .product-item {
   position: relative;
   top: 15px;
+}
+.opc-block-summary .product-item .product-item-inner {
+  display: table;
+  margin: 12px 0px 11.5px;
+  width: 100%;
 }
