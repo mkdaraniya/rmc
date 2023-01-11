@@ -26,5 +26,11 @@
   min-height: 0px;
 }
 .action.action-apply.iwd_opc_button.secondary {
-  background-color: #7ECB30 !important;
+  background-color: #1979C3 !important;
+}
+.onepage-index-index .iwd_main_wrapper .iwd_opc_alternative_wrapper .iwd_opc_alternative_column .shipping-address-same-as-billing-block label::before {
+  color: #1979C3 !important;
+}
+.block.items-in-cart {
+  margin-bottom: 0;
 }
