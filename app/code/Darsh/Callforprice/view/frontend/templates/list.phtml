@@ -58,7 +58,7 @@ $customerData = $callPriceHelper->getCurrentCustomerData();
                         <strong class="product name product-item-name">
                             <a class="product-item-link"
                                href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
-                                <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getSku(), 'sku')."<br>"; ?>
+                                <?php /* @escapeNotVerified */ echo "<b>".$_helper->productAttribute($_product, $_product->getSku(), 'sku')."<br></b>"; ?>
 								<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
                             </a>
                         </strong>
