@@ -22,3 +22,15 @@
   margin: 12px 0px 11.5px;
   width: 100%;
 }
+#searchbox {
+  min-height: 0px;
+}
+.action.action-apply.iwd_opc_button.secondary {
+  background-color: #1979C3 !important;
+}
+.onepage-index-index .iwd_main_wrapper .iwd_opc_alternative_wrapper .iwd_opc_alternative_column .shipping-address-same-as-billing-block label::before {
+  color: #1979C3 !important;
+}
+.block.items-in-cart {
+  margin-bottom: 0;
+}
