@@ -99,6 +99,7 @@ if ($count_item) {
                                    href="<?php /* @escapeNotVerified */
                                    echo $_product->getProductUrl() ?>">
                                     <?php /* @escapeNotVerified */
+									echo "<b>".$_helper->productAttribute($_product, $_product->getSku(), 'sku')."<br></b>";
                                     echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
                                 </a>
                             </strong>
