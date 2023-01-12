@@ -34,3 +34,14 @@
 .block.items-in-cart {
   margin-bottom: 0;
 }
+.details-qty {
+  display: none;
+}
+.onepage-index-index .iwd_opc_universal_wrapper.multistep .step-back {
+  cursor: pointer;
+  color: #006bb4;
+  margin-top: 24px;
+  font-size: 14px;
+  position: relative;
+  bottom: 110px;
+}
