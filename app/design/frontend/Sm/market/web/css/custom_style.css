@@ -45,3 +45,9 @@
   position: relative;
   bottom: 110px;
 }
+.onepage-index-index #maincontent .columns .column #checkout .iwd_opc_alternative_wrapper .opc-block-summary {
+  height: auto !important;
+}
+.header-mobile .mobile-top {
+  background-color: #B7B6B6 !important;
+}
