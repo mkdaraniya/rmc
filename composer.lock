@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc2a6fd7177cb5f8b057ef73de833a7c",
+    "content-hash": "1dcf2775f89522e12625b410e82ea239",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17720,6 +17720,64 @@
                 "source": "https://github.com/mageplaza/magento-2-gdpr/tree/v4.2.1"
             },
             "time": "2022-08-30T08:42:47+00:00"
+        },
+        {
+            "name": "magepsycho/magento2-storepricing",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MagePsycho/magento2-store-view-pricing.git",
+                "reference": "e89555f1b20c99f2926ca1e1b283234e074b311b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MagePsycho/magento2-store-view-pricing/zipball/e89555f1b20c99f2926ca1e1b283234e074b311b",
+                "reference": "e89555f1b20c99f2926ca1e1b283234e074b311b",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/registration.php"
+                ],
+                "psr-4": {
+                    "MagePsycho\\StorePricing\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Raj KB",
+                    "email": "magepsycho@gmail.com",
+                    "homepage": "https://www.magepsycho.com"
+                }
+            ],
+            "description": "Magento 2 Store View Pricing",
+            "homepage": "https://www.magepsycho.com/magento2-store-view-pricing.html",
+            "keywords": [
+                "catalog",
+                "extension",
+                "magento",
+                "magento 2 extension",
+                "magento 2 module",
+                "magento2 extension",
+                "magento2 module",
+                "module",
+                "price",
+                "pricing",
+                "product",
+                "store",
+                "store view",
+                "tier"
+            ],
+            "support": {
+                "issues": "https://github.com/MagePsycho/magento2-store-view-pricing/issues",
+                "source": "https://github.com/MagePsycho/magento2-store-view-pricing/tree/1.0.1"
+            },
+            "time": "2022-03-21T11:58:58+00:00"
         },
         {
             "name": "monolog/monolog",
