@@ -67,10 +67,11 @@ class Totals extends \Magento\Framework\View\Element\Template
         if(!$this->getSource()->getFee()) {
             return $this;
         }
+
         $total = new \Magento\Framework\DataObject(
             [
                 'code' => 'fee',
-                'value' => $this->getSource()->getFee(),
+                'value' => $this->getOrder()->getFee(),
                 'label' => 'Packaging Handling Cost',
             ]
         );
