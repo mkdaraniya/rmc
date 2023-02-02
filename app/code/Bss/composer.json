@@ -1,0 +1,24 @@
+{
+  "name": "bsscommerce/multi-store-pricing-set",
+  "description": "Bss Magento 2 Multiple Store View Pricing Modules",
+  "type": "magento2-module",
+  "version": "2.3.3",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "MultiStoreViewPricing/registration.php",
+      "MultiStoreViewPricingCatalogRule/registration.php",
+      "MultiStoreViewPricingPriceIndexer/registration.php",
+      "MultiStoreViewPricingTierPrice/registration.php"
+    ],
+    "psr-4": {
+      "Bss\\MultiStoreViewPricing\\": "MultiStoreViewPricing",
+      "Bss\\MultiStoreViewPricingCatalogRule\\": "MultiStoreViewPricingCatalogRule",
+      "Bss\\MultiStoreViewPricingPriceIndexer\\": "MultiStoreViewPricingPriceIndexer",
+      "Bss\\MultiStoreViewPricingTierPrice\\": "MultiStoreViewPricingTierPrice"
+    }
+  }
+}

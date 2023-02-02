@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_MultiStoreViewPricingCatalogRule
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2017-2018 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Magento\CatalogRule\Model\Indexer\IndexBuilder" type="Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\IndexBuilder" />
+
+	<preference for="Magento\CatalogRule\Model\Indexer\ReindexRuleProductPrice" type="Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\ReindexRuleProductPrice" />
+
+	<preference for="Magento\CatalogRule\Model\Indexer\RuleProductsSelectBuilder" type="Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\RuleProductsSelectBuilder" />
+
+	<preference for="Magento\CatalogRule\Model\Indexer\RuleProductPricesPersistor" type="Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\RuleProductPricesPersistor" />
+
+	<preference for="Magento\CatalogRule\Model\Indexer\ReindexRuleProduct" type="Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\ReindexRuleProduct" />
+
+	<preference for="Magento\CatalogRule\Model\Indexer\ReindexRuleGroupWebsite" type="Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\ReindexRuleGroupWebsite" />
+
+	<preference for="Magento\CatalogRule\Model\Rule\Condition\Product" type="Bss\MultiStoreViewPricingCatalogRule\Model\Rule\Condition\Product" />
+
+	<preference for="Magento\CatalogRule\Model\Rule" type="Bss\MultiStoreViewPricingCatalogRule\Model\Rule" />
+
+	<type name="Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable\Product\Collection">
+        <plugin name="Bss_MultiStoreViewPricing::ConfigurableProduct_AddCatalogRulePrice" type="Bss\MultiStoreViewPricingCatalogRule\Plugin\ConfigurableProduct\Model\ResourceModel\AddCatalogRulePrice" />
+    </type>
+
+	<type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\PriceInterface">
+		<arguments>
+			<argument name="priceModifiers" xsi:type="array">
+				<item name="catalogRulePriceModifier" xsi:type="object">Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\ProductPriceIndexModifier</item>
+			</argument>
+		</arguments>
+	</type>
+
+	<type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\BasePriceModifier">
+		<arguments>
+			<argument name="priceModifiers" xsi:type="array">
+				<item name="catalogRulePriceModifier" xsi:type="object">Bss\MultiStoreViewPricingCatalogRule\Model\Indexer\ProductPriceIndexModifier</item>
+			</argument>
+		</arguments>
+	</type>
+
+	<type name="Magento\CatalogRule\Model\Indexer\ProductPriceCalculator">
+		<plugin name="Bss_MultiStoreViewPricing::CatalogRule_Model_Indexer_ProductPriceCalculator"
+				type="Bss\MultiStoreViewPricingCatalogRule\Plugin\CatalogRule\Indexer\ProductPriceCalculator"
+				sortOrder="0"/>
+	</type>
+</config>
