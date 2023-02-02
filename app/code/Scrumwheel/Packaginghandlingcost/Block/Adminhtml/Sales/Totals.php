@@ -75,7 +75,7 @@ class Totals extends \Magento\Framework\View\Element\Template
             ]
         );
         $this->getParentBlock()->addTotalBefore($total, 'grand_total');
-
+		
         return $this;
     }
 }
