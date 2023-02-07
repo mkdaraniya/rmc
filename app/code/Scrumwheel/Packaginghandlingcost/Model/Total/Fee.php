@@ -37,6 +37,11 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 				$balance = $fee;
 				$total->addTotalAmount($this->getCode(), + $balance);
 				$total->addBaseTotalAmount($this->getCode(), + $balance);
+
+                $total->setFee($fee);
+                $total->setBaseFee($fee);
+
+
 				$quote->setGrandTotal($balance);
 			}
 			elseif($items == 2){
@@ -44,6 +49,10 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 				$balance = $fee;
 				$total->addTotalAmount($this->getCode(), + $balance);
 				$total->addBaseTotalAmount($this->getCode(), + $balance);
+
+                $total->setFee($fee);
+                $total->setBaseFee($fee);
+
 				$quote->setGrandTotal($balance);
 			}
 			else
@@ -52,6 +61,10 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 				$balance = $fee;
 				$total->addTotalAmount($this->getCode(), + $balance);
 				$total->addBaseTotalAmount($this->getCode(), + $balance);
+
+                $total->setFee($fee);
+                $total->setBaseFee($fee);
+
 				$quote->setGrandTotal($balance);
 			}				
 
