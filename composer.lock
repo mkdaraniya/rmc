@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dcf2775f89522e12625b410e82ea239",
+    "content-hash": "51152903d9d49be76066d1d2a27632ef",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19519,6 +19519,47 @@
                 "source": "https://github.com/Seldaek/phar-utils/tree/1.2.1"
             },
             "time": "2022-08-31T10:31:18+00:00"
+        },
+        {
+            "name": "sendcloud/sendcloud",
+            "version": "2.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SendCloud/sendcloud.git",
+                "reference": "e7ff6c8be589380c3b78dd7df7c9214cf2dc1a64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SendCloud/sendcloud/zipball/e7ff6c8be589380c3b78dd7df7c9214cf2dc1a64",
+                "reference": "e7ff6c8be589380c3b78dd7df7c9214cf2dc1a64",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.0|~7.1|~7.2|~7.3|~7.4|~8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "SendCloud\\SendCloud\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "A Magento 2 module that connects the Magento environment to the SendCloud environment",
+            "homepage": "https://www.sendcloud.com/",
+            "support": {
+                "issues": "https://github.com/SendCloud/sendcloud/issues",
+                "source": "https://github.com/SendCloud/sendcloud/tree/2.0.11"
+            },
+            "time": "2023-01-25T10:05:54+00:00"
         },
         {
             "name": "spomky-labs/aes-key-wrap",
