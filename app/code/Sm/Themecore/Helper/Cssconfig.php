@@ -59,6 +59,8 @@ class Cssconfig extends \Magento\Framework\App\Helper\AbstractHelper
     
     public function getSettingsFile()
     {
-        return $this->getBaseMediaUrl(). $this->generatedCssFolder . 'settings_' . $this->_storeManager->getStore()->getCode() . '.css';
+        return $this->getBaseMediaUrl(). $this->generatedCssFolder . 'settings_default.css';
+
+//        return $this->getBaseMediaUrl(). $this->generatedCssFolder . 'settings_' . $this->_storeManager->getStore()->getCode() . '.css';
     }    
 }
