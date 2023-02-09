@@ -63,6 +63,27 @@ class Totals extends \Magento\Framework\View\Element\Template
         $this->getParentBlock();
         $this->getOrder();
         $this->getSource();
+		
+		
+		$orderId = $this->getRequest()->getParam('order_id');
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$order = $objectManager->create('Magento\Sales\Api\Data\OrderInterface')->load($orderId);
+		$items = $order->gettotal_item_count();
+			if($items == 1)
+				{
+					$cost = 45;
+				}
+			elseif($items == 2)
+				{
+					$cost = 55;
+				}
+			else
+				{
+					$cost = 65;
+				}
+
+
+
 
         if(!$this->getSource()->getFee()) {
             return $this;
@@ -71,7 +92,7 @@ class Totals extends \Magento\Framework\View\Element\Template
         $total = new \Magento\Framework\DataObject(
             [
                 'code' => 'fee',
-                'value' => $this->getOrder()->getFee(),
+                'value' => $cost,
                 'label' => 'Packaging Handling Cost',
             ]
         );
