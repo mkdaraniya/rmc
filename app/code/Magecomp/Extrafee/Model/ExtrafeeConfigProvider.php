@@ -53,8 +53,38 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
         $ExtrafeeConfig['fee_label'] = $this->dataHelper->getFeeLabel();
         $quote = $this->checkoutSession->getQuote();
         $subtotal = $quote->getSubtotal();
-        $ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee();
-        if ($this->taxHelper->isTaxEnabled() && $this->taxHelper->displayInclTax()) {
+        
+		
+		
+		$ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee();
+
+		/*start my code*/
+        $objmanager = \Magento\Framework\App\ObjectManager::getInstance();
+		$items =  $quote->getItemsCount();
+		
+		if($items == 1){
+			if($ExtrafeeConfig){
+			$ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee();
+			
+        }
+		}
+		elseif($items == 2){
+			if($ExtrafeeConfig){
+				
+			$ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee_1();
+			}
+		}
+		else
+		{
+			if($ExtrafeeConfig){
+			$ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee_2();
+			}
+		}
+		
+		/*end my code*/
+		
+		
+		if ($this->taxHelper->isTaxEnabled() && $this->taxHelper->displayInclTax()) {
             $address = $this->_getAddressFromQuote($quote);
             $ExtrafeeConfig['custom_fee_amount'] = $this->dataHelper->getExtrafee() + $address->getFeeTax();
         }
@@ -73,7 +103,8 @@ class ExtrafeeConfigProvider implements ConfigProviderInterface
         $ExtrafeeConfig['TaxEnabled'] = $this->taxHelper->isTaxEnabled();
         $ExtrafeeConfig['show_hide_Extrafee_block'] = ($enabled && ($minimumOrderAmount <= $subtotal) && $quote->getFee()) ? true : false;
         $ExtrafeeConfig['show_hide_Extrafee_shipblock'] = ($enabled && ($minimumOrderAmount <= $subtotal)) ? true : false;
-        return $ExtrafeeConfig;
+        
+		return $ExtrafeeConfig;
     }
 
     protected function _getAddressFromQuote(Quote $quote)

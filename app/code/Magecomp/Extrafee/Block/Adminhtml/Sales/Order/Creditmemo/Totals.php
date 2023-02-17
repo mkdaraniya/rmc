@@ -60,6 +60,28 @@ class Totals extends \Magento\Framework\View\Element\Template
         $this->getCreditmemo();
         $this->getSource();
 
+
+
+		$orderId = $this->getRequest()->getParam('order_id');
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$order = $objectManager->create('Magento\Sales\Api\Data\OrderInterface')->load($orderId);
+		$items = $order->gettotal_item_count();
+		if($items == 1)
+				{
+					$cost = $this->_dataHelper->getExtrafee();
+				}
+			elseif($items == 2)
+				{
+					$cost = $this->_dataHelper->getExtrafee_1();
+				}
+			else
+				{
+					$cost = $this->_dataHelper->getExtrafee_2();
+				}
+				
+				
+
+
         if(!$this->getSource()->getFee()) {
             return $this;
         }
@@ -67,7 +89,7 @@ class Totals extends \Magento\Framework\View\Element\Template
             [
                 'code' => 'fee',
                 'strong' => false,
-                'value' => $this->getSource()->getFee(),
+                'value' => $cost,
                 'label' => $this->_dataHelper->getFeeLabel(),
             ]
         );

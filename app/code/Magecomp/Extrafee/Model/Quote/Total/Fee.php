@@ -111,8 +111,30 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         $subtotal = $quote->getSubtotal();
         $fee = $quote->getFee();
         $address = $this->_getAddressFromQuote($quote);
-
-        $result = [];
+		
+		
+		
+		
+		/*start my code*/
+		$objmanager = \Magento\Framework\App\ObjectManager::getInstance();
+		$items =  $quote->getItemsCount();
+		if($items == 1){
+			$total->setGrandTotal($total->getGrandTotal() + $this->helperData->getExtrafee() - $this->helperData->getExtrafee());	
+		}
+		elseif($items == 2){
+			$total->setGrandTotal($total->getGrandTotal() + $this->helperData->getExtrafee_1() - $this->helperData->getExtrafee());
+		}
+		else{
+			$total->setGrandTotal($total->getGrandTotal() + $this->helperData->getExtrafee_2() - $this->helperData->getExtrafee());
+		}		
+		/*end my code*/
+		
+		
+		
+		
+		
+		
+		$result = [];
         if ($enabled && ($minimumOrderAmount <= $subtotal) && $fee) {
             $result = [
                 'code' => 'fee',
