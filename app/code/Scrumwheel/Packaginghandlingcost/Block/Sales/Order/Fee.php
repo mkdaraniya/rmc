@@ -4,16 +4,21 @@
  * See COPYING.txt for license details.
  */
 
+/**
+ * Tax totals modification block. Can be used just as subblock of \Magento\Sales\Block\Order\Totals
+ */
+namespace Scrumwheel\Packaginghandlingcost\Block\Sales\Order;
 
-namespace Sivajik34\CustomFee\Block\Sales\Totals;
 
 
 class Fee extends \Magento\Framework\View\Element\Template
 {
     /**
-     * @var \Sivajik34\CustomFee\Helper\Data
+     * Tax configuration model
+     *
+     * @var \Magento\Tax\Model\Config
      */
-    protected $_dataHelper;
+    protected $_config;
 
     /**
      * @var Order
@@ -27,15 +32,15 @@ class Fee extends \Magento\Framework\View\Element\Template
 
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Magento\Tax\Model\Config $taxConfig
      * @param array $data
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-         \Sivajik34\CustomFee\Helper\Data $dataHelper,
+        \Magento\Tax\Model\Config $taxConfig,
         array $data = []
-    )
-    {
-        $this->_dataHelper = $dataHelper;
+    ) {
+        $this->_config = $taxConfig;
         parent::__construct($context, $data);
     }
 
@@ -57,14 +62,13 @@ class Fee extends \Magento\Framework\View\Element\Template
     public function getSource()
     {
         return $this->_source;
-    }
-
+    } 
     public function getStore()
     {
         return $this->_order->getStore();
     }
 
-    /**
+      /**
      * @return Order
      */
     public function getOrder()
@@ -87,29 +91,34 @@ class Fee extends \Magento\Framework\View\Element\Template
     {
         return $this->getParentBlock()->getValueProperties();
     }
-
+    
     /**
-     * @return $this
+     * Initialize all order totals relates with tax
+     *
+     * @return \Magento\Tax\Block\Sales\Order\Tax
      */
-    public function initTotals()
+     public function initTotals()
     {
+        
         $parent = $this->getParentBlock();
         $this->_order = $parent->getOrder();
         $this->_source = $parent->getSource();
-       // $store = $this->getStore();
 
+        $store = $this->getStore();
+        
         $fee = new \Magento\Framework\DataObject(
-            [
-                'code' => 'fee',
-                'strong' => false,
-                'value' => $this->_source->getFee(),
-                'label' => $this->_dataHelper->getFeeLabel(),
-            ]
-        );
+                [
+                    'code' => 'fee',
+                    'strong' => false,
+                    'value' => 100,
+                    //'value' => $this->_source->getFee(),
+                    'label' => __('Fee'),
+                ]
+            );
+     
+            $parent->addTotal($fee, 'fee');
 
-        $parent->addTotal($fee, 'fee');
-
-        return $this;
+            return $this;
     }
 
 }
