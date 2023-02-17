@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/pdf_file.xsd">
     <totals>
         <total name="custom_fee">
-            <title translate="true">Extra Fee</title>
+            <title translate="true">Pacakging Handaling Cost</title>
             <source_field>fee</source_field>
             <model>Magecomp\Extrafee\Model\Sales\Pdf\Fee</model>
             <font_size>7</font_size>
