@@ -145,6 +145,20 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
                     ]
                 );
+			
+			$setup->getConnection()
+                ->addColumn(
+                    $setup->getTable($orderTable),
+                    'pacakging_handaling_cost',
+                    [
+                        'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                        'length'=>'10,3',
+                        'default' => 0.00,
+                        'nullable' => true,
+                        'comment' =>'Pacakging Handaling Cost'
+
+                    ]
+                );	
 
             //Invoice tables
             $setup->getConnection()
@@ -174,9 +188,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
                     ]
                 );
-
         }
-
+		
+		
         $setup->endSetup();
     }
 }
