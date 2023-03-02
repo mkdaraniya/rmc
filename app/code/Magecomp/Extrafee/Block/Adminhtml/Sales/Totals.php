@@ -69,17 +69,20 @@ class Totals extends \Magento\Framework\View\Element\Template
 		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 		$order = $objectManager->create('Magento\Sales\Api\Data\OrderInterface')->load($orderId);
 		$items = $order->gettotal_item_count();
+			
+			//print_r($order->getData());
+			
 			if($items == 1)
 				{
-					$cost = $this->_dataHelper->getExtrafee();
+					$cost = $order->getpacakging_handaling_cost();
 				}
 			elseif($items == 2)
 				{
-					$cost = $this->_dataHelper->getExtrafee_1();
+					$cost = $order->getpacakging_handaling_cost();
 				}
 			else
 				{
-					$cost = $this->_dataHelper->getExtrafee_2();
+					$cost = $order->getpacakging_handaling_cost();
 				}
 		/*end my code*/		
 				

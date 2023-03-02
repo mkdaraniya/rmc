@@ -48,12 +48,18 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         if (!count($shippingAssignment->getItems())) {
             return $this;
         }
-
+		
+		
         $enabled = $this->helperData->isModuleEnabled();
         $minimumOrderAmount = $this->helperData->getMinimumOrderAmount();
         $subtotal = $total->getTotalAmount('subtotal');
         if ($enabled && $minimumOrderAmount <= $subtotal) {
-            $fee = $this->helperData->getExtrafee();
+     
+/*start my code add grand total*/	 
+		$objmanager = \Magento\Framework\App\ObjectManager::getInstance();
+		$items =  $quote->getItemsCount();
+		if($items == 1){
+			$fee = $this->helperData->getExtrafee();
             //Try to test with sample value
             //$fee=50;
             $total->setTotalAmount('fee', $fee);
@@ -61,6 +67,28 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
             $total->setFee($fee);
             $quote->setFee($fee);
 
+		}
+		elseif($items == 2){
+			$fee = $this->helperData->getExtrafee_1();
+            //Try to test with sample value
+            //$fee=50;
+            $total->setTotalAmount('fee', $fee);
+            $total->setBaseTotalAmount('fee', $fee);
+            $total->setFee($fee);
+            $quote->setFee($fee);
+
+		}
+		else{
+			$fee = $this->helperData->getExtrafee_2();
+            //Try to test with sample value
+            //$fee=50;
+            $total->setTotalAmount('fee', $fee);
+            $total->setBaseTotalAmount('fee', $fee);
+            $total->setFee($fee);
+            $quote->setFee($fee);
+
+		}
+/*end my code add grand total*/
 
 			$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 			$productMetadata = $objectManager->get('Magento\Framework\App\ProductMetadataInterface');
@@ -116,7 +144,7 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 		
 		
 		/*start my code*/
-		$objmanager = \Magento\Framework\App\ObjectManager::getInstance();
+		/*$objmanager = \Magento\Framework\App\ObjectManager::getInstance();
 		$items =  $quote->getItemsCount();
 		if($items == 1){
 			$total->setGrandTotal($total->getGrandTotal() + $this->helperData->getExtrafee() - $this->helperData->getExtrafee());	
@@ -126,7 +154,7 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 		}
 		else{
 			$total->setGrandTotal($total->getGrandTotal() + $this->helperData->getExtrafee_2() - $this->helperData->getExtrafee());
-		}		
+		}*/		
 		/*end my code*/
 		
 		

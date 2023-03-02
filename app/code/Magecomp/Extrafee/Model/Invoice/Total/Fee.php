@@ -12,38 +12,16 @@ class Fee extends AbstractTotal
      */
     public function collect(\Magento\Sales\Model\Order\Invoice $invoice)
     {
-		$objmanager = \Magento\Framework\App\ObjectManager::getInstance();
-		$items = $invoice->gettotal_item_count();
-		if($items == 1)
-		{
-		$invoice->setFee(0);
-        $amount = $invoice->getOrder()->getFee();
-        $invoice->setFee($amount);
-       
+		
+			$invoice->setFee(0);
+			
+			$amount = $invoice->getOrder()->getFee();
+			$invoice->setFee($amount);
+		   
 
-        $invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getFee());
-        $invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getFee());
-		}
-		elseif($items == 2)
-		{
-		$invoice->setFee(0);
-        $amount = $invoice->getOrder()->getFee();
-        $invoice->setFee($amount);
-       
-
-        $invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getExtrafee_1());
-        $invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getFee());
-		}
-		else
-		{
-		$invoice->setFee(0);
-        $amount = $invoice->getOrder()->getFee();
-        $invoice->setFee($amount);
-       
-
-        $invoice->setGrandTotal($invoice->getGrandTotal() + 65);
-        $invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getFee());
-		}
+			$invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getOrder()->getpacakging_handaling_cost());
+			$invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getFee());
+		
         return $this;
     }
 }
