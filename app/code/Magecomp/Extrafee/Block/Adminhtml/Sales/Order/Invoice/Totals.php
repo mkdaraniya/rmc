@@ -67,15 +67,15 @@ class Totals extends \Magento\Framework\View\Element\Template
 		$items = $order->gettotal_item_count();
 		if($items == 1)
 				{
-					$cost = $order->getpacakging_handaling_cost();
+					$cost = $order->getFee();
 				}
 			elseif($items == 2)
 				{
-					$cost = $order->getpacakging_handaling_cost();
+					$cost = $order->getFee();
 				}
 			else
 				{
-					$cost = $order->getpacakging_handaling_cost();
+					$cost = $order->getFee();
 				}
 				
         if(!$this->getSource()->getFee()) {
