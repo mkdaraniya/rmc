@@ -19,7 +19,7 @@ class Fee extends AbstractTotal
 			$invoice->setFee($amount);
 		   
 
-			$invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getOrder()->getpacakging_handaling_cost());
+			$invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getOrder()->getFee());
 			$invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getFee());
 		
         return $this;
