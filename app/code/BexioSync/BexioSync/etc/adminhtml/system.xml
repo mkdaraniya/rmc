@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+	<system>
+		<tab id="bexio" translate="label" sortOrder="10">
+			<label>Bexio Sync</label>
+		</tab>
+		<section id="config" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Configuration</label>
+			<tab>bexio</tab>
+			<resource>BexioSync_BexioSync::bexio_config</resource>
+			<group id="settings" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1">
+				<label>General Configuration</label>
+				<field id="enable" translate="enable module" sortOrder="1" type="select" showInDefault="1">
+					<label>Enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+		<section id="product" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Sync Product</label>
+			<tab>bexio</tab>
+			<resource>BexioSync_BexioSync::bexio_product</resource>
+			<group id="settings" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1">
+				<label>Product Configuration</label>
+				<field id="sync_product" translate="label" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Sync Product</label>
+					<frontend_model>BexioSync\BexioSync\Block\System\Config\SyncProduct</frontend_model>
+				</field>
+			</group>
+		</section>
+		<section id="order" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Sync Order</label>
+			<tab>bexio</tab>
+			<resource>BexioSync_BexioSync::bexio_order</resource>
+			<group id="settings" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1">
+				<label>Order Configuration</label>
+				<field id="sync_order" translate="label" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Sync Order</label>
+					<frontend_model>BexioSync\BexioSync\Block\System\Config\SyncOrder</frontend_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="BexioSync_BexioSync::base" title="Bexio Sync" module="BexioSync_BexioSync" sortOrder="20" resource="BexioSync_BexioSync::bexio_config" />
+		<add id="BexioSync_BexioSync::bexio_config" title="Configuration" module="BexioSync_BexioSync" sortOrder="3" parent="BexioSync_BexioSync::base" action="adminhtml/system_config/edit/section/config" resource="BexioSync_BexioSync::bexio_config" />
+		<add id="BexioSync_BexioSync::bexio_product" title="Sync Product" module="BexioSync_BexioSync" sortOrder="4" parent="BexioSync_BexioSync::base" action="adminhtml/system_config/edit/section/product" resource="BexioSync_BexioSync::bexio_product" />
+		<add id="BexioSync_BexioSync::bexio_order" title="Sync Order" module="BexioSync_BexioSync" sortOrder="5" parent="BexioSync_BexioSync::base" action="adminhtml/system_config/edit/section/order" resource="BexioSync_BexioSync::bexio_order" />
+	</menu>
+</config>
