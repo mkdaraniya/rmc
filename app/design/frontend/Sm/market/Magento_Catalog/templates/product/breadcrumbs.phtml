@@ -28,11 +28,11 @@ if ($breadcrumbsBlock = $objectManager->create('Sm\Market\Block\Html\Breadcrumbs
                         <?php if ($crumbInfo['link']) : ?>
                             <a href="<?= /* @escapeNotVerified */
                             $crumbInfo['link'] ?>"
-                               title="<?= $block->escapeHtml($crumbInfo['title']) ?>"><?= $block->escapeHtml($crumbInfo['label']) ?></a>
+                               title="<?= $block->escapeHtml($crumbInfo['title']) ?>"><?= $crumbInfo['label'] ?></a>
                         <?php elseif ($crumbInfo['last']) : ?>
-                            <strong><?= $block->escapeHtml($crumbInfo['label']) ?></strong>
+                            <strong><?= $crumbInfo['label'] ?></strong>
                         <?php else: ?>
-                            <strong><?= $block->escapeHtml($crumbInfo['label']) ?></strong>
+                            <strong><?= $crumbInfo['label'] ?></strong>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>

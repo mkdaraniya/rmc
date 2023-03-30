@@ -17,11 +17,11 @@
                         <?php if ($crumbInfo['link']) : ?>
                             <a href="<?= /* @escapeNotVerified */
                             $crumbInfo['link'] ?>"
-                               title="<?= $block->escapeHtml($crumbInfo['title']) ?>"><?= $block->escapeHtml($crumbInfo['label']) ?></a>
+                               title="<?= $block->escapeHtml($crumbInfo['title']) ?>"><?= $crumbInfo['label'] ?></a>
                         <?php elseif ($crumbInfo['last']) : ?>
-                            <strong><?= $block->escapeHtml($crumbInfo['label']) ?></strong>
+                            <strong><?= $crumbInfo['label'] ?></strong>
                         <?php else: ?>
-                            <?= $block->escapeHtml($crumbInfo['label']) ?>
+                            <?= $crumbInfo['label'] ?>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
