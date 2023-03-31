@@ -8,7 +8,7 @@ class ProductCron
     public function execute()
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // instance of object manager
-        $apiUri = 'https://e1a5d7bf-2a7e-49ea-ad93-2a8223a900ca.mock.pstmn.io/';
+        $apiUri = 'https://bexio.free.beeceptor.com/2.0/article';
 
         $scopeConfig = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
         $eavConfig = $objectManager->get('\Magento\Eav\Model\Config');
@@ -47,6 +47,23 @@ class ProductCron
                 }
             }
             /** End of attribute creating */
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $apiUri,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+            $apiResult = json_decode($response);
+
 
             $proResponse = [
                 [
@@ -126,33 +143,35 @@ class ProductCron
                 ],
             ];
 
-            foreach ($proResponse as $key => $pro) {
+            foreach ($apiResult as $key => $pro) {
 
-                $sku = $pro['title'];
+                $sku = $pro->intern_code;
 
                 $product = $objectManager->get('Magento\Catalog\Model\Product');
 
                 if(!$product->getIdBySku($sku)) {
 
                     $product = $objectManager->create('\Magento\Catalog\Model\Product');
-                    $product->setSku($pro['title']); // Set your sku here
-                    $product->setName($pro['title']); // Name of Product
+                    $product->setSku($pro->intern_code); // Set your sku here
+                    $product->setName($pro->intern_name); // Name of Product
                     $product->setAttributeSetId(4); // Attribute set id
                     $product->setStatus(1); // Status on product enabled/ disabled 1/0
-                    $product->setWeight(10); // weight of product
+                    if($pro->weight != NULL || $pro->weight != ''){
+                        $product->setWeight($pro->weight); // weight of product
+                    }
                     $product->setVisibility(4); // visibilty of product (catalog / search / catalog, search / Not visible individually)
                     $product->setTaxClassId(0); // Tax class id
                     $product->setTypeId('simple'); // type of product (simple/virtual/downloadable/configurable)
-                    $product->setPrice($pro['price']); // price of product
+                    $product->setPrice($pro->sale_price); // price of product
                     $product->setStockData(
                         array(
                             'use_config_manage_stock' => 0,
                             'manage_stock' => 1,
-                            'is_in_stock' => 1,
-                            'qty' => rand(10, 200)
+                            'is_in_stock' => $pro->is_stock,
+                            'qty' => $pro->stock_available_nr
                         )
                     );
-                    $product->setData('external_product_id', $pro['id']);
+                    $product->setData('external_product_id', $pro->id);
                     $product->setData('external_product_source', 'Bexio API');
                     $product->save();
 
