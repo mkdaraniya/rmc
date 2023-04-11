@@ -84,7 +84,7 @@ $_helper            = $block->getData('outputHelper');
                                    href="<?= /* @escapeNotVerified */
                                    $_product->getProductUrl() ?>">
                                     <?= /* @escapeNotVerified */
-                                    $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                                    $_product->getName(); ?>
                                 </a>
                             </strong>
                             <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
