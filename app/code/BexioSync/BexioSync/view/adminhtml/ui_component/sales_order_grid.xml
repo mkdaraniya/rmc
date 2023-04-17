@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
-    <settings>
-        <buttons>
-            <button name="sync_order" class="BexioSync\BexioSync\Block\Adminhtml\Sales\SyncOrderButton"/>
-        </buttons>
-    </settings>
-     <!-- <columns name="sales_order_columns">
-        <column name="external_order_id">
+	<columns name="sales_order_columns">
+		<column name="external_order_id">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">External Order Id</item>
+				</item>
+			</argument>
+		</column>
+		<actionsColumn name="sync_order" class="BexioSync\BexioSync\Ui\Component\Listing\Column\Syncorder">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">External Order Id</item>
+					<item name="label" xsi:type="string" translate="true">Sync Order</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                    <item name="viewUrlPath" xsi:type="string">sales/order/view</item>
+                    <item name="urlEntityParamName" xsi:type="string">order_id</item>
                 </item>
             </argument>
-        </column>
-    </columns> -->
+        </actionsColumn>
+	</columns>
 </listing>
