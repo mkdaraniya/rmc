@@ -3,7 +3,6 @@
 namespace BexioSync\BexioSync\Block\Adminhtml\Sales;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
-use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\AuthorizationInterface;
 
 class SyncOrderButton implements ButtonProviderInterface
@@ -14,22 +13,15 @@ class SyncOrderButton implements ButtonProviderInterface
     private $authorization;
 
     /**
-     * @var Context
-     */
-    private $context;
-
-    /**
      * CustomButton constructor.
      *
      * @param AuthorizationInterface $authorization
      * @param Context $context
      */
     public function __construct(
-        AuthorizationInterface $authorization,
-        Context $context
+        AuthorizationInterface $authorization
     ) {
         $this->authorization = $authorization;
-        $this->context = $context;
     }
 
     /**
