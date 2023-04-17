@@ -21,6 +21,10 @@ $state->setAreaCode('frontend');
 
 $storeRepositroy = $objectManager->get('\Magento\Store\Api\StoreRepositoryInterface');
 $stores = $storeRepositroy->getList();
+$orderCollectionFactory = $objectManager->get('\Magento\Sales\Model\ResourceModel\Order\CollectionFactory');
+$customerRepository = $objectManager->create('Magento\Customer\Api\CustomerRepositoryInterface');
+
+
 
 $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/scrumwheel_bexiosync.log');
 $logger = new \Zend_Log();
@@ -28,266 +32,264 @@ $logger->addWriter($writer);
 $logger->info(__METHOD__);
 
 
-$curl = curl_init();
+$orderList = $orderCollectionFactory->create()
+    ->addAttributeToSelect('*');
 
-curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://bexio.free.beeceptor.com/2.0/kb_order',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS => '{
-  "title": null,
-  "contact_id": 14,
-  "contact_sub_id": null,
-  "user_id": 1,
-  "pr_project_id": null,
-  "logopaper_id": 1,
-  "language_id": 1,
-  "bank_account_id": 1,
-  "currency_id": 1,
-  "payment_type_id": 1,
-  "header": "Thank you very much for your inquiry. We would be pleased to make you the following offer:",
-  "footer": "We hope that our offer meets your expectations and will be happy to answer your questions.",
-  "mwst_type": 0,
-  "mwst_is_net": true,
-  "show_position_taxes": false,
-  "is_valid_from": "2019-06-24",
-  "delivery_address_type": 0,
-  "api_reference": null,
-  "template_slug": "581a8010821e01426b8b456b",
-  "positions": [
-    {
-      "amount": "5.000000",
-      "unit_id": 1,
-      "account_id": 1,
-      "tax_id": 4,
-      "text": "Apples",
-      "unit_price": "3.560000",
-      "discount_in_percent": "0.000000",
-      "type": "KbPositionCustom",
-      "parent_id": null
+foreach ($orderList as $order) {
+
+
+    echo $order->getEntityId() . ' - ';
+    //echo $order->getEntityId();
+    if ($order->getIncrementId() != '000000027') {
+        continue;
     }
-  ]
-}',
-    CURLOPT_HTTPHEADER => array(
-        'Content-Type: application/json'
-    ),
-));
+    echo " incri : " . $order->getIncrementId();
+    echo "enter <pre>";
+    //die;
+    //print_r($order->getData());
+    echo $order->getData('external_order_id');
+    $orderData = $order->getData();
+    //  if (!isset($orderData['external_order_id']) || $orderData['external_order_id'] == '') {
 
-$response = curl_exec($curl);
-
-curl_close($curl);
-echo $response;
-
-
-
-
-
-/**
- * get single product using api
- */
-// $curl = curl_init();
-
-// curl_setopt_array($curl, array(
-//     CURLOPT_URL => 'https://bexio.free.beeceptor.com/2.0/article',
-//     CURLOPT_RETURNTRANSFER => true,
-//     CURLOPT_ENCODING => '',
-//     CURLOPT_MAXREDIRS => 10,
-//     CURLOPT_TIMEOUT => 0,
-//     CURLOPT_FOLLOWLOCATION => true,
-//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//     CURLOPT_CUSTOMREQUEST => 'GET',
-// ));
-
-// $response = curl_exec($curl);
-
-// curl_close($curl);
-// echo $response;
-
-die;
-
-$proResponse = [
-    [
-        "id" => 1,
-        "title" => "iPhone 9",
-        "description" => "An apple mobile which is nothing like apple",
-        "price" => 549,
-        "discountPercentage" => 12.96,
-        "rating" => 4.69,
-        "stock" => 11,
-        "brand" => "Apple",
-        "category" => "smartphones",
-        "thumbnail" =>
-        "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-        "images" => [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-        ],
-    ],
-    [
-        "id" => 2,
-        "title" => "iPhone X",
-        "description" =>
-        "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-        "price" => 12,
-        "discountPercentage" => 17.94,
-        "rating" => 4.44,
-        "stock" => 34,
-        "brand" => "Apple",
-        "category" => "smartphones",
-        "thumbnail" =>
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-        "images" => [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-        ],
-    ],
-    [
-        "id" => 3,
-        "title" => "Samsung Universe 9",
-        "description" =>
-        "Samsung\'s new variant which goes beyond Galaxy to the Universe",
-        "price" => 13,
-        "discountPercentage" => 15.46,
-        "rating" => 4.09,
-        "stock" => 36,
-        "brand" => "Samsung",
-        "category" => "smartphones",
-        "thumbnail" =>
-        "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-        "images" => ["https://i.dummyjson.com/data/products/3/1.jpg"],
-    ],
-    [
-        "id" => 4,
-        "title" => "OPPOF19",
-        "description" => "OPPO F19 is officially announced on April 2021.",
-        "price" => 14,
-        "discountPercentage" => 17.91,
-        "rating" => 4.3,
-        "stock" => 123,
-        "brand" => "OPPO",
-        "category" => "smartphones",
-        "thumbnail" =>
-        "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
-        "images" => [
-            "https://i.dummyjson.com/data/products/4/1.jpg",
-            "https://i.dummyjson.com/data/products/4/2.jpg",
-            "https://i.dummyjson.com/data/products/4/3.jpg",
-            "https://i.dummyjson.com/data/products/4/4.jpg",
-            "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
-        ],
-    ]
-];
-
-
-function _getResourceConnection()
-{
-    global $objectManager;
-    return $objectManager->get('Magento\Framework\App\ResourceConnection');
-}
-
-function _getReadConnection()
-{
-    return _getConnection('core_read');
-}
-
-function _getWriteConnection()
-{
-    return _getConnection('core_write');
-}
-
-function _getConnection($type = 'core_read')
-{
-    return _getResourceConnection()->getConnection($type);
-}
-
-function _getTableName($tableName)
-{
-    return _getResourceConnection()->getTableName($tableName);
-}
-
-function _getAttributeId($attributeCode)
-{
-    $connection = _getReadConnection();
-    $sql = "SELECT attribute_id FROM " . _getTableName('eav_attribute') . " WHERE entity_type_id = ? AND attribute_code = ?";
-    return $connection->fetchOne(
-        $sql,
-        [
-            _getEntityTypeId('catalog_product'),
-            $attributeCode
-        ]
+    // create customer on bexio
+    $curl2 = curl_init();
+    echo " name : " . $order->getCustomerFirstname();
+    $customerData = array(
+        'salutation_type' => "male", //$order->getCustomerGender(),
+        'firstname' => $order->getCustomerFirstname(),
+        'lastname' => $order->getCustomerLastname(),
+        'email' => rand(1, 100) . $order->getCustomerEmail(),
+        'title_id' => "",
     );
-}
 
-function _getEntityTypeId($entityTypeCode)
-{
-    $connection = _getConnection('core_read');
-    $sql        = "SELECT entity_type_id FROM " . _getTableName('eav_entity_type') . " WHERE entity_type_code = ?";
-    return $connection->fetchOne(
-        $sql,
-        [
-            $entityTypeCode
-        ]
-    );
-}
+    curl_setopt_array($curl2, array(
+        CURLOPT_URL => 'https://api.bexio.com/3.0/fictional_users',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => json_encode($customerData),
+        CURLOPT_HTTPHEADER => array(
+            'Accept: application/json',
+            'Authorization: Bearer eyJraWQiOiI2ZGM2YmJlOC1iMjZjLTExZTgtOGUwZC0wMjQyYWMxMTAwMDIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYXJqYW5AYnVjaGVtLmNvbSIsImxvZ2luX2lkIjoiNmIyY2ZlM2UtNTVhYS00OTM0LThjY2ItNzgxMGU4ZjY3MTc4IiwiY29tcGFueV9pZCI6ImtmeWVqYnJxM3BsdiIsInVzZXJfaWQiOjMzNTkzNiwiYXpwIjoiZXZlcmxhc3QtdG9rZW4tb2ZmaWNlLWNsaWVudCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgYWxsIHRlY2huaWNhbCIsImlzcyI6Imh0dHBzOlwvXC9pZHAuYmV4aW8uY29tIiwiZXhwIjozMjU3MzI1NDgwLCJpYXQiOjE2ODA1MjU0ODAsImNvbXBhbnlfdXNlcl9pZCI6MSwianRpIjoiZTE3ZWQ4YTMtZmRkYy00M2VkLTllMjItNjdiMDhjMWJjNjNjIn0.L4rNyP-ypCp890rWWc2cSCxcelf1FuY_rpvNI6YgiC0n69fgt_ilpEZmnZXuBSoVxzusWA9FuCk9MOWqjatFurU9BQy5kwt-sADDAgVWfoGFHiyZR1SFbq5P26zgofpwAA1zoVk7YudEEkl5SONTYpXXgQApmiSh5B7matjPGfBlk8qLhHxLFQYM3YPJaS-7Yp8kIvuOn6sSFs3WvuL-Wqfb96qQKxkB0oUEXrVy1aPxV7Xt4TC5edPGbD0CLX7SbGUZiNFWm59IQS9zeRIJPr5HufokhaeRXfull4xUy4uO-VxT535kAUxH_gBpjW8jhgC4TldkKMcIFsqoWKuI3sxL_8iLXCCF1dDytUUwrUoVvQs1NFV0WRpuE0R_IUQL6vlsFRbLvy-NLe0rV0r8Nei06cq-zcwNaGmnfUvUjSMTSwVpKtftxYXwhY8WipB4Jo4D_LSfUDx0kpOEAxFwwOB4J3EsO9TheQ9i8b3q2jhykrDUfKsiechH7uNiyvN-c2PL8NQd-rpDDZoJP9A3_ywZ2sOThDIEese6lrJtNibBY4i2ZIb7_FX5lg1du9KP3vgPLRgyYkoLe-zF5TLkZao75Y8KBU1YgteLRbE-VC4kUnTBrfmDukxqx8kvPP0ljp2on7HdpA7F1wj1sj_hvKlCcqxxZjwiBqsjjy41FUA',
+            'Content-Type: application/json'
+        ),
+    ));
 
-function _getIdFromSku($sku)
-{
-    $connection = _getConnection('core_read');
-    $sql        = "SELECT entity_id FROM " . _getTableName('catalog_product_entity') . " WHERE sku = ?";
-    return $connection->fetchOne(
-        $sql,
-        [
-            $sku
-        ]
-    );
-}
+    $response2 = curl_exec($curl2);
+    $customerRes = json_decode($response2);
 
-function checkIfSkuExists($sku)
-{
-    $connection = _getConnection('core_read');
-    $sql        = "SELECT COUNT(*) AS count_no FROM " . _getTableName('catalog_product_entity') . " WHERE sku = ?";
-    return $connection->fetchOne($sql, [$sku]);
-}
+    echo " customer response :: ";
 
-// create price array for sql query
-$connection     = _getWriteConnection();
-$attributeId    = _getAttributeId('price');
-$priceArr = [];
-foreach ($stores as $store) {
-    $storeId = $store->getId();
+    print_r($customerRes);
+    $userId = '';
+    $customerId = $order->getCustomerId();
+    $customer = $objectManager->create('Magento\Customer\Model\Customer')->load($customerId);
 
-    foreach ($proResponse as $key => $pro) {
-        $entityId = _getIdFromSku($pro['title']);
-        $currentPrice = $pro['price'];
+    echo  " data : ";
+    //print_r($customerRes->id);
+    //print_r($customer->getData());
+    //die;
+    if (isset($customerRes->id) && !empty($customerRes->id)) {
+        echo " enter ";
+        if ($customer->getData('external_customer_id') != '') {
+            echo " not empty ";
+            $userId = $customer->getData('external_customer_id');
+        } else {
+            echo  " -empty- ";
+            // load customer by id
+            $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+            $connection = $resource->getConnection();
+            $tableName = $resource->getTableName('customer_entity'); //gives table name with 
+            //Update Data into table
+            $sql = "Update " . $tableName . " Set external_customer_id = " . $customerRes->id . " where email = '" . $customer->getEmail() . "'";
+            $connection->query($sql);
 
-        $priceArr[] = '(' . $attributeId . ',' . $storeId . ',' . $entityId . ',' . $currentPrice . ')';
-        $implodePrice = '(' . $attributeId . ',' . $storeId . ',' . $entityId . ',' . $currentPrice . ')';
-        $output = $connection->query("INSERT INTO catalog_product_entity_decimal (attribute_id, store_id, entity_id, value) VALUES " . $implodePrice . " ON DUPLICATE KEY UPDATE value=VALUES(value)");
+            $userId = $customerRes->id;
+            echo " custom ID : ";
+            echo " email : " . $customer->getEmail();
+            echo "<pre>";
+
+            $userId = $customerRes->id;
+        }
+    } else {
+        $userId = $customer->getData('external_customer_id');
+        echo "fail";
     }
-}
+    echo " user id :: " . $userId;
+    echo "<pre>";
 
-// INSERT INTO catalog_product_entity_decimal (attribute_id, store_id, entity_id, value) 
-//     VALUES (77,1,4942,1000),(77,1,4943,2000),(77,1,4944,3000),(77,1,4945,4000)
-//     ON DUPLICATE KEY UPDATE value=VALUES(value);
+    // sync contact / address detail 
+    $billingAddr = $order->getBillingAddress();
+    $curl3 = curl_init();
 
-try {
-    $implodePrice = implode(",", $priceArr);
+    echo " billing name :: " . $billingAddr->getData('firstname');
 
-    echo $implodePrice;
+    $addressData = [
+        "contact_type_id" => 1,
+        "name_1" => $billingAddr->getData('firstname'),
+        "name_2" => $billingAddr->getData('lastname'),
+        "salutation_id" =>  2,
+        "salutation_form" => null,
+        "titel_id" => null,
+        "birthday" => null,
+        "address" => $billingAddr->getData('street'),
+        "postcode" => $billingAddr->getData('postcode'),
+        "city" => $billingAddr->getData('city'),
+        "country_id" => 1,
+        "mail" => $order->getCustomerEmail(),
+        "mail_second" => "",
+        "phone_fixed" => "",
+        "phone_fixed_second" => "",
+        "phone_mobile" => $billingAddr->getData('telephone'),
+        "fax" => "",
+        "url" => "",
+        "skype_name" => "",
+        "remarks" => "",
+        "language_id" => "1",
+        "contact_group_ids" => "1,2",
+        "contact_branch_ids" => null,
+        "user_id" => $userId,
+        "owner_id" => 1
+    ];
 
-    $connection     = _getWriteConnection();
-    $output = $connection->query("INSERT INTO catalog_product_entity_decimal (attribute_id, store_id, entity_id, value) VALUES " . $implodePrice . " ON DUPLICATE KEY UPDATE value=VALUES(value)");
-    print_r($output);
-} catch (\Exception $e) {
-    echo $e->getMessage();
+
+
+    curl_setopt_array($curl3, array(
+        CURLOPT_URL => 'https://api.bexio.com/2.0/contact',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => json_encode($addressData),
+        CURLOPT_HTTPHEADER => array(
+            'Accept: application/json',
+            'Authorization: Bearer eyJraWQiOiI2ZGM2YmJlOC1iMjZjLTExZTgtOGUwZC0wMjQyYWMxMTAwMDIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYXJqYW5AYnVjaGVtLmNvbSIsImxvZ2luX2lkIjoiNmIyY2ZlM2UtNTVhYS00OTM0LThjY2ItNzgxMGU4ZjY3MTc4IiwiY29tcGFueV9pZCI6ImtmeWVqYnJxM3BsdiIsInVzZXJfaWQiOjMzNTkzNiwiYXpwIjoiZXZlcmxhc3QtdG9rZW4tb2ZmaWNlLWNsaWVudCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgYWxsIHRlY2huaWNhbCIsImlzcyI6Imh0dHBzOlwvXC9pZHAuYmV4aW8uY29tIiwiZXhwIjozMjU3MzI1NDgwLCJpYXQiOjE2ODA1MjU0ODAsImNvbXBhbnlfdXNlcl9pZCI6MSwianRpIjoiZTE3ZWQ4YTMtZmRkYy00M2VkLTllMjItNjdiMDhjMWJjNjNjIn0.L4rNyP-ypCp890rWWc2cSCxcelf1FuY_rpvNI6YgiC0n69fgt_ilpEZmnZXuBSoVxzusWA9FuCk9MOWqjatFurU9BQy5kwt-sADDAgVWfoGFHiyZR1SFbq5P26zgofpwAA1zoVk7YudEEkl5SONTYpXXgQApmiSh5B7matjPGfBlk8qLhHxLFQYM3YPJaS-7Yp8kIvuOn6sSFs3WvuL-Wqfb96qQKxkB0oUEXrVy1aPxV7Xt4TC5edPGbD0CLX7SbGUZiNFWm59IQS9zeRIJPr5HufokhaeRXfull4xUy4uO-VxT535kAUxH_gBpjW8jhgC4TldkKMcIFsqoWKuI3sxL_8iLXCCF1dDytUUwrUoVvQs1NFV0WRpuE0R_IUQL6vlsFRbLvy-NLe0rV0r8Nei06cq-zcwNaGmnfUvUjSMTSwVpKtftxYXwhY8WipB4Jo4D_LSfUDx0kpOEAxFwwOB4J3EsO9TheQ9i8b3q2jhykrDUfKsiechH7uNiyvN-c2PL8NQd-rpDDZoJP9A3_ywZ2sOThDIEese6lrJtNibBY4i2ZIb7_FX5lg1du9KP3vgPLRgyYkoLe-zF5TLkZao75Y8KBU1YgteLRbE-VC4kUnTBrfmDukxqx8kvPP0ljp2on7HdpA7F1wj1sj_hvKlCcqxxZjwiBqsjjy41FUA',
+            'Content-Type: application/json'
+        ),
+    ));
+
+    $response3 = curl_exec($curl3);
+
+    curl_close($curl3);
+
+    $contactRes = json_decode($response3);
+
+    echo  " contact response :: ";
+    print_r($contactRes);
+
+    $contactId = $contactRes->id;
+
+    echo " contact id : " . $contactId;
+
+    // create order 
+
+    $itemArr = [];
+    foreach ($order->getAllVisibleItems() as $_item) {
+        echo  " product id : " . $_item->getProductId();
+        $product = $objectManager->create('Magento\Catalog\Model\Product')->load($_item->getProductId());
+        $externalProductId = $product->getData('external_product_id');
+
+        echo " external product id : " . $externalProductId;
+        if ($externalProductId != '') {
+            $itemArr[] = [
+                "type" => "KbPositionArticle",
+                "amount" => $_item->getData('qty_ordered'),
+                "unit_id" => 1,
+                "account_id" => 101,
+                "tax_id" => 16,
+                "text" => $product->getShortDescription(),
+                "unit_price" => $_item->getPrice(),
+                "discount_in_percent" => "0.000000",
+                "is_optional" => false,
+                "article_id" => $externalProductId
+            ];
+        } else {
+            $itemArr[] = [
+                "type" => "KbPositionCustom",
+                "amount" => $_item->getData('qty_ordered'),
+                "unit_id" => 1,
+                // "account_id" => 1,
+                "tax_id" => 16,
+                "text" => $product->getShortDescription(),
+                "unit_price" => $_item->getPrice(),
+                "discount_in_percent" => "0.000000",
+            ];
+        }
+    }
+
+
+    $currency = 2;
+    if ($order->getOrderCurrencyCode() == 'USD') {
+        $currency = 3;
+    }
+
+
+    $orderArr = [
+        "title" => "Mr.",
+        "contact_id" => $contactId,
+        "contact_sub_id" => null,
+        "user_id" => $userId,
+        "pr_project_id" => "",
+        "logopaper_id" => 1,
+        "language_id" => 4,
+        "bank_account_id" => 1,
+        "currency_id" => $currency,
+        "payment_type_id" => 1,
+        "header" => "Thank you very much for your inquiry. We would be pleased to make you the following offer:",
+        "footer" => "We hope that our offer meets your expectations and will be happy to answer your questions.",
+        "mwst_type" => 0,
+        "mwst_is_net" => true,
+        "show_position_taxes" => false,
+        "is_valid_from" => date('Y-m-d'), //"Send today\'s date",
+        "delivery_address_type" => 0,
+        "api_reference" => $order->getIncrementId(),
+        //   "template_slug" => "581a8010821e01426b8b456b",
+        "positions" => $itemArr
+    ];
+
+
+    echo "</br></br>";
+    //print_r($orderArr);
+
+    echo "</br>";
+    echo "</br></br>";
+
+    $curl5 = curl_init();
+    curl_setopt_array($curl5, array(
+        CURLOPT_URL => 'https://api.bexio.com/2.0/kb_order',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => json_encode($orderArr),
+        CURLOPT_HTTPHEADER => array(
+            'Accept: application/json',
+            'Authorization: Bearer eyJraWQiOiI2ZGM2YmJlOC1iMjZjLTExZTgtOGUwZC0wMjQyYWMxMTAwMDIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYXJqYW5AYnVjaGVtLmNvbSIsImxvZ2luX2lkIjoiNmIyY2ZlM2UtNTVhYS00OTM0LThjY2ItNzgxMGU4ZjY3MTc4IiwiY29tcGFueV9pZCI6ImtmeWVqYnJxM3BsdiIsInVzZXJfaWQiOjMzNTkzNiwiYXpwIjoiZXZlcmxhc3QtdG9rZW4tb2ZmaWNlLWNsaWVudCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgYWxsIHRlY2huaWNhbCIsImlzcyI6Imh0dHBzOlwvXC9pZHAuYmV4aW8uY29tIiwiZXhwIjozMjU3MzI1NDgwLCJpYXQiOjE2ODA1MjU0ODAsImNvbXBhbnlfdXNlcl9pZCI6MSwianRpIjoiZTE3ZWQ4YTMtZmRkYy00M2VkLTllMjItNjdiMDhjMWJjNjNjIn0.L4rNyP-ypCp890rWWc2cSCxcelf1FuY_rpvNI6YgiC0n69fgt_ilpEZmnZXuBSoVxzusWA9FuCk9MOWqjatFurU9BQy5kwt-sADDAgVWfoGFHiyZR1SFbq5P26zgofpwAA1zoVk7YudEEkl5SONTYpXXgQApmiSh5B7matjPGfBlk8qLhHxLFQYM3YPJaS-7Yp8kIvuOn6sSFs3WvuL-Wqfb96qQKxkB0oUEXrVy1aPxV7Xt4TC5edPGbD0CLX7SbGUZiNFWm59IQS9zeRIJPr5HufokhaeRXfull4xUy4uO-VxT535kAUxH_gBpjW8jhgC4TldkKMcIFsqoWKuI3sxL_8iLXCCF1dDytUUwrUoVvQs1NFV0WRpuE0R_IUQL6vlsFRbLvy-NLe0rV0r8Nei06cq-zcwNaGmnfUvUjSMTSwVpKtftxYXwhY8WipB4Jo4D_LSfUDx0kpOEAxFwwOB4J3EsO9TheQ9i8b3q2jhykrDUfKsiechH7uNiyvN-c2PL8NQd-rpDDZoJP9A3_ywZ2sOThDIEese6lrJtNibBY4i2ZIb7_FX5lg1du9KP3vgPLRgyYkoLe-zF5TLkZao75Y8KBU1YgteLRbE-VC4kUnTBrfmDukxqx8kvPP0ljp2on7HdpA7F1wj1sj_hvKlCcqxxZjwiBqsjjy41FUA',
+            'Content-Type: application/json'
+        ),
+    ));
+
+
+    $response5 = curl_exec($curl5);
+
+    $orderRes = json_decode($response5);
+    curl_close($curl5);
+    echo " order response :: ";
+    print_r($orderRes);
+
+    $order->setData('external_order_id', $orderRes->id);
+    $order->save();
+
+    die;
+    //    }
 }
