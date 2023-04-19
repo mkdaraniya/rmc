@@ -25,7 +25,7 @@ class SyncProduct extends Field
     }
     public function getAjaxUrl()
     {
-        return $this->getUrl('bexiosync_bexiosync/system_config/product');
+        return $this->getUrl('bexiosync/system_config/product');
     }
     public function getButtonHtml()
     {

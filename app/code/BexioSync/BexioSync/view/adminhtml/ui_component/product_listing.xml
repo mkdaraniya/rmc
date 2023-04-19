@@ -13,7 +13,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">sync_stock_price</item>
                         <item name="label" xsi:type="string" translate="true">Sync Stock And Price</item>
-                        <item name="url" xsi:type="url" path="bexiosync_bexiosync/controller/index/massSyncStockPrice"/>
+                        <item name="url" xsi:type="url" path="bexiosync/controller/index/massSyncStockPrice"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Sync Stock And Price</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure want to Sync Stock And Price For selected items?
