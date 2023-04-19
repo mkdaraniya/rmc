@@ -25,7 +25,7 @@ class SyncOrder extends Field
     }
     public function getAjaxUrl()
     {
-        return $this->getUrl('bexiosync_bexiosync/system_config/order');
+        return $this->getUrl('bexiosync/system_config/order');
     }
     public function getButtonHtml()
     {
