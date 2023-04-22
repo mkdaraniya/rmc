@@ -14,7 +14,7 @@
                 <item name="config" xsi:type="array">
 					<item name="label" xsi:type="string" translate="true">Sync Order</item>
                     <item name="indexField" xsi:type="string">entity_id</item>
-                    <item name="viewUrlPath" xsi:type="string">sales/order/view</item>
+                    <item name="viewUrlPath" xsi:type="string">bexiosync/index/order</item>
                     <item name="urlEntityParamName" xsi:type="string">order_id</item>
                 </item>
             </argument>
