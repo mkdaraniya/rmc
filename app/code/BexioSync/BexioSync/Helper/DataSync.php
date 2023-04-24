@@ -66,7 +66,7 @@ class DataSync extends AbstractHelper
         if(isset($customerRes->error_code) && $customerRes->error_code != '' && $customerRes->error_code == 422){
             $logger->error("User already exist.");
         }else{
-            $logger->info("Customer successfully created ".$customerData['email']);
+            $logger->info("Customer successfully created ".$customerData['email']." Bexio User ID : ".$customerRes->id);
         }
 
         if (isset($customerRes->id) && !empty($customerRes->id)) {

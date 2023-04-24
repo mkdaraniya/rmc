@@ -31,7 +31,7 @@ class SyncOrderStatus extends Field
     {
         $button = $this->getLayout()->createBlock('Magento\Backend\Block\Widget\Button')->setData(
             [
-                'id' => 'order_sync_button',
+                'id' => 'order_status_sync_button',
                 'label' => __('Sync Order Status'),
             ]);
         return $button->toHtml();
