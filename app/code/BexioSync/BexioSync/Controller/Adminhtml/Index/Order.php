@@ -72,14 +72,18 @@ class Order extends Action
             $response2 = curl_exec($curl2);
             $customerRes = json_decode($response2);
 
-            if(isset($customerRes->error_code) && $customerRes->error_code != '' && $customerRes->error_code == 422){
-                $this->messageManager->addErrorMessage(__('User already exist.'));        
-                return $resultRedirect->setPath('sales/order/index');
-            }
-
             $userId = '';
             $customerId = $order->getCustomerId();
             $customer = $objectManager->create('Magento\Customer\Model\Customer')->load($customerId);
+
+            if ($customer->getData('external_customer_id') != '') {
+                $userId = $customer->getData('external_customer_id');
+            }else{
+                if(isset($customerRes->error_code) && $customerRes->error_code != '' && $customerRes->error_code == 422){
+                    $this->messageManager->addErrorMessage(__('User already exist.'));        
+                    return $resultRedirect->setPath('sales/order/index');
+                }
+            }
 
             if (isset($customerRes->id) && !empty($customerRes->id)) {
                 if ($customer->getData('external_customer_id') != '') {

@@ -3,7 +3,7 @@
 namespace BexioSync\BexioSync\Cron;
 
 
-class OrderCron
+class OrderStatusCron
 {
 
     public function execute()
@@ -39,7 +39,7 @@ class OrderCron
                         $curl = curl_init();
 
                         curl_setopt_array($curl, array(
-                            CURLOPT_URL => 'https://api.bexio.com/2.0/kb_order/11',
+                            CURLOPT_URL => 'https://api.bexio.com/2.0/kb_order/'.$orderData['external_order_id'],
                             CURLOPT_RETURNTRANSFER => true,
                             CURLOPT_ENCODING => '',
                             CURLOPT_MAXREDIRS => 10,
@@ -62,7 +62,7 @@ class OrderCron
                             if ($responseData->kb_item_status_id == 5) {
                                 $order2->setStatus("pending");
                             } elseif ($responseData->kb_item_status_id == 6) {
-                                $order2->setStatus("completed");
+                                $order2->setStatus("complete");
                             } elseif ($responseData->kb_item_status_id == 5) {
                                 $order2->setStatus("processing");
                             }
