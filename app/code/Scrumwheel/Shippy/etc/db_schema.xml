@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-        <table name="quote" resource="orders" engine="innodb" comment="Quote">
-                <column xsi:type="varchar" name="incoterm" nullable="true" length="255" comment="Shippy Incoterm" />
-        </table>
-        <table name="sales_order" resource="orders" engine="innodb" comment="Sales Order">
-                <column xsi:type="varchar" name="incoterm" nullable="true" length="255" comment="Shippy Incoterm" />
-        </table>
+	<table name="quote" resource="default" engine="innodb" comment="Quote">
+		<column xsi:type="varchar" name="incoterm" nullable="true" length="255" comment="Shippy Incoterm" />
+	</table>
+	<table name="sales_order" resource="default" engine="innodb" comment="Sales Order">
+		<column xsi:type="varchar" name="incoterm" nullable="true" length="255" comment="Shippy Incoterm" />
+	</table>
 </schema>
