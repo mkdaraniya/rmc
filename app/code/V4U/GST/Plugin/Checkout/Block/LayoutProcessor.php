@@ -38,12 +38,15 @@ class LayoutProcessor
                 //'displayArea' => 'shippingAdditional',
                 'children' => [
                     'gst_number' => [
-                        'component' => 'Magento_Ui/js/form/element/abstract',
+                        'component' => 'Magento_Ui/js/form/element/select',
                         'config' => [
                             'customScope' => 'gst_number',
                             'template' => 'ui/form/field',
-                            'elementTmpl' => 'ui/form/element/input',
-                            'options' => [],
+                            'elementTmpl' => 'ui/form/element/select',
+                            'options' => [
+                                ['value' => 'DAP','label' => 'DAP'],
+                                ['value' => 'DDP','label' => 'DDP'],
+                                ['value' => 'EXW','label' => 'EXW']],
                             'id' => 'gst_number'
                         ],
                         'dataScope' => 'gst_number.gst_number',
