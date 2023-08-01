@@ -50,7 +50,7 @@ class LayoutProcessor
                             'id' => 'gst_number'
                         ],
                         'dataScope' => 'gst_number.gst_number',
-                        'label' => 'GST Number :',
+                        'label' => 'Incoterm :',
                         'provider' => 'checkoutProvider',
                         'visible' => true,
                         'validation' => [],

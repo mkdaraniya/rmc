@@ -26,7 +26,7 @@ class InstallSchema implements InstallSchemaInterface
             [
                 'type' => 'text',
                 'nullable' => false,
-                'comment' => 'Gst Number',
+                'comment' => 'Incoterm',
             ]
         );
 
@@ -36,7 +36,7 @@ class InstallSchema implements InstallSchemaInterface
             [
                 'type' => 'text',
                 'nullable' => false,
-                'comment' => 'Gst Number',
+                'comment' => 'Incoterm',
             ]
         );
 
