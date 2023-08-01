@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
-	<event name="sales_model_service_quote_submit_before">
-		<observer name="scrumwheel_shippy_sales_model_service_quote_submit_before" instance="Scrumwheel\Incoterm\Observer\SaveOrderBeforeSalesModelQuote" />
-	</event>
-</config>
