@@ -35,7 +35,7 @@ class OrderStatusCron
 
                 if (isset($orderData['external_order_id']) || $orderData['external_order_id'] != '') {
 
-                    if ($orderData['status'] != 'completed') {
+                    if ($orderData['status'] != 'complete') {
                         $curl = curl_init();
 
                         curl_setopt_array($curl, array(
@@ -63,7 +63,7 @@ class OrderStatusCron
                                 $order2->setStatus("pending");
                             } elseif ($responseData->kb_item_status_id == 6) {
                                 $order2->setStatus("complete");
-                            } elseif ($responseData->kb_item_status_id == 5) {
+                            } elseif ($responseData->kb_item_status_id == 15) {
                                 $order2->setStatus("processing");
                             }
                             $order2->save();
