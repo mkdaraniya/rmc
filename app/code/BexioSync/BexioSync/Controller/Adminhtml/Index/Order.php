@@ -193,6 +193,32 @@ class Order extends Action
                 }
             }
 
+            // create article for shipping amount
+            if($order->getData('shipping_amount')){
+                $itemArr[] = [
+                    "type" => "KbPositionCustom",
+                    "amount" => 1,
+                    "unit_id" => 1,
+                    // "account_id" => 1,
+                    "tax_id" => 16,
+                    "text" => 'Shipping & Handling',
+                    "unit_price" => $order->getData('shipping_amount'),
+                    "discount_in_percent" => "0.000000",
+                ];
+            }
+            if($order->getData('fee')){
+                $itemArr[] = [
+                    "type" => "KbPositionCustom",
+                    "amount" => 1,
+                    "unit_id" => 1,
+                    // "account_id" => 1,
+                    "tax_id" => 16,
+                    "text" => 'Packaging / Handling Cost',
+                    "unit_price" => $order->getData('fee'),
+                    "discount_in_percent" => "0.000000",
+                ];
+            }
+
             $currency = 2;
             if ($order->getOrderCurrencyCode() == 'USD') {
                 $currency = 3;
