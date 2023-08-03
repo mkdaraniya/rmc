@@ -201,7 +201,7 @@ class Order extends Action
                     "unit_id" => 1,
                     // "account_id" => 1,
                     "tax_id" => 16,
-                    "text" => 'Shipping & Handling',
+                    "text" => 'Shippment cost',
                     "unit_price" => $order->getData('shipping_amount'),
                     "discount_in_percent" => "0.000000",
                 ];
@@ -213,7 +213,7 @@ class Order extends Action
                     "unit_id" => 1,
                     // "account_id" => 1,
                     "tax_id" => 16,
-                    "text" => 'Packaging / Handling Cost',
+                    "text" => 'Handling Cost',
                     "unit_price" => $order->getData('fee'),
                     "discount_in_percent" => "0.000000",
                 ];
