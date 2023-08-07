@@ -2,8 +2,10 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
 	<table name="quote" resource="default" engine="innodb" comment="Quote">
 		<column xsi:type="varchar" name="incoterm" nullable="true" length="255" comment="Shippy Incoterm" />
+		<column xsi:type="varchar" name="account_number" nullable="true" length="255" comment="Shippy Account Number" />
 	</table>
 	<table name="sales_order" resource="default" engine="innodb" comment="Sales Order">
 		<column xsi:type="varchar" name="incoterm" nullable="true" length="255" comment="Shippy Incoterm" />
+		<column xsi:type="varchar" name="account_number" nullable="true" length="255" comment="Shippy Account Number" />
 	</table>
 </schema>

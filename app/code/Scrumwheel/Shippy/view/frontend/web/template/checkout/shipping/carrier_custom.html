@@ -1,3 +1,36 @@
-<div id="my-carrier-custom-block-wrapper" data-bind="visible: selectedMethod() == 'mycarrier_mymethod'">
-    <p data-bind="i18n: 'This is custom block'"></p>
+<div id="my-carrier-custom-block-wrapper" data-bind="visible: selectedMethod() == 'freeshipping_freeshipping'">
+    <div class="field _required" data-bind="visible: visible, attr: {'name': element.dataScope}, css: additionalClasses"
+        name="shippingAddress.accountnumber">
+
+        <label class="label" data-bind="attr: { for: element.uid }" for="JR9ITMF"><!-- ko if: element.label --><span
+                data-bind="i18n: element.label">Account Number</span><!-- /ko --></label>
+
+        <div class="control _with-tooltip" data-bind="css: {'_with-tooltip': element.tooltip}">
+            <!-- ko ifnot: element.hasAddons() -->
+            <!-- ko template: element.elementTmpl -->
+            <input class="input-text" type="text" data-bind="
+        value: value,
+        valueUpdate: 'keyup',
+        hasFocus: focused,
+        attr: {
+            name: inputName,
+            placeholder: placeholder,
+            'aria-describedby': getDescriptionId(),
+            'aria-required': required,
+            'aria-invalid': error() ? true : 'false',
+            id: uid,
+            disabled: disabled
+        }" name="accountnumber" aria-required="true" aria-invalid="false" id="JR9ITMF">
+            <!-- /ko -->
+            <!-- /ko -->
+
+            <!-- ko if: element.hasAddons() --><!-- /ko -->
+
+            <!-- ko if: element.notice --><!-- /ko -->
+
+            <!-- ko if: element.error() --><!-- /ko -->
+
+            <!-- ko if: element.warn() --><!-- /ko -->
+        </div>
+    </div>
 </div>
