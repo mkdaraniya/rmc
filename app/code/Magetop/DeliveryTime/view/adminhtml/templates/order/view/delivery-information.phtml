@@ -47,6 +47,7 @@ $deliveryTime      = $data->getData('deliveryTime');
 
 <script type="text/javascript">
     require(['jquery'], function ($) {
-        $('.order-shipping-method').append($('.delivery-information'));
+        // $('.order-shipping-method').append($('.delivery-information'));
+        $('.order-shipping-method').insertAfter($('#sendcloud-service-point'));
     });
 </script>
