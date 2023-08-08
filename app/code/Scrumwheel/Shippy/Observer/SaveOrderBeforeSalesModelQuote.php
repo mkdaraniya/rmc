@@ -31,10 +31,22 @@ class SaveOrderBeforeSalesModelQuote implements ObserverInterface
  
     public function execute(Observer $observer)
     {
+
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/order_observer_.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info("Observer Call");
+
         $order = $observer->getOrder();
         $quoteId = $order->getQuoteId();
         $quote  = $this->quoteFactory->create()->load($quoteId);
         $order->setAccountNumber($quote->getAccountNumber());
+
+        $logger->info("account number : ");
+        $logger->info($quote->getAccountNumber());
+
         $order->save();
+
+        $logger->info("order saved");
     }
 }
