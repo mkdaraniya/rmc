@@ -8,4 +8,7 @@
 		<column xsi:type="varchar" name="incoterm" nullable="true" length="255" comment="Shippy Incoterm" />
 		<column xsi:type="varchar" name="account_number" nullable="true" length="255" comment="Shippy Account Number" />
 	</table>
+	<table name="cron_schedule" resource="default" engine="innodb" comment="Cron Schedule">
+        <column xsi:type="text" name="arguments" nullable="true" comment="Serialized Arguments"/>
+    </table>
 </schema>
