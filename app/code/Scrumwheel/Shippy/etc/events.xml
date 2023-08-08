@@ -4,4 +4,7 @@
         <observer name="scrumwheel_shippy_sales_model_service_quote_submit_before"
                   instance="Scrumwheel\Shippy\Observer\SaveOrderBeforeSalesModelQuote" />
     </event>
+    <event name="sales_order_place_after">
+        <observer name="scrumwheel_shippy_order_observer" instance="Scrumwheel\Shippy\Observer\OrderObserver" />
+    </event>
 </config>
