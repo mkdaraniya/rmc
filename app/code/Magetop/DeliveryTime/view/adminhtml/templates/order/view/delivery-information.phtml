@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Magetop
  *
@@ -46,8 +47,10 @@ $deliveryTime      = $data->getData('deliveryTime');
 </div>
 
 <script type="text/javascript">
-    require(['jquery'], function ($) {
-        // $('.order-shipping-method').append($('.delivery-information'));
-        $('.order-shipping-method').insertAfter($('#sendcloud-service-point'));
+    require(['jquery'], function($) {
+        $(window).on("load", function() {
+            // $('.order-shipping-method').append($('.delivery-information'));
+            $('.order-shipping-method').insertAfter($('#sendcloud-service-point'));
+        });
     });
 </script>
