@@ -36,11 +36,19 @@ class Cron extends AbstractHelper
 
     public function create(string $jobCode, int $scheduleAt = null, array $arguments = []): void
     {
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/shippy_api.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info("Cron Helper Call");
+
+
         $schedule = $this->scheduleFactory->create()
             ->setJobCode($jobCode)
             ->setStatus(Schedule::STATUS_PENDING)
             ->setCreatedAt(date(self::DATE_FORMAT, $this->dateTime->gmtTimestamp()))
             ->setScheduledAt(date(self::DATE_FORMAT, $scheduleAt ?? $this->dateTime->gmtTimestamp()));
+
+        $logger->info('job scheduled at : '.$this->dateTime->gmtTimestamp());
 
         if ($arguments) {
             $schedule->setArguments($this->serializer->serialize($arguments));
