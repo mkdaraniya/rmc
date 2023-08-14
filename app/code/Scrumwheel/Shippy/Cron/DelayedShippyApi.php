@@ -120,10 +120,76 @@ class DelayedShippyApi
                 curl_close($curl);
 
                 $order = $objectManager->create('\Magento\Sales\Model\Order')->load($order->getId());
-                $order->addStatusHistoryComment($response);
+                $order->addStatusHistoryComment(
+                    'Shippypro api called  '.
+                    'API endpoint - https://www.shippypro.com/api/  '.
+                    'Request - '.json_encode($params).'  '.
+                    $response
+                );
                 $order->save();
 
                 $logger->info('Order comment saved');
+
+                // upload pdf code
+                $fileSystem = $objectManager->create('Magento\Framework\Filesystem');
+                $varDirectory = $fileSystem->getDirectoryWrite(\Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR);
+                $fileName = $order->getIncrementId() . '.pdf';
+                $filePath = $varDirectory->getAbsolutePath($fileName);
+                $shipping = $order->getShippingAddress()->getData();
+
+                $fileContents = '';
+                if ($varDirectory->isExist($fileName)) {
+                    $fileContents = base64_encode(file_get_contents($filePath));
+                }
+
+
+                $curl = curl_init();
+
+                $custLastName = $order->getCustomerLastname();
+                $custFirsrName = $order->getCustomerFirstname();
+                $customerName = $custFirsrName . ' ' . $custLastName;
+
+                $postParam = [
+                    "Method" => "UploadPaperlessDocumentation",
+                    "Params" => [
+                        "TransactionID" => $order->getIncrementId(),
+                        "Name" => $customerName,
+                        "Country" => $shipping['country_id'],
+                        "Document" => $fileContents,
+                        "DocumentType" => 5
+                    ]
+                ];
+
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://www.shippypro.com/api/',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => json_encode($postParam),
+                    CURLOPT_HTTPHEADER => array(
+                        'Authorization: Basic NTExN2Q5MzNhODlmNWQ1ZjY4YzRiNjgxZDA3YWM3MmE6',
+                        'Content-Type: application/json',
+                    ),
+                ));
+
+                $response2 = curl_exec($curl);
+
+                curl_close($curl);
+
+                $order = $objectManager->create('\Magento\Sales\Model\Order')->load($order->getId());
+                $order->addStatusHistoryComment(
+                    'Shippypro api called  '.
+                    'API endpoint - https://www.shippypro.com/api/  '.
+                    'Request - '.json_encode($postParam).'  '.
+                    $response2
+                );
+                $order->save();
+
+                // End of pdf code
             }
         }
 
