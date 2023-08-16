@@ -72,6 +72,16 @@ class Order extends Action
             $response2 = curl_exec($curl2);
             $customerRes = json_decode($response2);
 
+            
+            $order = $objectManager->create('\Magento\Sales\Model\Order')->load($order->getId());
+            $order->addStatusHistoryComment(
+                'Bexio api called  '.
+                'API endpoint - https://api.bexio.com/3.0/fictional_users  '.
+                'Request - '.json_encode($customerData).'  '.
+                $response2
+            );
+            $order->save();
+
             $userId = '';
             $customerId = $order->getCustomerId();
             $customer = $objectManager->create('Magento\Customer\Model\Customer')->load($customerId);
@@ -152,6 +162,15 @@ class Order extends Action
             ));
 
             $response3 = curl_exec($curl3);
+
+                        
+            $order->addStatusHistoryComment(
+                'Bexio api called  '.
+                'API endpoint - https://api.bexio.com/2.0/contact  '.
+                'Request - '.json_encode($addressData).'  '.
+                $response3
+            );
+            $order->save();
 
             curl_close($curl3);
 
@@ -267,6 +286,15 @@ class Order extends Action
 
 
             $response5 = curl_exec($curl5);
+
+                                    
+            $order->addStatusHistoryComment(
+                'Bexio api called  '.
+                'API endpoint - https://api.bexio.com/2.0/kb_order  '.
+                'Request - '.json_encode($orderArr).'  '.
+                $response5
+            );
+            $order->save();
 
             $orderRes = json_decode($response5);
             curl_close($curl5);

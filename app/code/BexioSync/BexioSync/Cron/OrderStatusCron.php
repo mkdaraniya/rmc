@@ -39,7 +39,7 @@ class OrderStatusCron
                         $curl = curl_init();
 
                         curl_setopt_array($curl, array(
-                            CURLOPT_URL => 'https://api.bexio.com/2.0/kb_order/'.$orderData['external_order_id'],
+                            CURLOPT_URL => 'https://api.bexio.com/2.0/kb_order/' . $orderData['external_order_id'],
                             CURLOPT_RETURNTRANSFER => true,
                             CURLOPT_ENCODING => '',
                             CURLOPT_MAXREDIRS => 10,
@@ -56,6 +56,16 @@ class OrderStatusCron
                         $response = curl_exec($curl);
                         curl_close($curl);
                         $responseData = json_decode($response);
+
+
+                        $order = $objectManager->create('\Magento\Sales\Model\Order')->load($order->getId());
+                        $order->addStatusHistoryComment(
+                            'Bexio api called  ' .
+                                'API endpoint - https://api.bexio.com/2.0/kb_order/' . $orderData['external_order_id'].'  ' .
+                                'Request -   ' .
+                                $response
+                        );
+                        $order->save();
 
                         if (isset($responseData->kb_item_status_id)) {
                             $order2 = $objectManager->create('\Magento\Sales\Model\Order')->load($order->getEntityId());
