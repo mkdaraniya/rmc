@@ -87,7 +87,7 @@ class OrderObserver implements ObserverInterface
         $logger->info('current_time : ' . $current_time);
         $new_time = $current_time + $delayTime * 60;
 
-        $logger->info("current time + 5min : " . $new_time);
+        $logger->info("current time + 10min : " . $new_time);
 
         $cronHelper = \Magento\Framework\App\ObjectManager::getInstance()->get(\Scrumwheel\Shippy\Helper\Cron::class);
         // create task and schedule right now
@@ -313,7 +313,7 @@ class OrderObserver implements ObserverInterface
         $fileFactory->create(
             $fileName,
             $pdf->render(),
-            \Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR.'/invoice_pdf/', // this pdf will be saved in var directory with the name meetanshi.pdf
+            \Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR, // this pdf will be saved in var directory with the name meetanshi.pdf
             'application/pdf'
         );
     }
