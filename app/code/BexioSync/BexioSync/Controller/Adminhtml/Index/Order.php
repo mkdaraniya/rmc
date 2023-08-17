@@ -32,22 +32,24 @@ class Order extends Action
             return true;
         }
 
-        // $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/bexiosync.log');
-        // $logger = new \Zend_Log();
-        // $logger->addWriter($writer);
-        // $logger->info(__METHOD__);
-        // $logger->info("Order Sync Action Start");
+        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/bexiosync.log');
+        $logger = new \Zend_Log();
+        $logger->addWriter($writer);
+        $logger->info(__METHOD__);
+        $logger->info("Order Sync Action Start");
 
         try {
             $orderInterface = $objectManager->get('\Magento\Sales\Api\Data\OrderInterface');
             $order = $orderInterface->load($orderId);
 
+            $billingAddress = $order->getBillingAddress();
+
             // create customer on bexio
             $curl2 = curl_init();
             $customerData = array(
                 'salutation_type' => "male", //$order->getCustomerGender(),
-                'firstname' => $order->getCustomerFirstname(),
-                'lastname' => $order->getCustomerLastname(),
+                'firstname' => $billingAddress->getData('firstname'),
+                'lastname' => $billingAddress->getData('lastname'),
                 'email' => $order->getCustomerEmail(),
                 'title_id' => "",
             );
@@ -72,13 +74,13 @@ class Order extends Action
             $response2 = curl_exec($curl2);
             $customerRes = json_decode($response2);
 
-            
+
             $order = $objectManager->create('\Magento\Sales\Model\Order')->load($order->getId());
             $order->addStatusHistoryComment(
-                'Bexio api called  '.
-                'API endpoint - https://api.bexio.com/3.0/fictional_users  '.
-                'Request - '.json_encode($customerData).'  '.
-                $response2
+                'Bexio api called  ' .
+                    'API endpoint - https://api.bexio.com/3.0/fictional_users  ' .
+                    'Request - ' . json_encode($customerData) . '  ' .
+                    $response2
             );
             $order->save();
 
@@ -88,10 +90,46 @@ class Order extends Action
 
             if ($customer->getData('external_customer_id') != '') {
                 $userId = $customer->getData('external_customer_id');
-            }else{
-                if(isset($customerRes->error_code) && $customerRes->error_code != '' && $customerRes->error_code == 422){
-                    $this->messageManager->addErrorMessage(__('User already exist.'));        
-                    return $resultRedirect->setPath('sales/order/index');
+            } else {
+                if (isset($customerRes->error_code) && $customerRes->error_code != '' && $customerRes->error_code == 422) {
+
+                    // get user list [For Guest User]
+                    /*
+                    $curl3 = curl_init();
+                    curl_setopt_array($curl3, array(
+                        CURLOPT_URL => 'https://api.bexio.com/3.0/fictional_users',
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => '',
+                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_TIMEOUT => 0,
+                        CURLOPT_FOLLOWLOCATION => true,
+                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                        CURLOPT_CUSTOMREQUEST => 'GET',
+                        CURLOPT_HTTPHEADER => array(
+                            'Accept: application/json',
+                            'Authorization: Bearer eyJraWQiOiI2ZGM2YmJlOC1iMjZjLTExZTgtOGUwZC0wMjQyYWMxMTAwMDIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYXJqYW5AYnVjaGVtLmNvbSIsImxvZ2luX2lkIjoiNmIyY2ZlM2UtNTVhYS00OTM0LThjY2ItNzgxMGU4ZjY3MTc4IiwiY29tcGFueV9pZCI6ImtmeWVqYnJxM3BsdiIsInVzZXJfaWQiOjMzNTkzNiwiYXpwIjoiZXZlcmxhc3QtdG9rZW4tb2ZmaWNlLWNsaWVudCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwgYWxsIHRlY2huaWNhbCIsImlzcyI6Imh0dHBzOlwvXC9pZHAuYmV4aW8uY29tIiwiZXhwIjozMjU3MzI1NDgwLCJpYXQiOjE2ODA1MjU0ODAsImNvbXBhbnlfdXNlcl9pZCI6MSwianRpIjoiZTE3ZWQ4YTMtZmRkYy00M2VkLTllMjItNjdiMDhjMWJjNjNjIn0.L4rNyP-ypCp890rWWc2cSCxcelf1FuY_rpvNI6YgiC0n69fgt_ilpEZmnZXuBSoVxzusWA9FuCk9MOWqjatFurU9BQy5kwt-sADDAgVWfoGFHiyZR1SFbq5P26zgofpwAA1zoVk7YudEEkl5SONTYpXXgQApmiSh5B7matjPGfBlk8qLhHxLFQYM3YPJaS-7Yp8kIvuOn6sSFs3WvuL-Wqfb96qQKxkB0oUEXrVy1aPxV7Xt4TC5edPGbD0CLX7SbGUZiNFWm59IQS9zeRIJPr5HufokhaeRXfull4xUy4uO-VxT535kAUxH_gBpjW8jhgC4TldkKMcIFsqoWKuI3sxL_8iLXCCF1dDytUUwrUoVvQs1NFV0WRpuE0R_IUQL6vlsFRbLvy-NLe0rV0r8Nei06cq-zcwNaGmnfUvUjSMTSwVpKtftxYXwhY8WipB4Jo4D_LSfUDx0kpOEAxFwwOB4J3EsO9TheQ9i8b3q2jhykrDUfKsiechH7uNiyvN-c2PL8NQd-rpDDZoJP9A3_ywZ2sOThDIEese6lrJtNibBY4i2ZIb7_FX5lg1du9KP3vgPLRgyYkoLe-zF5TLkZao75Y8KBU1YgteLRbE-VC4kUnTBrfmDukxqx8kvPP0ljp2on7HdpA7F1wj1sj_hvKlCcqxxZjwiBqsjjy41FUA',
+                            'Content-Type: application/json'
+                        ),
+                    ));
+
+                    $response3 = curl_exec($curl3);
+                    $customerRes = json_decode($response3);
+                    if ($customerRes) {
+                        foreach ($customerRes as $cust) {
+                            if (strtolower($order->getCustomerEmail()) == strtolower($cust->email)) {
+                                $logger->info($cust->id);
+                                $logger->info($cust->email);
+                                $userId = $cust->id;
+                            }
+                        }
+                    }
+                    $logger->info($response3);
+                    */
+
+                    if ($userId == '') {
+                        $this->messageManager->addErrorMessage(__('User already exist.'));
+                        return $resultRedirect->setPath('sales/order/index');
+                    }
                 }
             }
 
@@ -163,12 +201,12 @@ class Order extends Action
 
             $response3 = curl_exec($curl3);
 
-                        
+
             $order->addStatusHistoryComment(
-                'Bexio api called  '.
-                'API endpoint - https://api.bexio.com/2.0/contact  '.
-                'Request - '.json_encode($addressData).'  '.
-                $response3
+                'Bexio api called  ' .
+                    'API endpoint - https://api.bexio.com/2.0/contact  ' .
+                    'Request - ' . json_encode($addressData) . '  ' .
+                    $response3
             );
             $order->save();
 
@@ -213,7 +251,7 @@ class Order extends Action
             }
 
             // create article for shipping amount
-            if($order->getData('shipping_amount')){
+            if ($order->getData('shipping_amount')) {
                 $itemArr[] = [
                     "type" => "KbPositionCustom",
                     "amount" => 1,
@@ -225,7 +263,7 @@ class Order extends Action
                     "discount_in_percent" => "0.000000",
                 ];
             }
-            if($order->getData('fee')){
+            if ($order->getData('fee')) {
                 $itemArr[] = [
                     "type" => "KbPositionCustom",
                     "amount" => 1,
@@ -287,12 +325,12 @@ class Order extends Action
 
             $response5 = curl_exec($curl5);
 
-                                    
+
             $order->addStatusHistoryComment(
-                'Bexio api called  '.
-                'API endpoint - https://api.bexio.com/2.0/kb_order  '.
-                'Request - '.json_encode($orderArr).'  '.
-                $response5
+                'Bexio api called  ' .
+                    'API endpoint - https://api.bexio.com/2.0/kb_order  ' .
+                    'Request - ' . json_encode($orderArr) . '  ' .
+                    $response5
             );
             $order->save();
 
@@ -305,7 +343,6 @@ class Order extends Action
 
             $this->messageManager->addSuccess(__('Record has been sync successfully.'));
             /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-            
         } catch (\Exception $e) {
             echo $e->getMessage();
             // $logger->critical($e->getMessage());
