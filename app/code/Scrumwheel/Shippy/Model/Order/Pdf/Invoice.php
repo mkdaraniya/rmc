@@ -243,8 +243,8 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
         $billingAddress = $this->_formatAddress($this->addressRenderer->format($order->getBillingAddress(), 'pdf'));
         
         /*Custom billing text add here...*/
-        $billingAddress[] = "Custom Billing Text" ;
- 
+        $billingAddress[] = "";
+        
         /* Payment */
         $paymentInfo = $this->_paymentData->getInfoBlock($order->getPayment())->setIsSecureMode(true)->toPdf();
         $paymentInfo = htmlspecialchars_decode($paymentInfo, ENT_QUOTES);
@@ -336,6 +336,9 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
  
             $addressesEndY = min($addressesEndY, $this->y);
             $this->y = $addressesEndY;
+
+            $page->drawText(__('Payment Method'), 35, $this->y, 'UTF-8');
+            $page->drawText(__('Shipping Method:'), 285, $this->y, 'UTF-8');
  
             $page->setFillColor(new \Zend_Pdf_Color_Rgb(0.93, 0.92, 0.92));
             $page->setLineWidth(0.5);
