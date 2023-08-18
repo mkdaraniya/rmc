@@ -1,16 +1,17 @@
 <?php
+
 namespace Scrumwheel\Shippy\Model\Order\Pdf;
- 
+
 use Magento\Store\Model\ScopeInterface;
 use Magento\Sales\Model\RtlTextHandler;
 use Magento\Framework\App\ObjectManager;
- 
+
 class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
 {
     protected $_storeManager;
     protected $_localeResolver;
     private $appEmulation;
- 
+
     public function __construct(
         \Magento\Payment\Helper\Data $paymentData,
         \Magento\Framework\Stdlib\StringUtils $string,
@@ -26,8 +27,7 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
         \Magento\Store\Model\App\Emulation $appEmulation,
         \Magento\Framework\Locale\ResolverInterface $localeResolver,
         array $data = []
-    )
-    {
+    ) {
         $this->_storeManager = $storeManager;
         $this->appEmulation = $appEmulation;
         parent::__construct(
@@ -47,7 +47,7 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
         );
         $this->_localeResolver = $localeResolver;
     }
-    
+
     protected function _drawHeader(\Zend_Pdf_Page $page)
     {
         /* Add table head */
@@ -58,41 +58,39 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
         $page->drawRectangle(25, $this->y, 570, $this->y - 15);
         $this->y -= 10;
         $page->setFillColor(new \Zend_Pdf_Color_Rgb(0, 0, 0));
- 
+
         //columns headers
         $lines[0][] = ['text' => __('Products'), 'feed' => 35];
- 
+
         $lines[0][] = ['text' => __('SKU'), 'feed' => 290, 'align' => 'right'];
- 
+
         $lines[0][] = ['text' => __('Qty'), 'feed' => 435, 'align' => 'right'];
- 
+
         $lines[0][] = ['text' => __('Price'), 'feed' => 375, 'align' => 'right'];
- 
+
         $lines[0][] = ['text' => __('Tax'), 'feed' => 495, 'align' => 'right'];
- 
+
         $lines[0][] = ['text' => __('Subtotal'), 'feed' => 565, 'align' => 'right'];
- 
+
         $lineBlock = ['lines' => $lines, 'height' => 5];
- 
+
         $this->drawLineBlocks($page, [$lineBlock], ['table_header' => true]);
         $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0));
         $this->y -= 20;
     }
- 
+
     public function getPdf($invoices = [])
     {
         $this->_beforeGetPdf();
         $this->_initRenderer('invoice');
- 
+
         $pdf = new \Zend_Pdf();
         $this->_setPdf($pdf);
         $style = new \Zend_Pdf_Style();
         $this->_setFontBold($style, 10);
- 
-        foreach ($invoices as $invoice)
-        {
-            if ($invoice->getStoreId())
-            {
+
+        foreach ($invoices as $invoice) {
+            if ($invoice->getStoreId()) {
                 $this->_localeResolver->emulate($invoice->getStoreId());
                 $this->_storeManager->setCurrentStore($invoice->getStoreId());
             }
@@ -117,10 +115,8 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             /* Add table */
             $this->_drawHeader($page);
             /* Add body */
-            foreach ($invoice->getAllItems() as $item)
-            {
-                if ($item->getOrderItem()->getParentItem())
-                {
+            foreach ($invoice->getAllItems() as $item) {
+                if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
                 /* Draw item */
@@ -129,28 +125,26 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             }
             /* Add totals */
             $this->insertTotals($page, $invoice);
-            if ($invoice->getStoreId())
-            {
+            if ($invoice->getStoreId()) {
                 $this->_localeResolver->revert();
             }
         }
         $this->_afterGetPdf();
         return $pdf;
     }
-   
+
     public function newPage(array $settings = [])
     {
         /* Add new table head */
         $page = $this->_getPdf()->newPage(\Zend_Pdf_Page::SIZE_A4);
         $this->_getPdf()->pages[] = $page;
         $this->y = 800;
-        if (!empty($settings['table_header']))
-        {
+        if (!empty($settings['table_header'])) {
             $this->_drawHeader($page);
         }
         return $page;
     }
- 
+
     protected function insertAddress(&$page, $store = null)
     {
         $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0));
@@ -164,13 +158,10 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             $store
         );
         $values = $configAddress ? explode("\n", $configAddress) : [];
-        foreach ($values as $value)
-        {
-            if ($value !== '')
-            {
+        foreach ($values as $value) {
+            if ($value !== '') {
                 $value = preg_replace('/<br[^>]*>/i', "\n", $value);
-                foreach ($this->string->split($value, 45, true, true) as $_value)
-                {
+                foreach ($this->string->split($value, 45, true, true) as $_value) {
                     $page->drawText(
                         trim(strip_tags($_value)),
                         $this->getAlignRight($_value, 130, 440, $font, 10),
@@ -183,258 +174,244 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
         }
         $this->y = $this->y > $top ? $top : $this->y;
     }
-    
+
     protected function insertOrder(&$page, $obj, $putOrderId = true)
     {
-        if ($obj instanceof \Magento\Sales\Model\Order)
-        {
+        if ($obj instanceof \Magento\Sales\Model\Order) {
             $shipment = null;
             $order = $obj;
-        }
-        elseif ($obj instanceof \Magento\Sales\Model\Order\Shipment)
-        {
+        } elseif ($obj instanceof \Magento\Sales\Model\Order\Shipment) {
             $shipment = $obj;
             $order = $shipment->getOrder();
         }
- 
+
         $this->y = $this->y ? $this->y : 815;
         $top = $this->y;
- 
+
         $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0.45));
         $page->setLineColor(new \Zend_Pdf_Color_GrayScale(0.45));
         $page->drawRectangle(25, $top, 570, $top - 55);
         $page->setFillColor(new \Zend_Pdf_Color_GrayScale(1));
         $this->setDocHeaderCoordinates([25, $top, 570, $top - 55]);
         $this->_setFontRegular($page, 10);
- 
-        if ($putOrderId)
-        {
+
+        if ($putOrderId) {
             $page->drawText(__('Order # ') . $order->getRealOrderId(), 35, $top -= 30, 'UTF-8');
-            $top +=15;
+            $top += 15;
         }
- 
-        $top -=30;
+
+        $top -= 30;
         $page->drawText(
             __('Order Date: ') .
-            $this->_localeDate->formatDate(
-                $this->_localeDate->scopeDate(
-                    $order->getStore(),
-                    $order->getCreatedAt(),
-                    true
+                $this->_localeDate->formatDate(
+                    $this->_localeDate->scopeDate(
+                        $order->getStore(),
+                        $order->getCreatedAt(),
+                        true
+                    ),
+                    \IntlDateFormatter::MEDIUM,
+                    false
                 ),
-                \IntlDateFormatter::MEDIUM,
-                false
-            ),
             35,
             $top,
             'UTF-8'
         );
- 
+
         $top -= 10;
         $page->setFillColor(new \Zend_Pdf_Color_Rgb(0.93, 0.92, 0.92));
         $page->setLineColor(new \Zend_Pdf_Color_GrayScale(0.5));
         $page->setLineWidth(0.5);
         $page->drawRectangle(25, $top, 275, $top - 25);
         $page->drawRectangle(275, $top, 570, $top - 25);
- 
+
         /* Calculate blocks info */
- 
+
         /* Billing Address */
         $billingAddress = $this->_formatAddress($this->addressRenderer->format($order->getBillingAddress(), 'pdf'));
-        
+
         /*Custom billing text add here...*/
         $billingAddress[] = "";
-        
+
         /* Payment */
         $paymentInfo = $this->_paymentData->getInfoBlock($order->getPayment())->setIsSecureMode(true)->toPdf();
         $paymentInfo = htmlspecialchars_decode($paymentInfo, ENT_QUOTES);
         $payment = explode('{{pdf_row_separator}}', $paymentInfo);
-        foreach ($payment as $key => $value)
-        {
-            if (strip_tags(trim($value)) == '')
-            {
+        foreach ($payment as $key => $value) {
+            if (strip_tags(trim($value)) == '') {
                 unset($payment[$key]);
             }
         }
         reset($payment);
- 
+
         /* Shipping Address and Method */
-        if (!$order->getIsVirtual())
-        {
+        if (!$order->getIsVirtual()) {
             /* Shipping Address */
             $shippingAddress = $this->_formatAddress($this->addressRenderer->format($order->getShippingAddress(), 'pdf'));
-           
+
             /*Custom shipping text add here...*/
-            $shippingAddress[] = "Custom Shipping Text" ;
+            $shippingAddress[] = "Custom Shipping Text";
             $shippingMethod = $order->getShippingDescription();
         }
- 
+
         $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0));
         $this->_setFontBold($page, 12);
         $page->drawText(__('Sold to:'), 35, $top - 15, 'UTF-8');
- 
-        if (!$order->getIsVirtual())
-        {
+
+        if (!$order->getIsVirtual()) {
             $page->drawText(__('Ship to:'), 285, $top - 15, 'UTF-8');
-        }
-        else
-        {
+        } else {
             $page->drawText(__('Payment Method:'), 285, $top - 15, 'UTF-8');
         }
- 
+
         $addressesHeight = $this->_calcAddressHeight($billingAddress);
-        if (isset($shippingAddress))
-        {
+        if (isset($shippingAddress)) {
             $addressesHeight = max($addressesHeight, $this->_calcAddressHeight($shippingAddress));
         }
- 
+
         $page->setFillColor(new \Zend_Pdf_Color_GrayScale(1));
         $page->drawRectangle(25, $top - 25, 570, $top - 33 - $addressesHeight);
         $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0));
         $this->_setFontRegular($page, 10);
         $this->y = $top - 40;
         $addressesStartY = $this->y;
- 
-        foreach ($billingAddress as $value)
-        {
-            if ($value !== '')
-            {
+
+        foreach ($billingAddress as $value) {
+            if ($value !== '') {
                 $text = [];
-                foreach ($this->string->split($value, 45, true, true) as $_value)
-                {
+                foreach ($this->string->split($value, 45, true, true) as $_value) {
                     $text[] = $_value;
                 }
-                foreach ($text as $part)
-                {
+                foreach ($text as $part) {
                     $page->drawText(strip_tags(ltrim($part)), 35, $this->y, 'UTF-8');
                     $this->y -= 15;
                 }
             }
         }
- 
+
         $addressesEndY = $this->y;
- 
-        if (!$order->getIsVirtual())
-        {
+
+        if (!$order->getIsVirtual()) {
             $this->y = $addressesStartY;
-            foreach ($shippingAddress as $value)
-            {
-                if ($value !== '')
-                {
+            foreach ($shippingAddress as $value) {
+                if ($value !== '') {
                     $text = [];
-                    foreach ($this->string->split($value, 45, true, true) as $_value)
-                    {
+                    foreach ($this->string->split($value, 45, true, true) as $_value) {
                         $text[] = $_value;
                     }
-                    foreach ($text as $part)
-                    {
+                    foreach ($text as $part) {
                         $page->drawText(strip_tags(ltrim($part)), 285, $this->y, 'UTF-8');
                         $this->y -= 15;
                     }
                 }
             }
- 
+
             $addressesEndY = min($addressesEndY, $this->y);
             $this->y = $addressesEndY;
 
+
+
+            $page->drawText(__('Commercial Invoice'), 35, $this->y - 10, 'UTF-8');
+            $page->drawText(__('Burgdorf, 14.06.2023'), 285, $this->y - 10, 'UTF-8');
+            $page->drawText(__('Date of Export              20.06.2023'), 35, $this->y - 30, 'UTF-8');
+            $page->drawText(__('Country of export           Switzerland'), 285, $this->y - 30, 'UTF-8');
+            $page->drawText(__('P.O                         HHPO1594025'), 35, $this->y - 40, 'UTF-8');
+
+            if ($order->getShippingMethod() == 'freeshipping_freeshipping' || $order->getShippingMethod() == '') {
+                $page->drawText(__('Incoterms® FCA,             city'), 35, $this->y - 50, 'UTF-8');
+            } else {
+                $page->drawText(__('Incoterms® DAP,             city'), 35, $this->y - 50, 'UTF-8');
+            }
+
+            $page->drawText(__('Final destination           United States of A...'), 285, $this->y - 50, 'UTF-8');
+
+
+
             $page->drawText(__('Payment Method'), 35, $this->y, 'UTF-8');
             $page->drawText(__('Shipping Method:'), 285, $this->y, 'UTF-8');
- 
+
             $page->setFillColor(new \Zend_Pdf_Color_Rgb(0.93, 0.92, 0.92));
             $page->setLineWidth(0.5);
             $page->drawRectangle(25, $this->y, 275, $this->y - 25);
             $page->drawRectangle(275, $this->y, 570, $this->y - 25);
- 
+
             $this->y -= 15;
             $this->_setFontBold($page, 12);
             $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0));
             $page->drawText(__('Payment Method'), 35, $this->y, 'UTF-8');
             $page->drawText(__('Shipping Method:'), 285, $this->y, 'UTF-8');
- 
+
             $this->y -= 10;
             $page->setFillColor(new \Zend_Pdf_Color_GrayScale(1));
- 
+
             $this->_setFontRegular($page, 10);
             $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0));
- 
+
             $paymentLeft = 35;
             $yPayments = $this->y - 15;
-        }
-        else
-        {
+        } else {
             $yPayments = $addressesStartY;
             $paymentLeft = 285;
         }
- 
-        foreach ($payment as $value)
-        {
-            if (trim($value) != '')
-            {
+
+        foreach ($payment as $value) {
+            if (trim($value) != '') {
                 //Printing "Payment Method" lines
                 $value = preg_replace('/<br[^>]*>/i', "\n", $value);
-                foreach ($this->string->split($value, 45, true, true) as $_value)
-                {
+                foreach ($this->string->split($value, 45, true, true) as $_value) {
                     $page->drawText(strip_tags(trim($_value)), $paymentLeft, $yPayments, 'UTF-8');
                     $yPayments -= 15;
                 }
             }
         }
- 
-        if ($order->getIsVirtual())
-        {
+
+        if ($order->getIsVirtual()) {
             // replacement of Shipments-Payments rectangle block
             $yPayments = min($addressesEndY, $yPayments);
             $page->drawLine(25, $top - 25, 25, $yPayments);
             $page->drawLine(570, $top - 25, 570, $yPayments);
             $page->drawLine(25, $yPayments, 570, $yPayments);
- 
+
             $this->y = $yPayments - 15;
-        }
-        else
-        {
+        } else {
             $topMargin = 15;
             $methodStartY = $this->y;
             $this->y -= 15;
- 
-            foreach ($this->string->split($shippingMethod, 45, true, true) as $_value)
-            {
+
+            foreach ($this->string->split($shippingMethod, 45, true, true) as $_value) {
                 $page->drawText(strip_tags(trim($_value)), 285, $this->y, 'UTF-8');
                 $this->y -= 15;
             }
- 
+
             $yShipments = $this->y;
             $totalShippingChargesText = "(" . __(
-                    'Total Shipping Charges'
-                ) . " " . $order->formatPriceTxt(
-                    $order->getShippingAmount()
-                ) . ")";
- 
+                'Total Shipping Charges'
+            ) . " " . $order->formatPriceTxt(
+                $order->getShippingAmount()
+            ) . ")";
+
             $page->drawText($totalShippingChargesText, 285, $yShipments - $topMargin, 'UTF-8');
             $yShipments -= $topMargin + 10;
- 
+
             $tracks = [];
-            if ($shipment)
-            {
+            if ($shipment) {
                 $tracks = $shipment->getAllTracks();
             }
-            if (count($tracks))
-            {
+            if (count($tracks)) {
                 $page->setFillColor(new \Zend_Pdf_Color_Rgb(0.93, 0.92, 0.92));
                 $page->setLineWidth(0.5);
                 $page->drawRectangle(285, $yShipments, 510, $yShipments - 10);
                 $page->drawLine(400, $yShipments, 400, $yShipments - 10);
                 //$page->drawLine(510, $yShipments, 510, $yShipments - 10);
- 
+
                 $this->_setFontRegular($page, 9);
                 $page->setFillColor(new \Zend_Pdf_Color_GrayScale(0));
                 //$page->drawText(__('Carrier'), 290, $yShipments - 7 , 'UTF-8');
                 $page->drawText(__('Title'), 290, $yShipments - 7, 'UTF-8');
                 $page->drawText(__('Number'), 410, $yShipments - 7, 'UTF-8');
- 
+
                 $yShipments -= 20;
                 $this->_setFontRegular($page, 8);
-                foreach ($tracks as $track)
-                {
+                foreach ($tracks as $track) {
                     $maxTitleLen = 45;
                     $endOfTitle = strlen($track->getTitle()) > $maxTitleLen ? '...' : '';
                     $truncatedTitle = substr($track->getTitle(), 0, $maxTitleLen) . $endOfTitle;
@@ -442,14 +419,17 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
                     $page->drawText($track->getNumber(), 410, $yShipments, 'UTF-8');
                     $yShipments -= $topMargin - 5;
                 }
-            }
-            else
-            {
+            } else {
                 $yShipments -= $topMargin - 5;
             }
+
+            
+        $page->drawText(__('Lyophilized cell culture supernatant for research purposes only'), 35, $this->y - 200, 'UTF-8');
+        $page->drawText(__('COUNTRY OF ORIGIN: SWITZERLAND'), 35, $this->y - 215, 'UTF-8');
+        $page->drawText(__('CUSTOMS TARIFF CODE: 3002.1300'), 35, $this->y - 230, 'UTF-8');
  
             $currentY = min($yPayments, $yShipments);
- 
+
             // replacement of Shipments-Payments rectangle block
             $page->drawLine(25, $methodStartY, 25, $currentY);
             //left
@@ -457,7 +437,7 @@ class Invoice extends \Magento\Sales\Model\Order\Pdf\Invoice
             //bottom
             $page->drawLine(570, $currentY, 570, $methodStartY);
             //right
- 
+
             $this->y = $currentY;
             $this->y -= 15;
         }

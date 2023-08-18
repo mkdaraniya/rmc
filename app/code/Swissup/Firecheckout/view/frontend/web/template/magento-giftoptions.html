@@ -1,0 +1,12 @@
+<div class="payment-option fc-magento-giftoptions"
+    afterRender="onElementRender"
+    data-bind="visible: isVisible()">
+    <div class="payment-option-title" data-role="title">
+        <span class="action action-toggle" role="heading" aria-level="2">
+            <!-- ko i18n: 'Gift Options'--><!-- /ko -->
+        </span>
+    </div>
+    <div class="payment-option-content" data-role="content">
+        <each args="elems()" render=""></each>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="firecheckout" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="plugins" xsi:type="array">
+                                    <item name="collapsible" xsi:type="array">
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="array">
+                                                <item name="magento_customerbalance" xsi:type="array">
+                                                    <item name="selector" xsi:type="string">.opc-payment-additional.customerbalance</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

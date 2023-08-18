@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Swissup_FirecheckoutIntegrations::css/classyllama-avatax.css" media="screen, print"/>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="firecheckout" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="plugins" xsi:type="array">
+                                    <item name="classyllama_address_verification" xsi:type="array">
+                                        <item name="plugin" xsi:type="string">Swissup_FirecheckoutIntegrations/js/classyllama-avatax</item>
+                                        <item name="pluginDisabled" xsi:type="helper" helper="Swissup\Firecheckout\Helper\Data::isMultistepLayout"/>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
