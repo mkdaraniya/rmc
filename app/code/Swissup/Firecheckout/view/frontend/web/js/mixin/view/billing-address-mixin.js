@@ -1,7 +1,8 @@
 define([
     'jquery',
     'Magento_Checkout/js/model/quote',
-    'Magento_Checkout/js/model/address-converter'
+    'Magento_Checkout/js/model/address-converter',
+    'Magento_Checkout/js/view/shipping' // fixes payment method error
 ], function ($, quote, addressConverter) {
     'use strict';
 

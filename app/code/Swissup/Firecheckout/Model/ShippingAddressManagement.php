@@ -72,6 +72,8 @@ class ShippingAddressManagement implements \Swissup\Firecheckout\Api\ShippingAdd
                 );
             }
 
+            $addressInformation->getShippingAddress()->setShouldIgnoreValidation(true);
+
             return $this->shippingInformationManagement
                 ->saveAddressInformation($cartId, $addressInformation);
         } catch (\Magento\Framework\Exception\StateException $e) {
