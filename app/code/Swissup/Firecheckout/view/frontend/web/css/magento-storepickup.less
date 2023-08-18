@@ -1,0 +1,66 @@
+#store-pickup {
+    #store-pickup-customer-email-fieldset {
+        margin: 20px 0;
+    }
+
+    #delivery-method-selector {
+        .action {
+            padding: 5px 10px;
+        }
+    }
+
+    &.selected-shipping {
+        .fc-multistep & {
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    &.selected-store-pickup {
+        #delivery-method-selector {
+            margin-bottom: 20px;
+        }
+
+        ~ #shipping,
+        ~ #opc-shipping_method {
+            display: none !important;
+        }
+    }
+
+    .fc-onestep & {
+        .form-continue {
+            .action.continue {
+                display: none !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .firecheckout-col3-set {
+        .opc {
+            position: relative;
+        }
+
+        #store-pickup {
+            position: absolute !important;
+            z-index: 5 !important;
+
+            #store-pickup-customer-email-fieldset {
+                margin: 20px -6px;
+            }
+
+            + .checkout-shipping-address {
+                margin-top: 100px !important;
+            }
+        }
+    }
+}
+
+#email-address {
+    + #store-pickup {
+        .form-login {
+            display: none !important;
+        }
+    }
+}

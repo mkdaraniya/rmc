@@ -1,0 +1,157 @@
+.firecheckout {
+    .gift-item-block {
+        .content {
+            padding: 0;
+        }
+
+        .gift-options,
+        .gift-summary {
+            margin: 0;
+        }
+
+        .gift-message {
+            .fieldset {
+                margin: 0;
+            }
+        }
+    }
+
+    .gift-message {
+        .gift-options-title {
+            margin: 0;
+        }
+    }
+
+    .cart-gift-item,
+    .gift-options-cart-item {
+        .gift-wrapping,
+        .gift-message,
+        .gift-wrapping + .gift-message {
+            border: 0;
+            float: none;
+            width: 100%;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+        .gift-options,
+        .gift-summary {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            .price-box {
+                margin-left: 28px;
+                .rtl& {
+                    margin-left: 0;
+                    margin-right: 28px;
+                }
+            }
+            .actions-toolbar {
+                position: static;
+                &:before {
+                    display: none;
+                }
+                .action-cancel {
+                    display: block;
+                    margin-left: 0;
+                }
+            }
+        }
+        .gift-summary {
+            .actions-toolbar {
+                margin-top: 10px;
+                .secondary {
+                    display: block;
+                    text-align: right;
+                    .action {
+                        margin: 0 0 2px 5px;
+                        .rtl& {
+                            margin: 0 5px 2px 0;
+                        }
+                    }
+                }
+            }
+        }
+        .gift-wrapping-summary,
+        .gift-message-summary {
+            margin: 10px 0 0;
+            padding: 0;
+            line-height: 1.75em;
+        }
+    }
+
+    .fc-size-l {
+        .cart-gift-item,
+        .gift-options-cart-item {
+            .gift-options,
+            .gift-summary {
+                flex-direction: row;
+                flex-wrap: wrap;
+                > * {
+                    flex-shrink: 0;
+                    width: 50%;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+                .actions-toolbar {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    .fc-size-xs,
+    .fc-size-s,
+    .fc-size-m {
+        .cart-gift-item,
+        .gift-options-cart-item {
+            .gift-options .gift-message,
+            .gift-summary .gift-message-summary {
+                order: -1;
+            }
+        }
+    }
+
+    .gift-options-cart-item {
+        .gift-content {
+            display: none;
+            &._active {
+                display: block;
+            }
+        }
+    }
+
+    .fc-magento-giftoptions-cart-item {
+        .minicart-items,
+        .minicart-items-wrapper {
+            padding: 0 !important;
+            margin: 0 !important;
+            border: 0 !important;
+        }
+        .product-item {
+            padding-left: 5px;
+            margin: 0;
+        }
+        .product-item-name {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .details-qty,
+        .product.options {
+            display: none;
+        }
+        .product-image-container {
+            max-width: 75px;
+        }
+        .product-item-details,
+        .gift-options-cart-item {
+            padding-left: 85px;
+            float: none;
+            width: auto;
+            .rtl& {
+                padding-left: 0;
+                padding-right: 85px;
+            }
+        }
+    }
+}
