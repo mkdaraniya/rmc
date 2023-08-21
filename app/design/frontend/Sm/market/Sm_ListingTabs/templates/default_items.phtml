@@ -94,13 +94,13 @@ if ($count_item) {
                             <?php
                             $_productNameStripped = $block->stripTags($_product->getName(), null, true);
                             ?>
-                            <strong class="product name product-item-name">
+                            <strong class="product name product-item-name test-hello">
                                 <a class="product-item-link"
                                    href="<?php /* @escapeNotVerified */
                                    echo $_product->getProductUrl() ?>">
                                     <?php /* @escapeNotVerified */
 									echo "<b>".$_helper->productAttribute($_product, $_product->getSku(), 'sku')."<br></b>";
-                                    echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+                                    echo html_entity_decode($_helper->productAttribute($_product, $_product->getName(), 'name')); ?>
                                 </a>
                             </strong>
                             <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>

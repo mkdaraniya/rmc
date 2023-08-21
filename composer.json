@@ -26,6 +26,9 @@
         "mageplaza/module-gdpr": "^4.2",
         "magepsycho/magento2-storepricing": "^1.0",
         "sendcloud/sendcloud": "^2.0",
+        "swissup/module-codemirror": "^1.1",
+        "swissup/module-marketplace": "^1.10",
+        "swissup/module-rtl": "^1.3",
         "tnw/module-stripe": "^2.3"
     },
     "autoload": {

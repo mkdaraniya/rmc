@@ -1,4 +1,6 @@
-<div id="my-carrier-custom-block-wrapper" data-bind="visible: selectedMethod() == 'freeshipping_freeshipping'">
+<?php ehco 'hi'; ?>
+<div id="my-carrier-custom-block-wrapper" data-bind="visible: selectedMethod() == 'freeshipping_freeshipping'" data-mage-init='{"Scrumwheel_Shippy/js/item-announcer": {}}'>
+
     <div class="field _required" data-bind="visible: visible, attr: {'name': element.dataScope}, css: additionalClasses"
         name="shippingAddress.accountnumber">
 
@@ -8,7 +10,7 @@
         <div class="control _with-tooltip" data-bind="css: {'_with-tooltip': element.tooltip}">
             <!-- ko ifnot: element.hasAddons() -->
             <!-- ko template: element.elementTmpl -->
-            <input class="input-text" type="text" data-bind="
+            <input id='acc'  class="input-text required" type="text" data-bind="
         value: value,
         valueUpdate: 'keyup',
         hasFocus: focused,
@@ -20,7 +22,7 @@
             'aria-invalid': error() ? true : 'false',
             id: uid,
             disabled: disabled
-        }" name="account_number" aria-required="true" aria-invalid="false" id="JR9ITMF">
+        }" name="account_number" aria-required="true" aria-invalid="false" id="JR9ITMF" required>
             <!-- /ko -->
             <!-- /ko -->
 
@@ -32,5 +34,5 @@
 
             <!-- ko if: element.warn() --><!-- /ko -->
         </div>
-    </div>
-</div>
+    </div> </div> 
+

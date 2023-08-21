@@ -40,11 +40,21 @@ class SaveOrderBeforeSalesModelQuote implements ObserverInterface
         $order = $observer->getOrder();
         $quoteId = $order->getQuoteId();
         $quote  = $this->quoteFactory->create()->load($quoteId);
+        $quote->setKaushikOrderComment('1234');
+$logger->info(json_encode($_COOKIE));	
+if (isset($_COOKIE["account_number"])){
+            $account_number = $_COOKIE['account_number'];
+        } else {
+            $account_number = '';
+
+        }
+
+$quote->setAccountNumber($account_number);$quote->save();
+$logger->info(json_encode($quote->getData()));
+
         $order->setAccountNumber($quote->getAccountNumber());
 
         $logger->info("account number : ");
-        $logger->info($quote->getAccountNumber());
-
         $order->save();
 
         $logger->info("order saved");

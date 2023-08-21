@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51152903d9d49be76066d1d2a27632ef",
+    "content-hash": "d45d9b05aa235dbc230c17fb1880b34c",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19830,6 +19830,131 @@
                 "source": "https://github.com/stripe/stripe-php/tree/v7.128.0"
             },
             "time": "2022-05-05T17:18:02+00:00"
+        },
+        {
+            "name": "swissup/module-codemirror",
+            "version": "1.1.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swissup/module-codemirror.git",
+                "reference": "781c153673ec9237355875f858f1ad61991917b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swissup/module-codemirror/zipball/781c153673ec9237355875f858f1ad61991917b0",
+                "reference": "781c153673ec9237355875f858f1ad61991917b0",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Swissup\\Codemirror\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Versatile text editor implemented in JavaScript for the browser. ",
+            "support": {
+                "issues": "https://github.com/swissup/module-codemirror/issues",
+                "source": "https://github.com/swissup/module-codemirror/tree/1.1.16"
+            },
+            "time": "2023-07-24T11:29:29+00:00"
+        },
+        {
+            "name": "swissup/module-marketplace",
+            "version": "1.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swissup/module-marketplace.git",
+                "reference": "fe5803c6c16bfea5efb33e202e8dcd7bc91b25e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swissup/module-marketplace/zipball/fe5803c6c16bfea5efb33e202e8dcd7bc91b25e4",
+                "reference": "fe5803c6c16bfea5efb33e202e8dcd7bc91b25e4",
+                "shasum": ""
+            },
+            "require": {
+                "composer/composer": "*",
+                "magento/framework": ">=101.0",
+                "magento/module-backend": ">=100.2",
+                "magento/module-catalog": "*",
+                "magento/module-cms": "*",
+                "magento/module-deploy": ">=100.0",
+                "magento/module-theme": "*",
+                "magento/module-ui": ">=101.0",
+                "monolog/monolog": "*",
+                "psr/log": "*",
+                "symfony/console": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Swissup\\Marketplace\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "One-Click modules and themes downloader/installer",
+            "keywords": [
+                "Module Manager",
+                "installer",
+                "magento marketplace",
+                "marketplace",
+                "theme manager"
+            ],
+            "support": {
+                "issues": "https://github.com/swissup/module-marketplace/issues",
+                "source": "https://github.com/swissup/module-marketplace/tree/1.10.2"
+            },
+            "time": "2023-05-26T09:20:48+00:00"
+        },
+        {
+            "name": "swissup/module-rtl",
+            "version": "1.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swissup/module-rtl.git",
+                "reference": "4e3a01ec9b9111b0300c1b2e64bc98d77cb3e06c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swissup/module-rtl/zipball/4e3a01ec9b9111b0300c1b2e64bc98d77cb3e06c",
+                "reference": "4e3a01ec9b9111b0300c1b2e64bc98d77cb3e06c",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Swissup\\Rtl\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Magento2 RTL detection",
+            "keywords": [
+                "rtl"
+            ],
+            "support": {
+                "issues": "https://github.com/swissup/module-rtl/issues",
+                "source": "https://github.com/swissup/module-rtl/tree/1.3.6"
+            },
+            "time": "2023-03-13T11:28:52+00:00"
         },
         {
             "name": "symfony/config",

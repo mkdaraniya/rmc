@@ -1,0 +1,118 @@
+<?php
+
+echo "script start";
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+ini_set('memory_limit', '5G');
+error_reporting(E_ALL);
+
+use Magento\Framework\App\Bootstrap;
+
+require '../app/bootstrap.php';
+
+$bootstrap = Bootstrap::create(BP, $_SERVER);
+
+global $objectManager;
+$objectManager = $bootstrap->getObjectManager();
+
+$fileFactory= $objectManager->create('Magento\Framework\App\Response\Http\FileFactory');
+
+$state = $objectManager->get('Magento\Framework\App\State');
+$state->setAreaCode('frontend');
+
+$pdf = new \Zend_Pdf();
+$pdf->pages[] = $pdf->newPage(\Zend_Pdf_Page::SIZE_A4);
+$page = $pdf->pages[0]; // this will get reference to the first page.
+        $style = new \Zend_Pdf_Style();
+        $style->setLineColor(new \Zend_Pdf_Color_Rgb(0,0,0));
+        $font = \Zend_Pdf_Font::fontWithName(\Zend_Pdf_Font::FONT_TIMES);
+        $style->setFont($font,13);
+        $page->setStyle($style);
+        $width = $page->getWidth();
+        $hight = $page->getHeight();
+        $x = 30;
+        $pageTopalign = 850; 
+$y = 850 - 100;
+
+$style->setFont($font, 14);
+$page->setStyle($style);
+//$page->drawRectangle(30, $y + 10, $page->getWidth() - 30, $y + 70, \Zend_Pdf_Page::SHAPE_DRAW_STROKE);
+
+
+$imageData = new \Zend_Pdf_Resource_Image_Png('media/logo/stores/1/logoimage.png');
+$page->drawImage($imageData, 30, 730, 150, $y + 60);
+
+        $style->setFont($font,13);
+        $page->setStyle($style);
+        $page->drawText(__("Pestalozzistrasse 16"), $x + 400, $y+50, 'UTF-8');
+        $style->setFont($font,11);
+        $page->setStyle($style);
+        $page->drawText(__("CH-3400 Burgdorf"), $x + 400, $y+33, 'UTF-8');
+        $page->drawText(__("Switzerland"), $x + 400, $y+16, 'UTF-8');
+	$page->drawText(__("www.swant.com"), $x + 400, $y, 'UTF-8');
+	$page->drawText(__("info@swant.com"), $x + 400, $y-16, 'UTF-8');
+
+	$style->setFont($font,16);
+	$page->setStyle($style);
+	$page->drawText(__("Toxic Substance Control Act (TSCA) Certification /"), $x + 100, 700, 'UTF-8');
+	$page->drawText(__("Detailed Manufacture's Declaration "), $x + 150, 680, 'UTF-8');
+
+        $style->setFont($font,14);
+        $page->setStyle($style);
+
+$page->drawText(__("Date: July 18, 2023"), $x, 660, 'UTF-8');
+
+$page->drawText(__("Negative Certification"), $x, 640, 'UTF-8');
+
+$style->setFont($font, 11);
+$page->setStyle($style);
+
+$page->drawText(__("I certify that all chemicals in this shipment are not subject to TSCA."), $x, 620, 'UTF-8');
+
+$style->setFont($font, 16);
+$page->setStyle($style);
+
+$page->drawText(__("Company name: "), $x, 600, 'UTF-8');
+
+$style->setFont($font, 11);
+$page->setStyle($style);
+
+$page->drawText(__("SWANT AG"), $x + 120, 600, 'UTF-8');
+
+$style->setFont($font, 16);
+$page->setStyle($style);
+
+$page->drawText(__("Company address: "), $x + 150, 600, 'UTF-8');
+
+$style->setFont($font, 11);
+$page->setStyle($style);
+$page->drawText(__("Pestalozzistrasse 16,"), $x + 250, 600, 'UTF-8');
+$page->drawText(__("CH-3400 Burgdorf, Switzerland"), $x + 250, 520, 'UTF-8');
+
+$page->drawText(__("Certifier name: "), $x + 150, 500, 'UTF-8');
+
+$page->drawText(__("Kalpana Ekam"), $x + 150, 480, 'UTF-8');
+
+$page->drawText(__("Certifier title: "), $x + 150, 460, 'UTF-8');
+
+$page->drawText(__("Inside Sales"), $x + 150, 440, 'UTF-8');
+$page->drawText(__("Certifier phone number: "), $x + 150, 420, 'UTF-8');
+$page->drawText(__("+ 41 79 781 0411"), $x + 150, 400, 'UTF-8');
+$page->drawText(__("Certifier email address:  "), $x + 150, 380, 'UTF-8');
+$page->drawText(__("info@swant.com"), $x + 150, 360, 'UTF-8');
+
+$page->drawText(__("Certifier signature: Kalpana Ekam "), $x + 150, 340, 'UTF-8');
+        
+ 
+
+$fileName = 'demo_order.pdf';
+
+
+$fileFactory->create(
+    $fileName,
+    $pdf->render(),
+    \Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR, // this pdf will be saved in var directory with the name meetanshi.pdf
+    'application/pdf'
+);
+

@@ -78,7 +78,7 @@ class OrderObserver implements ObserverInterface
     {
         $current_time = time();
 
-        $delayTime = 10;
+        $delayTime = 1;
 
         $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/shippy_api.log');
         $logger = new \Zend_Log();
